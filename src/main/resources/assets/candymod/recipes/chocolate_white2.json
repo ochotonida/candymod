@@ -1,0 +1,14 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "candymod:chocolate_block",
+      "data": 1
+    }
+  ],
+  "result": {
+    "item": "candymod:chocolate_bar",
+    "data": 1,
+    "count": 4
+  }
+}

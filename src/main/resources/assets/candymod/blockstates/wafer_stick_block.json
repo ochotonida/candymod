@@ -1,0 +1,12 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "candymod:wafer_stick_block"
+    },
+    "inventory": {
+      "model": "candymod:wafer_stick_block",
+      "transform": "forge:default-block"
+    }
+  }
+}

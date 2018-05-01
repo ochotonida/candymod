@@ -1,0 +1,8 @@
+{
+	"parent": "block/cube_column",
+	"textures": {
+		"end": "candymod:blocks/caneblock_white_green_top",
+		"side": "candymod:blocks/caneblock_white_green",
+		"particle": "candymod:blocks/caneblock_white_green"
+	}
+}

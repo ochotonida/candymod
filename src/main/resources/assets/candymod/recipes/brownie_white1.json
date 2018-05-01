@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "candymod:candy_soil_block",
+      "data": 1
+    }
+  ],
+  "result": {
+    "item": "candymod:brownie",
+    "data": 1,
+    "count": 4
+  }
+}

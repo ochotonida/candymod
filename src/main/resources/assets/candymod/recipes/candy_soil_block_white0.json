@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AA",
+    "AA"
+  ],
+  "key": {
+    "A": {
+      "item": "candymod:brownie",
+      "data": 1
+    }
+  },
+  "result": {
+    "item": "candymod:candy_soil_block",
+    "data": 1
+  }
+}

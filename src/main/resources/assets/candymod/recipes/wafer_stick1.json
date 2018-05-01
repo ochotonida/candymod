@@ -1,0 +1,22 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "candymod:chocolate_bar",
+      "data": 0
+    }
+  ],
+  "result": {
+    "item": "candymod:wafer_stick",
+    "count": 3
+  }
+}

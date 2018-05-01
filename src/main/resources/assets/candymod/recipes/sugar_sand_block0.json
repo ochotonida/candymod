@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AA",
+    "AA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:sugar"
+    }
+  },
+  "result": {
+    "item": "candymod:sugar_sand_block"
+  }
+}

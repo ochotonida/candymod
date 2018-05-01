@@ -1,0 +1,36 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "check_decay": {
+      "true": {},
+      "false": {}
+    },
+    "decayable": {
+      "true": {},
+      "false": {}
+    },
+    "type": {
+      "milk":
+      {
+        "model": "cube_all",
+        "textures": {
+          "all": "candymod:blocks/chocolate_leaves_milk"
+        }
+      },
+      "white":
+      {
+        "model": "cube_all",
+        "textures": {
+          "all": "candymod:blocks/chocolate_leaves_white"
+        }
+      },
+      "dark":
+      {
+        "model": "cube_all",
+        "textures": {
+          "all": "candymod:blocks/chocolate_leaves_dark"
+        }
+      }
+    }
+  }
+}

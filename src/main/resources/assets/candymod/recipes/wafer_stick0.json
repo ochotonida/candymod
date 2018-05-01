@@ -1,0 +1,12 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "candymod:wafer_stick_block"
+    }
+  ],
+  "result": {
+    "item": "candymod:wafer_stick",
+    "count": 4
+  }
+}

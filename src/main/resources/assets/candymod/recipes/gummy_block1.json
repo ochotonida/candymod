@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AA",
+    "AA"
+  ],
+  "key": {
+    "A": {
+      "item": "candymod:gummy",
+      "data": 1
+    }
+  },
+  "result": {
+    "item": "candymod:gummy_block",
+    "data": 1
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AA",
+    "AA"
+  ],
+  "key": {
+    "A": {
+      "item": "candymod:chocolate_block",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "candymod:chocolate_brick_block",
+    "data": 0,
+    "count": 4
+  }
+}

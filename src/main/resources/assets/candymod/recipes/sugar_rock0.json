@@ -1,0 +1,12 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "candymod:sugar_block"
+    }
+  ],
+  "result": {
+    "item": "candymod:sugar_rock",
+    "count": 4
+  }
+}

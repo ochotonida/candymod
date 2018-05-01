@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "candymod:blocks/candy_soil_milk"
+  }
+}

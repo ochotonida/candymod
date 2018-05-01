@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "candymod:gummy_block",
+      "data": 4
+    }
+  ],
+  "result": {
+    "item": "candymod:gummy",
+    "data": 4,
+    "count": 4
+  }
+}

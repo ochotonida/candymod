@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": ["AB","BA"],
+	"key": {
+		"A": {
+			"item": "candymod:candy_cane",
+			"data": 1
+		},
+		"B": {
+			"item": "candymod:candy_cane",
+			"data": 2
+		}
+	},
+	"result": {
+		"item": "candymod:candy_cane_block",
+		"data": 5
+	}
+}

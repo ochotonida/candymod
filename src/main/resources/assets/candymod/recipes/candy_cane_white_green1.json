@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "candymod:candy_cane_block",
+			"data": 4
+		}
+	],
+	"result": {
+		"item": "candymod:candy_cane",
+		"data": 4,
+		"count": 4  
+	}
+}

@@ -1,0 +1,15 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "candymod:gummy_block"
+  },
+  "variants": {
+    "type": {
+      "red": {},
+      "orange": {},
+      "yellow": {},
+      "green": {},
+      "white": {}
+    }
+  }
+}

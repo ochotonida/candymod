@@ -1,0 +1,91 @@
+{
+	"textures": {
+		"stick": "candymod:blocks/cotton_candy_sapling",
+		"candy": "candymod:blocks/candy_grass_milk_top",
+		"particle": "candymod:blocks/candy_grass_milk_top"
+	},
+	"elements": [
+		{
+			"from": [7, 0, 7],
+			"to": [9, 3, 9],
+			"faces": {
+				"north": {
+					"uv": [7, 12, 8, 15],
+					"texture": "#stick"
+				},
+				"south": {
+					"uv": [7, 12, 8, 15],
+					"texture": "#stick"
+				},
+				"west": {
+					"uv": [7, 12, 8, 15],
+					"texture": "#stick"
+				},
+				"east": {
+					"uv": [7, 12, 8, 15],
+					"texture": "#stick"
+				}
+			}
+		},
+		{
+			"from": [3, 4, 3],
+			"to": [13, 14, 13],
+			"faces": {
+				"up": {
+					"uv": [3, 3, 12, 12],
+					"texture": "#candy"
+				},
+				"down": {
+					"uv": [3, 3, 12, 12],
+					"texture": "#candy"
+				},
+				"north": {
+					"uv": [4, 3, 13, 12],
+					"texture": "#candy"
+				},
+				"south": {
+					"uv": [4, 3, 13, 12],
+					"texture": "#candy"
+				},
+				"west": {
+					"uv": [4, 3, 13, 12],
+					"texture": "#candy"
+				},
+				"east": {
+					"uv": [4, 3, 13, 12],
+					"texture": "#candy"
+				}
+			}
+		},
+		{
+			"from": [4, 3, 4],
+			"to": [12, 15, 12],
+			"faces": {
+				"down": {
+					"uv": [4, 4, 11, 11],
+					"texture": "#candy"
+				},
+				"up": {
+					"uv": [4, 4, 11, 11],
+					"texture": "#candy"
+				},
+				"north": {
+					"uv": [3, 4, 14, 11],
+					"texture": "#candy"
+				},
+				"south": {
+					"uv": [3, 4, 14, 11],
+					"texture": "#candy"
+				},
+				"west": {
+					"uv": [3, 4, 14, 11],
+					"texture": "#candy"
+				},
+				"east": {
+					"uv": [3, 4, 14, 11],
+					"texture": "#candy"
+				}
+			}
+		}
+	]
+}

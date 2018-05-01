@@ -1,0 +1,27 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "candymod:chocolate_bar",
+      "data": 2
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "foodButter"
+    }
+  ],
+  "result": {
+    "item": "candymod:brownie",
+    "data": 2,
+    "count": 6
+  }
+}

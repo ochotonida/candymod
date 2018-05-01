@@ -1,0 +1,27 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "cross",
+		"textures": { "cross": "candymod:blocks/cotton_candy_sapling" }
+	},
+	"variants": {
+		"normal": [{}],
+		"inventory": [
+			{ 
+				"model": "candymod:item/cotton_candy_sapling"
+			} 
+		],
+		"stage=0,type=jungle": [{}],
+		"stage=1,type=jungle": [{}],
+		"stage=0,type=acacia": [{}],
+		"stage=1,type=acacia": [{}],
+		"stage=0,type=dark_oak": [{}],
+		"stage=1,type=dark_oak": [{}],
+		"stage=0,type=oak": [{}],
+		"stage=1,type=oak": [{}],
+		"stage=0,type=birch": [{}],
+		"stage=1,type=birch": [{}],
+		"stage=0,type=spruce": [{}],
+		"stage=1,type=spruce": [{}]
+	}
+}

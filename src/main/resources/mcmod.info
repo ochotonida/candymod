@@ -1,0 +1,16 @@
+[
+{
+  "modid": "candymod",
+  "name": "Candy World",
+  "description": "Adds some new tasty biomes",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["ochotonida"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

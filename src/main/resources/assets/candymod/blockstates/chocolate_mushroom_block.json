@@ -1,0 +1,29 @@
+{
+  "variants": {
+    "type=milk": [
+      {
+        "model": "candymod:chocolate_grass_milk0"
+      },
+      {
+        "model": "candymod:chocolate_grass_milk1"
+      }
+    ],
+    "type=white": [
+      {
+        "model": "candymod:chocolate_grass_white0"
+      },
+      {
+        "model": "candymod:chocolate_grass_white1"
+      }
+
+    ],
+    "type=dark": [
+      {
+        "model": "candymod:chocolate_grass_dark0"
+      },
+      {
+        "model": "candymod:chocolate_grass_dark1"
+      }
+    ]
+  }
+}

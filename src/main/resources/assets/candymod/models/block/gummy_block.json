@@ -1,0 +1,6 @@
+{
+  "parent": "block/leaves",
+  "textures": {
+    "all": "candymod:blocks/gummy_block_transluscent"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "type": {
+      "white": {
+        "model": "candymod:caneblock_white"
+      },
+      "red": {
+        "model": "candymod:caneblock_red"
+      },
+      "green": {
+        "model": "candymod:caneblock_green"
+      },
+      "white_red": {
+        "model": "candymod:caneblock_white_red"
+      },
+      "white_green": {
+        "model": "candymod:caneblock_white_green"
+      },
+      "red_green": {
+        "model": "candymod:caneblock_red_green"
+      }
+    }
+  }
+}
