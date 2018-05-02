@@ -108,16 +108,9 @@ public class EntityEasterChicken extends EntityAnimal {
 
         if (!this.isChild() && this.nextEggType == -1 && !this.explodeWhenDone) {
             if (itemStack.getItem() == Items.FLINT_AND_STEEL) {
-                if (!this.world.isRemote) {
-                    this.timeUntilNextEgg = 20 + this.rand.nextInt(50);
-                    itemStack.damageItem(1, player);
-                    this.attackEntityFrom(DamageSource.GENERIC, 0.0F);
-                    this.explodeWhenDone = true;
-                    this.setSprinting(true);
-                    this.eggComboAmount = 25 + this.rand.nextInt(20);
-                    this.playSound(SoundEvents.ENTITY_TNT_PRIMED, 1.0F, 1.0F);
-                }
+                firePanic();
                 player.swingArm(hand);
+                itemStack.damageItem(1, player);
                 return true;
             }
 
@@ -141,6 +134,17 @@ public class EntityEasterChicken extends EntityAnimal {
             this.world.spawnParticle(EnumParticleTypes.EXPLOSION_LARGE, this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);
         } else {
             this.world.setEntityState(this, (byte) 20);
+        }
+    }
+
+    private void firePanic() {
+        if (!this.world.isRemote) {
+            this.timeUntilNextEgg = 20 + this.rand.nextInt(50);
+            this.attackEntityFrom(DamageSource.GENERIC, 0.0F);
+            this.explodeWhenDone = true;
+            this.setSprinting(true);
+            this.eggComboAmount = 25 + this.rand.nextInt(20);
+            this.playSound(SoundEvents.ENTITY_TNT_PRIMED, 1.0F, 1.0F);
         }
     }
 
@@ -198,6 +202,11 @@ public class EntityEasterChicken extends EntityAnimal {
         }
 
         this.wingRotation += this.wingRotDelta * 2.0F;
+
+        if (this.isBurning()) {
+            this.extinguish();
+            firePanic();
+        }
 
         // drop an egg
         if (!this.world.isRemote && !this.isChild() && --this.timeUntilNextEgg <= 0) {
