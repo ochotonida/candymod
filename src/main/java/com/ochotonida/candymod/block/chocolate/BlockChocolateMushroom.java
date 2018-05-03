@@ -1,5 +1,6 @@
 package com.ochotonida.candymod.block.chocolate;
 
+import com.ochotonida.candymod.CandyMod;
 import com.ochotonida.candymod.ModBlocks;
 import com.ochotonida.candymod.ModItems;
 import com.ochotonida.candymod.enums.EnumChocolate;
@@ -36,6 +37,7 @@ public class BlockChocolateMushroom extends BlockBush implements IShearable, IPl
 
     public BlockChocolateMushroom() {
         super(Material.VINE, MapColor.BROWN);
+        this.setCreativeTab(CandyMod.TAB_BLOCKS);
         this.setSoundType(SoundType.PLANT);
         this.setRegistryName("chocolate_mushroom_block");
         this.setUnlocalizedName("chocolate_mushroom_block");
