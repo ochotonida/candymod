@@ -22,10 +22,7 @@ public class ModItems {
     public static final ItemGummy GUMMY = new ItemGummy("gummy", "foodGummy", 5, 0.5F);
     public static final ItemGummy GUMMY_WORM = new ItemGummy("gummy_worm", "foodGummyWorm", 5, 1F);
 
-
-    /**
-     * Registers all items
-     */
+    // register items
     static void register(IForgeRegistry<Item> registry) {
         registry.registerAll(
                 BUTTER_CHURN.setContainerItem(BUTTER_CHURN),
@@ -39,13 +36,10 @@ public class ModItems {
                 WAFER_STICK,
                 GUMMY,
                 GUMMY_WORM
-
         );
     }
 
-    /**
-     * Registers all item models
-     */
+    // item models
     static void registerModels() {
         BROWNIE.registerItemModel();
         BUTTER.registerItemModel();

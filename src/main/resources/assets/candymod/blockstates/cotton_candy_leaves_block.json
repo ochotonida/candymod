@@ -1,10 +1,7 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "model": "cube_all",
-    "textures": {
-      "all": "candymod:blocks/candy_grass_milk_top"
-    }
+    "model": "candymod:cotton_candy_leaves_block"
   },
   "variants": {
     "normal": [{}],

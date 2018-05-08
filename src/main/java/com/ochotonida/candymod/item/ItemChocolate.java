@@ -43,7 +43,7 @@ public class ItemChocolate extends ModFood {
     @Override
     public void registerItemModel() {
         for (EnumChocolate value : EnumChocolate.values()) {
-            CandyMod.proxy.registerItemRenderer(this, value.getMetadata(), this.name + "_" + value.getName());
+            CandyMod.proxy.registerItemRenderer(this, value.getMetadata(), this.name + "_" + value.getName(), "chocolate/");
         }
     }
 

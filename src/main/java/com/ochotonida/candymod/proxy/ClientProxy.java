@@ -41,7 +41,6 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void preInit(final FMLPreInitializationEvent event) {
         super.preInit(event);
-
         ModEntities.initModels();
     }
 
@@ -57,8 +56,13 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
+    public void registerItemRenderer(Item item, int meta, String id, String location) {
+        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(CandyMod.MODID + ":" + location + id, "inventory"));
+    }
+
+    @Override
     public void registerItemRenderer(Item item, int meta, String id) {
-        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(CandyMod.MODID + ":" + id, "inventory"));
+        registerItemRenderer(item, meta, id, "");
     }
 
     @Override

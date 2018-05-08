@@ -6,11 +6,6 @@
   },
   "variants": {
     "normal": [{}],
-    "inventory": [
-      {
-        "model": "candymod:item/chocolate_sapling"
-      }
-    ],
     "stage=0,type=jungle": [{}],
     "stage=1,type=jungle": [{}],
     "stage=0,type=acacia": [{}],

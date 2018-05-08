@@ -2,10 +2,10 @@
 	"forge_marker": 1,
 	"variants": {
 		"normal": {
-			"model": "candymod:cotton_candy_plant"
+			"model": "candymod:cotton_candy_plant_block"
 		},
 		"inventory": {
-			"model": "candymod:cotton_candy_plant",
+			"model": "candymod:cotton_candy_plant_block",
 			"transform": "forge:default-block"
 		}
 	}
