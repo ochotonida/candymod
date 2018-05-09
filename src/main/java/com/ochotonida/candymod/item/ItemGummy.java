@@ -29,7 +29,7 @@ public class ItemGummy extends ModFood {
     @Override
     public void registerItemModel() {
         for (EnumGummy value : EnumGummy.values()) {
-            CandyMod.proxy.registerItemRenderer(this, value.getMetadata(), this.name + "_" + value.getName(), "gummy/");
+            CandyMod.proxy.registerItemRenderer(this, value.getMetadata(), "gummy/" + this.name + "_" + value.getName());
         }
     }
 }

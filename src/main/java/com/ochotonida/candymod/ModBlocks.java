@@ -55,7 +55,7 @@ public class ModBlocks {
     public static final BlockGummySolid HARDENED_GUMMY_BLOCK = new BlockGummySolid();
     public static final BlockGummyWorm GUMMY_WORM_BLOCK = new BlockGummyWorm();
 
-    // ItemBlocks for blocks with subtypes
+    // ItemBlocks (for blocks with subtypes)
     public static final ItemBlockCandyCane CANDY_CANE_IB = new ItemBlockCandyCane();
     public static final ItemBlockCandyGrass CANDY_GRASS_IB = new ItemBlockCandyGrass();
     public static final ItemBlockCandySoil CANDY_SOIL_IB = new ItemBlockCandySoil();
@@ -67,7 +67,9 @@ public class ModBlocks {
     public static final ItemBlockGummy HARDENED_GUMMY_IB = new ItemBlockGummy(HARDENED_GUMMY_BLOCK);
     public static final ItemBlockGummy GUMMY_WORM_IB = new ItemBlockGummy(GUMMY_WORM_BLOCK);
 
-    // register blocks
+    /**
+     * Register all blocks
+     */
     static void register(IForgeRegistry<Block> registry) {
         registry.registerAll(
                 CANDY_CANE,
@@ -94,7 +96,7 @@ public class ModBlocks {
     }
 
     /**
-     * Registers all ItemBlocks
+     * Register all ItemBlocks
      */
     static void registerItemBlocks(IForgeRegistry<Item> registry) {
         registry.registerAll(
@@ -121,25 +123,25 @@ public class ModBlocks {
     }
 
     /**
-     * Helper for registering an itemblock model without subtypes
+     * Register an itemblock model without subtypes
      */
     private static void registerModel(Block block, String location) {
-        CandyMod.proxy.registerItemRenderer(Item.getItemFromBlock(block), 0, "block/" + location);
+        CandyMod.proxy.registerItemRenderer(Item.getItemFromBlock(block), 0, location);
     }
 
     /**
      * Register all ItemBlock models
      */
     static void registerModels() {
-        registerModel(COOKIE_ORE, "cookie_ore_block");
-        registerModel(COTTON_CANDY_PLANT, "sugar/cotton_candy_plant_block");
-        registerModel(COTTON_CANDY_LEAVES, "sugar/cotton_candy_leaves_block");
-        registerModel(COTTON_CANDY_SAPLING, "sugar/cotton_candy_sapling_block");
-        registerModel(COTTON_CANDY_GRASS, "sugar/cotton_candy_grass_block");
-        registerModel(CHOCOLATE_SAPLING, "chocolate/chocolate_sapling_block");
-        registerModel(SUGAR_BLOCK, "sugar/sugar_block");
-        registerModel(SUGAR_SAND, "sugar/sugar_sand_block");
-        registerModel(WAFER_STICK, "wafer_stick_block");
+        registerModel(COOKIE_ORE, "block/cookie_ore_block");
+        registerModel(COTTON_CANDY_PLANT, "block/sugar/cotton_candy_plant_block");
+        registerModel(COTTON_CANDY_LEAVES, "block/sugar/cotton_candy_leaves_block");
+        registerModel(COTTON_CANDY_SAPLING, "block/sugar/cotton_candy_sapling_block");
+        registerModel(COTTON_CANDY_GRASS, "block/sugar/cotton_candy_grass_block");
+        registerModel(CHOCOLATE_SAPLING, "block/chocolate/chocolate_sapling_block");
+        registerModel(SUGAR_BLOCK, "block/sugar/sugar_block");
+        registerModel(SUGAR_SAND, "block/sugar/sugar_sand_block");
+        registerModel(WAFER_STICK, "block/wafer_stick_block");
 
         ModelResourceLocation itemMRL;
 

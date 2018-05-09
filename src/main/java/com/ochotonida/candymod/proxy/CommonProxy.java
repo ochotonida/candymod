@@ -9,7 +9,6 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@SuppressWarnings({"EmptyMethod", "unused"})
 public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent event) {
@@ -25,10 +24,7 @@ public class CommonProxy {
     }
 
     // Clientside
-    public void registerItemRenderer(Item item, int meta, String id) {
-    }
-
-    public void registerItemRenderer(Item item, int meta, String id, String location) {
+    public void registerItemRenderer(Item item, int meta, String location) {
     }
 
     public void registerColoring() {

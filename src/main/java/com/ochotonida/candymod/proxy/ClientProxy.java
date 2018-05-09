@@ -31,6 +31,7 @@ public class ClientProxy extends CommonProxy {
         coloredBlocks.add(block);
     }
 
+    @SuppressWarnings("unused")
     public static void addColoredItem(IItemColored item) {
         if (coloredItems.contains(item)) {
             throw new IllegalArgumentException();
@@ -56,13 +57,8 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void registerItemRenderer(Item item, int meta, String id, String location) {
-        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(CandyMod.MODID + ":" + location + id, "inventory"));
-    }
-
-    @Override
-    public void registerItemRenderer(Item item, int meta, String id) {
-        registerItemRenderer(item, meta, id, "");
+    public void registerItemRenderer(Item item, int meta, String location) {
+        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(CandyMod.MODID + ":" + location, "inventory"));
     }
 
     @Override

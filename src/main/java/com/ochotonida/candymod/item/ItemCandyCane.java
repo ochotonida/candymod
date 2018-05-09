@@ -31,7 +31,7 @@ public class ItemCandyCane extends ModFood {
     @Override
     public void registerItemModel() {
         for (EnumCandyCane value : EnumCandyCane.values()) {
-            CandyMod.proxy.registerItemRenderer(this, value.getMetadata(), "candy_cane_" + value.getName(), "candy_cane/");
+            CandyMod.proxy.registerItemRenderer(this, value.getMetadata(), "candy_cane/" + "candy_cane_" + value.getName());
         }
     }
 
