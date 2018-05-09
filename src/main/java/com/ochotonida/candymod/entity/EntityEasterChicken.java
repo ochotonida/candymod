@@ -203,7 +203,7 @@ public class EntityEasterChicken extends EntityAnimal {
 
         this.wingRotation += this.wingRotDelta * 2.0F;
 
-        if (this.isBurning()) {
+        if (this.isBurning() && !this.explodeWhenDone && !this.isChild() && !this.isInLava()) {
             this.extinguish();
             firePanic();
         }
