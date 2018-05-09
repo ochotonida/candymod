@@ -1,13 +1,13 @@
 package com.ochotonida.candymod;
 
-import com.ochotonida.candymod.item.*;
+import com.ochotonida.candymod.item.ItemCandyCane;
+import com.ochotonida.candymod.item.ItemChocolate;
+import com.ochotonida.candymod.item.ItemGummy;
+import com.ochotonida.candymod.item.ModFood;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModItems {
-
-    // Items
-    public static final ItemButterChurn BUTTER_CHURN = new ItemButterChurn();
 
     // Food items
     public static final ModFood BUTTER = new ModFood("butter", "foodButter", 1, 1.0F);
@@ -25,7 +25,6 @@ public class ModItems {
     // register items
     static void register(IForgeRegistry<Item> registry) {
         registry.registerAll(
-                BUTTER_CHURN.setContainerItem(BUTTER_CHURN),
                 BROWNIE,
                 BUTTER,
                 CANDY_CANE,
@@ -43,7 +42,6 @@ public class ModItems {
     static void registerModels() {
         BROWNIE.registerItemModel();
         BUTTER.registerItemModel();
-        BUTTER_CHURN.registerItemModel();
         CANDY_CANE.registerItemModel();
         CHOCOLATE_BAR.registerItemModel();
         CHOCOLATE_EGG.registerItemModel();

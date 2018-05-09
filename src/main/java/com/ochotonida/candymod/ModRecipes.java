@@ -4,10 +4,15 @@ import com.ochotonida.candymod.enums.EnumChocolate;
 import com.ochotonida.candymod.item.ModFood;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class ModRecipes {
+
+    private static final ResourceLocation MODRECIPES_GROUP = new ResourceLocation("candymod");
 
     public static void init() {
         ModRecipes.initOreDict();
@@ -19,6 +24,10 @@ public class ModRecipes {
             GameRegistry.addSmelting(new ItemStack(ModItems.CHOCOLATE_EGG, 1, value.getMetadata()), itemStack, 0.4F);
             itemStack = new ItemStack(ModBlocks.CHOCOLATE_BLOCK_IB, 1, value.getMetadata());
             GameRegistry.addSmelting(new ItemStack(ModBlocks.CHOCOLATE_BRICK_IB, 1, value.getMetadata()), itemStack, 0.2F);
+        }
+
+        if (!Loader.isModLoaded("harvestcraft")) {
+            GameRegistry.addShapelessRecipe(new ResourceLocation("butter"), MODRECIPES_GROUP, new ItemStack(ModItems.BUTTER, 1), Ingredient.fromItem(Items.MILK_BUCKET));
         }
     }
 
