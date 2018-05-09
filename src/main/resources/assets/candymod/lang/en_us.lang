@@ -73,7 +73,6 @@ item.gummy_worm.name=Gummy Worm
 entity.cotton_candy_sheep.name=Cotton Candy Sheep
 entity.easter_chicken.name=Easter Chicken
 entity.gummy_mouse.name=Gummy Mouse
-entity.jello_fish.name=Jell-O-fish
 entity.gummy_bear.name=Gummy Bear
 
 itemGroup.candymod.items=Candy World Items
