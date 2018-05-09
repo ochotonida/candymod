@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "candymod:items/gummy/gummy_worm"
+    "layer0": "candymod:items/gummy/gummy_worm_red"
   }
 }
