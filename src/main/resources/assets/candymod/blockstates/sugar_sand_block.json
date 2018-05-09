@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "candymod:sugar_sand_block"
+      "model": "candymod:sugar/sugar_sand_block"
     }
   }
 }

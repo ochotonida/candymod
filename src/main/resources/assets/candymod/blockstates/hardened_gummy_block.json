@@ -1,7 +1,7 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "model": "candymod:hardened_gummy_block"
+    "model": "candymod:gummy/hardened_gummy_block"
   },
   "variants": {
     "type": {

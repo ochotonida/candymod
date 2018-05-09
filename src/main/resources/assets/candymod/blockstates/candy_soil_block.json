@@ -3,13 +3,13 @@
   "variants": {
     "type": {
       "milk": {
-        "model": "candymod:candy_soil_block_milk"
+        "model": "candymod:chocolate/candy_soil_block_milk"
       },
       "white": {
-        "model": "candymod:candy_soil_block_white"
+        "model": "candymod:chocolate/candy_soil_block_white"
       },
       "dark": {
-        "model": "candymod:candy_soil_block_dark"
+        "model": "candymod:chocolate/candy_soil_block_dark"
       }
     }
   }

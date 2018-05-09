@@ -132,13 +132,13 @@ public class ModBlocks {
      */
     static void registerModels() {
         registerModel(COOKIE_ORE, "cookie_ore_block");
-        registerModel(COTTON_CANDY_PLANT, "cotton_candy_plant_block");
-        registerModel(COTTON_CANDY_LEAVES, "cotton_candy_leaves_block");
-        registerModel(COTTON_CANDY_SAPLING, "cotton_candy_sapling_block");
-        registerModel(COTTON_CANDY_GRASS, "cotton_candy_grass_block");
+        registerModel(COTTON_CANDY_PLANT, "sugar/cotton_candy_plant_block");
+        registerModel(COTTON_CANDY_LEAVES, "sugar/cotton_candy_leaves_block");
+        registerModel(COTTON_CANDY_SAPLING, "sugar/cotton_candy_sapling_block");
+        registerModel(COTTON_CANDY_GRASS, "sugar/cotton_candy_grass_block");
         registerModel(CHOCOLATE_SAPLING, "chocolate/chocolate_sapling_block");
-        registerModel(SUGAR_BLOCK, "sugar_block");
-        registerModel(SUGAR_SAND, "sugar_sand_block");
+        registerModel(SUGAR_BLOCK, "sugar/sugar_block");
+        registerModel(SUGAR_SAND, "sugar/sugar_sand_block");
         registerModel(WAFER_STICK, "wafer_stick_block");
 
         ModelResourceLocation itemMRL;
@@ -175,13 +175,13 @@ public class ModBlocks {
 
         // Gummy based blocks
         for (EnumGummy enumgummy : EnumGummy.values()) {
-            itemMRL = new ModelResourceLocation("candymod:block/gummy_block", "inventory");
+            itemMRL = new ModelResourceLocation("candymod:block/gummy/gummy_block", "inventory");
             ModelLoader.setCustomModelResourceLocation(GUMMY_BLOCK_IB, enumgummy.getMetadata(), itemMRL);
 
-            itemMRL = new ModelResourceLocation("candymod:block/hardened_gummy_block", "inventory");
+            itemMRL = new ModelResourceLocation("candymod:block/gummy/hardened_gummy_block", "inventory");
             ModelLoader.setCustomModelResourceLocation(HARDENED_GUMMY_IB, enumgummy.getMetadata(), itemMRL);
 
-            itemMRL = new ModelResourceLocation("candymod:block/gummy_worm_block", "inventory");
+            itemMRL = new ModelResourceLocation("candymod:block/gummy/gummy_worm_block", "inventory");
             ModelLoader.setCustomModelResourceLocation(GUMMY_WORM_IB, enumgummy.getMetadata(), itemMRL);
         }
     }

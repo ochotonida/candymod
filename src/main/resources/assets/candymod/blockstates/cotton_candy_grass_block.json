@@ -1,11 +1,21 @@
 {
   "variants": {
     "normal": [
-      { "model": "candymod:cotton_candy_grass0" },
-      { "model": "candymod:cotton_candy_grass1" },
-      { "model": "candymod:cotton_candy_grass2" },
-      { "model": "candymod:cotton_candy_grass3" },
-      { "model": "candymod:cotton_candy_grass4" }
+      {
+        "model": "candymod:sugar/cotton_candy_grass0"
+      },
+      {
+        "model": "candymod:sugar/cotton_candy_grass1"
+      },
+      {
+        "model": "candymod:sugar/cotton_candy_grass2"
+      },
+      {
+        "model": "candymod:sugar/cotton_candy_grass3"
+      },
+      {
+        "model": "candymod:sugar/cotton_candy_grass4"
+      }
     ]
   }
 }

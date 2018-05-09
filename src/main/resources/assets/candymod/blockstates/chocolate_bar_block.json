@@ -1,51 +1,51 @@
 {
   "variants": {
     "facing=north,type=milk": {
-      "model": "candymod:chocolate_bar_block_milk",
+      "model": "candymod:chocolate/chocolate_bar_block_milk",
       "y": 0
     },
     "facing=east,type=milk": {
-      "model": "candymod:chocolate_bar_block_milk",
+      "model": "candymod:chocolate/chocolate_bar_block_milk",
       "y": 90
     },
     "facing=south,type=milk": {
-      "model": "candymod:chocolate_bar_block_milk",
+      "model": "candymod:chocolate/chocolate_bar_block_milk",
       "y": 180
     },
     "facing=west,type=milk": {
-      "model": "candymod:chocolate_bar_block_milk",
+      "model": "candymod:chocolate/chocolate_bar_block_milk",
       "y": 270
     },
     "facing=north,type=white": {
-      "model": "candymod:chocolate_bar_block_white",
+      "model": "candymod:chocolate/chocolate_bar_block_white",
       "y": 0
     },
     "facing=east,type=white": {
-      "model": "candymod:chocolate_bar_block_white",
+      "model": "candymod:chocolate/chocolate_bar_block_white",
       "y": 90
     },
     "facing=south,type=white": {
-      "model": "candymod:chocolate_bar_block_white",
+      "model": "candymod:chocolate/chocolate_bar_block_white",
       "y": 180
     },
     "facing=west,type=white": {
-      "model": "candymod:chocolate_bar_block_white",
+      "model": "candymod:chocolate/chocolate_bar_block_white",
       "y": 270
     },
     "facing=north,type=dark": {
-      "model": "candymod:chocolate_bar_block_dark",
+      "model": "candymod:chocolate/chocolate_bar_block_dark",
       "y": 0
     },
     "facing=east,type=dark": {
-      "model": "candymod:chocolate_bar_block_dark",
+      "model": "candymod:chocolate/chocolate_bar_block_dark",
       "y": 90
     },
     "facing=south,type=dark": {
-      "model": "candymod:chocolate_bar_block_dark",
+      "model": "candymod:chocolate/chocolate_bar_block_dark",
       "y": 180
     },
     "facing=west,type=dark": {
-      "model": "candymod:chocolate_bar_block_dark",
+      "model": "candymod:chocolate/chocolate_bar_block_dark",
       "y": 270
     }
   }

@@ -3,22 +3,22 @@
   "variants": {
     "type": {
       "white": {
-        "model": "candymod:caneblock_white"
+        "model": "candymod:candy_cane/candy_cane_block_white"
       },
       "red": {
-        "model": "candymod:caneblock_red"
+        "model": "candymod:candy_cane/candy_cane_block_red"
       },
       "green": {
-        "model": "candymod:caneblock_green"
+        "model": "candymod:candy_cane/candy_cane_block_green"
       },
       "white_red": {
-        "model": "candymod:caneblock_white_red"
+        "model": "candymod:candy_cane/candy_cane_block_white_red"
       },
       "white_green": {
-        "model": "candymod:caneblock_white_green"
+        "model": "candymod:candy_cane/candy_cane_block_white_green"
       },
       "red_green": {
-        "model": "candymod:caneblock_red_green"
+        "model": "candymod:candy_cane/candy_cane_block_red_green"
       }
     }
   }

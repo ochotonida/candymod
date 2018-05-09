@@ -1,12 +1,7 @@
 {
-	"forge_marker": 1,
-	"variants": {
-		"normal": {
-			"model": "candymod:cotton_candy_plant_block"
-		},
-		"inventory": {
-			"model": "candymod:cotton_candy_plant_block",
-			"transform": "forge:default-block"
-		}
-	}
+  "variants": {
+    "normal": {
+      "model": "candymod:sugar/cotton_candy_plant_block"
+    }
+  }
 }

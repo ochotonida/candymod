@@ -1,22 +1,52 @@
 {
   "variants": {
     "type=milk": [
-      { "model": "candymod:chocolate_block_milk" },
-      { "model": "candymod:chocolate_block_milk_mirrored" },
-      { "model": "candymod:chocolate_block_milk", "y": 180 },
-      { "model": "candymod:chocolate_block_milk_mirrored", "y": 180 }
+      {
+        "model": "candymod:chocolate/chocolate_block_milk"
+      },
+      {
+        "model": "candymod:chocolate/chocolate_block_milk_mirrored"
+      },
+      {
+        "model": "candymod:chocolate/chocolate_block_milk",
+        "y": 180
+      },
+      {
+        "model": "candymod:chocolate/chocolate_block_milk_mirrored",
+        "y": 180
+      }
     ],
     "type=white": [
-      { "model": "candymod:chocolate_block_white" },
-      { "model": "candymod:chocolate_block_white_mirrored" },
-      { "model": "candymod:chocolate_block_white", "y": 180 },
-      { "model": "candymod:chocolate_block_white_mirrored", "y": 180 }
+      {
+        "model": "candymod:chocolate/chocolate_block_white"
+      },
+      {
+        "model": "candymod:chocolate/chocolate_block_white_mirrored"
+      },
+      {
+        "model": "candymod:chocolate/chocolate_block_white",
+        "y": 180
+      },
+      {
+        "model": "candymod:chocolate/chocolate_block_white_mirrored",
+        "y": 180
+      }
     ],
     "type=dark": [
-      { "model": "candymod:chocolate_block_dark" },
-      { "model": "candymod:chocolate_block_dark_mirrored" },
-      { "model": "candymod:chocolate_block_dark", "y": 180 },
-      { "model": "candymod:chocolate_block_dark_mirrored", "y": 180 }
+      {
+        "model": "candymod:chocolate/chocolate_block_dark"
+      },
+      {
+        "model": "candymod:chocolate/chocolate_block_dark_mirrored"
+      },
+      {
+        "model": "candymod:chocolate/chocolate_block_dark",
+        "y": 180
+      },
+      {
+        "model": "candymod:chocolate/chocolate_block_dark_mirrored",
+        "y": 180
+      }
     ]
   }
 }
