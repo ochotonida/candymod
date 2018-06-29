@@ -8,7 +8,7 @@ import net.minecraft.util.NonNullList;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public class ItemGummy extends ModFood {
+public class ItemGummy extends ModFoodItem {
 
     public ItemGummy(String name, String oreName, int healAmount, float saturation) {
         super(name, oreName, healAmount, saturation);

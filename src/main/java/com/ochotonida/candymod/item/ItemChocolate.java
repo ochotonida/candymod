@@ -9,7 +9,7 @@ import net.minecraft.util.NonNullList;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public class ItemChocolate extends ModFood {
+public class ItemChocolate extends ModFoodItem {
 
     /**
      * Initializes chocolate based food item

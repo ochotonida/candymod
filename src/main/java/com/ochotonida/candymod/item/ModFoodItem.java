@@ -7,16 +7,16 @@ import net.minecraftforge.oredict.OreDictionary;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ModFood extends ItemFood {
+public class ModFoodItem extends ItemFood {
 
-    private static final List<ModFood> ORE_LIST = new ArrayList<>();
+    private static final List<ModFoodItem> ORE_LIST = new ArrayList<>();
     public final String name;
     public String oreName;
 
     /**
      * Initialize a basic food item
      */
-    public ModFood(String name, int healAmount, float saturation) {
+    public ModFoodItem(String name, int healAmount, float saturation) {
         super(healAmount, saturation, false);
         this.setUnlocalizedName(name);
         this.setRegistryName(name);
@@ -27,17 +27,17 @@ public class ModFood extends ItemFood {
     /**
      * Initialize a basic food item with an oreDictionary name
      */
-    public ModFood(String name, String oreName, int healAmount, float saturation) {
+    public ModFoodItem(String name, String oreName, int healAmount, float saturation) {
         this(name, healAmount, saturation);
         this.oreName = oreName;
         ORE_LIST.add(this);
     }
 
     /**
-     * Add all instances of ModFood to the oreDictionary
+     * Add all instances of ModFoodItem to the oreDictionary
      */
     public static void initOreDict() {
-        for (ModFood item : ORE_LIST) {
+        for (ModFoodItem item : ORE_LIST) {
             OreDictionary.registerOre(item.oreName, item);
         }
     }

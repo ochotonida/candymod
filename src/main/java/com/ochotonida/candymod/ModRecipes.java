@@ -1,7 +1,7 @@
 package com.ochotonida.candymod;
 
 import com.ochotonida.candymod.enums.EnumChocolate;
-import com.ochotonida.candymod.item.ModFood;
+import com.ochotonida.candymod.item.ModFoodItem;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
@@ -32,7 +32,7 @@ public class ModRecipes {
     }
 
     private static void initOreDict() {
-        ModFood.initOreDict();
+        ModFoodItem.initOreDict();
         OreDictionary.registerOre("crystalSugar", ModItems.SUGAR_ROCK);
         OreDictionary.registerOre("blockCrystalSugar", ModBlocks.SUGAR_BLOCK);
         OreDictionary.registerOre("blockSugar", ModBlocks.SUGAR_SAND);
