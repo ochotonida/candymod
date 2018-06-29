@@ -77,6 +77,9 @@ public class BlockCandyGrass extends Block implements IGrowable {
     @Override
     @SuppressWarnings("deprecation")
     public SoundType getSoundType(IBlockState state, World world, BlockPos pos, Entity entity) {
+        if (state.getBlock() != this) {
+            return getSoundType();
+        }
         switch (state.getValue(CHOCOLATE_TYPE)) {
             case MILK:
                 return ModSoundTypes.CANDY_GRASS;
