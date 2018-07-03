@@ -28,6 +28,8 @@ public class ModRecipes {
 
         if (!Loader.isModLoaded("harvestcraft")) {
             GameRegistry.addShapelessRecipe(new ResourceLocation("butter"), MODRECIPES_GROUP, new ItemStack(ModItems.BUTTER, 1), Ingredient.fromItem(Items.MILK_BUCKET));
+        } else {
+            CandyMod.LOGGER.info("harvestcraft detected, disabling recipe(s)");
         }
     }
 

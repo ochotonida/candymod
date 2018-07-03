@@ -16,6 +16,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import org.apache.logging.log4j.Logger;
 
 @SuppressWarnings("unused")
 @Mod(modid = CandyMod.MODID, name = CandyMod.MODNAME, version = CandyMod.MODVERSION)
@@ -28,13 +29,20 @@ public class CandyMod {
     public static final ItemTab TAB_ITEMS = new ItemTab();
     public static final BlockTab TAB_BLOCKS = new BlockTab();
 
-    // public static final Logger LOGGER = LogManager.getLogger(MODID);
+    public static Logger LOGGER;
 
     @Mod.Instance
     public static CandyMod instance;
 
     @SidedProxy(clientSide = "com.ochotonida.candymod.proxy.ClientProxy", serverSide = "com.ochotonida.candymod.proxy.CommonProxy")
     public static CommonProxy proxy;
+
+    @Mod.EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
+        LOGGER = event.getModLog();
+        ModConfig.loadConfig(event.getSuggestedConfigurationFile());
+        proxy.preInit(event);
+    }
 
     @Mod.EventHandler
     public static void init(FMLInitializationEvent event) {
@@ -60,12 +68,6 @@ public class CandyMod {
                 biomeEntry.getBiome().initSpawnList();
             }
         }
-    }
-
-    @Mod.EventHandler
-    public void preInit(final FMLPreInitializationEvent event) {
-        ModConfig.loadConfig(event.getSuggestedConfigurationFile());
-        proxy.preInit(event);
     }
 
     @Mod.EventBusSubscriber
