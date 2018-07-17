@@ -16,7 +16,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
@@ -194,7 +193,6 @@ public class BlockCandyGrass extends Block implements IGrowable {
     @ParametersAreNonnullByDefault
     public void grow(World world, Random rand, BlockPos pos, IBlockState state) {
         world.setBlockState(pos.up(), ModBlocks.COTTON_CANDY_PLANT.getDefaultState());
-        ItemDye.spawnBonemealParticles(world, pos.up(), 100);
     }
 
     @Override
