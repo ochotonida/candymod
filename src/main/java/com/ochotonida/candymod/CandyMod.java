@@ -24,7 +24,7 @@ public class CandyMod {
 
     public static final String MODID = "candymod";
     public static final String MODNAME = "Candy World";
-    public static final String MODVERSION = "0.5.0";
+    public static final String MODVERSION = "0.4.5";
 
     public static final ItemTab TAB_ITEMS = new ItemTab();
     public static final BlockTab TAB_BLOCKS = new BlockTab();
