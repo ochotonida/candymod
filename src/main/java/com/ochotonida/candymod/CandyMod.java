@@ -63,6 +63,7 @@ public class CandyMod {
 
     @Mod.EventHandler
     public static void serverStarting(FMLServerStartingEvent event) {
+        //event.registerServerCommand(new TeleportCommand());
         if (ModConfig.preventModdedMobspawnNuclear) {
             for (ModBiomes.ModBiomeEntry biomeEntry : ModBiomes.biomeEntryList) {
                 biomeEntry.getBiome().initSpawnList();

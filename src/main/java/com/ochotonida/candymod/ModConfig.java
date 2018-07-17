@@ -12,7 +12,9 @@ public class ModConfig {
 
     public static final String CATEGORY_BIOMES = "biomes";
     public static final String CATEGORY_MOBS = "mobs";
+    public static final String CATEGORY_DIMENSION = "dimension";
     public static Configuration config;
+    public static int dimensionId = 23;
     public static int weightCottonCanyPlains = 4;
     public static int weightChocolateForest = 4;
     public static int weightGummySwamp = 4;
@@ -33,6 +35,9 @@ public class ModConfig {
 
     public static void init() {
         String comment;
+
+        comment = "Dimension id to use for the candy world dimension";
+        //dimensionId = loadInt(CATEGORY_DIMENSION, "candymod.dimensionId", comment, dimensionId);
 
         comment = "Cotton candy plains biome weight. 0 to prevent generation in overworld";
         weightCottonCanyPlains = loadInt(CATEGORY_BIOMES, "candymod.weightCandyCottonPlains", comment, weightCottonCanyPlains);
