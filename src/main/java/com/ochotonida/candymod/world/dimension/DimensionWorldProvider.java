@@ -6,9 +6,6 @@ import net.minecraft.world.gen.IChunkGenerator;
 
 import javax.annotation.Nonnull;
 
-/**
- * World provider for the candy world dimension
- */
 public class DimensionWorldProvider extends WorldProvider {
 
     @Nonnull
