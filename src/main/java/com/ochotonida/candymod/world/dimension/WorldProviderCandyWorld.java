@@ -8,6 +8,12 @@ import javax.annotation.Nonnull;
 
 public class WorldProviderCandyWorld extends WorldProvider {
 
+    @Override
+    protected void init() {
+        this.hasSkyLight = true;
+        this.biomeProvider = new BiomeProviderCandyWorld(world.getWorldInfo());
+    }
+
     @Nonnull
     @Override
     public DimensionType getDimensionType() {

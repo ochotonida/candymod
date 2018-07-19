@@ -70,5 +70,9 @@ public class ModBiomes {
         public int getWeight() {
             return this.weight;
         }
+
+        public int getDimensionWeight() {
+            return this.weight;  //todo
+        }
     }
 }
