@@ -10,7 +10,7 @@ public final class Dimension {
     public static DimensionType dimensionType;
 
     public static void init() {
-        dimensionType = DimensionType.register(CandyMod.MODID, "_dimension", ModConfig.dimensionId, DimensionWorldProvider.class, false);
+        dimensionType = DimensionType.register(CandyMod.MODID, "_dimension", ModConfig.dimensionId, WorldProviderCandyWorld.class, false);
         DimensionManager.registerDimension(ModConfig.dimensionId, dimensionType);
     }
 }

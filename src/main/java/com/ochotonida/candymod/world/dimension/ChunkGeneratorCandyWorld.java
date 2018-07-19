@@ -20,7 +20,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.Random;
 
-public class DimensionChunkGenerator implements IChunkGenerator {
+public class ChunkGeneratorCandyWorld implements IChunkGenerator {
 
     public static final IBlockState ROCK = Blocks.STONE.getDefaultState();
     public static final IBlockState OCEAN_BLOCK = Blocks.WATER.getDefaultState();
@@ -45,7 +45,7 @@ public class DimensionChunkGenerator implements IChunkGenerator {
     double[] maxLimitRegion;
     double[] depthRegion;
 
-    public DimensionChunkGenerator(World worldIn) {
+    public ChunkGeneratorCandyWorld(World worldIn) {
         this.world = worldIn;
         this.rand = new Random(world.getSeed());
         this.minLimitPerlinNoise = new NoiseGeneratorOctaves(this.rand, 16);

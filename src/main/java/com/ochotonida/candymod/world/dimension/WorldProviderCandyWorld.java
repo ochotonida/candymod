@@ -6,7 +6,7 @@ import net.minecraft.world.gen.IChunkGenerator;
 
 import javax.annotation.Nonnull;
 
-public class DimensionWorldProvider extends WorldProvider {
+public class WorldProviderCandyWorld extends WorldProvider {
 
     @Nonnull
     @Override
@@ -16,12 +16,12 @@ public class DimensionWorldProvider extends WorldProvider {
 
     @Override
     public String getSaveFolder() {
-        return "CandyWorldDimension";
+        return "DIM_CANDY_WORLD";
     }
 
     @Nonnull
     @Override
     public IChunkGenerator createChunkGenerator() {
-        return new DimensionChunkGenerator(world);
+        return new ChunkGeneratorCandyWorld(world);
     }
 }
