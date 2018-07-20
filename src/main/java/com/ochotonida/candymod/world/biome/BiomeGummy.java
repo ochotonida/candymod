@@ -24,7 +24,7 @@ import java.util.Random;
 public class BiomeGummy extends ModBiome {
 
     public BiomeGummy() {
-        super(new BiomeProperties("GummySwamp").setBaseHeight(0.3F).setHeightVariation(0.01F).setRainfall(0.8F).setTemperature(0.9F));
+        super(new BiomeProperties("GummySwamp").setBaseHeight(0.125F).setHeightVariation(0.01F).setRainfall(0.8F).setTemperature(0.9F));
         this.setRegistryName("biome_gummy_swamp");
         this.decorator.grassPerChunk = -999;
         this.decorator.treesPerChunk = -999;

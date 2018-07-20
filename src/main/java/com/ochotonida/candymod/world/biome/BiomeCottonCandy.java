@@ -19,7 +19,7 @@ import java.util.Random;
 public class BiomeCottonCandy extends ModBiome {
 
     public BiomeCottonCandy() {
-        super(new BiomeProperties("CottonCandyPlains").setBaseHeight(0.125F).setHeightVariation(0.05F).setTemperature(0.8F).setRainfall(0.3F).setWaterColor(0xff0099));
+        super(new BiomeProperties("CottonCandyPlains").setBaseHeight(0.125F).setHeightVariation(0.2F).setTemperature(0.8F).setRainfall(0.3F).setWaterColor(0xff0099));
         this.setRegistryName("biome_cotton_candy");
         this.decorator.grassPerChunk = 20;
         this.decorator.treesPerChunk = 1;

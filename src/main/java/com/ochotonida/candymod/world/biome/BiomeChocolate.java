@@ -19,7 +19,7 @@ import static com.ochotonida.candymod.block.ModBlockProperties.CHOCOLATE_TYPE;
 public class BiomeChocolate extends ModBiome {
 
     public BiomeChocolate() {
-        super(new BiomeProperties("ChocolateForest").setBaseHeight(0.125F).setHeightVariation(0.3F).setTemperature(0.8F).setRainfall(0.3F));
+        super(new BiomeProperties("ChocolateForest").setBaseHeight(-0.12F).setHeightVariation(0.05F).setTemperature(0.8F).setRainfall(0.3F));
         this.setRegistryName("biome_chocolate_forest");
         this.decorator.grassPerChunk = 20;
         this.decorator.treesPerChunk = 5;
