@@ -1,5 +1,7 @@
 package com.ochotonida.candymod.world.dimension;
 
+import com.ochotonida.candymod.ModBlocks;
+import com.ochotonida.candymod.world.worldgen.MapGenCustomCaves;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
@@ -11,8 +13,11 @@ import net.minecraft.world.WorldEntitySpawner;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraft.world.gen.*;
-import net.minecraft.world.gen.feature.WorldGenLakes;
+import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraft.world.gen.MapGenBase;
+import net.minecraft.world.gen.NoiseGeneratorOctaves;
+import net.minecraft.world.gen.NoiseGeneratorPerlin;
+import net.minecraftforge.event.ForgeEventFactory;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -22,9 +27,8 @@ import java.util.Random;
 
 public class ChunkGeneratorCandyWorld implements IChunkGenerator {
 
-    public static final IBlockState ROCK = Blocks.STONE.getDefaultState();
+    public static final IBlockState ROCK = ModBlocks.SUGAR_BLOCK.getDefaultState();
     public static final IBlockState OCEAN_BLOCK = Blocks.WATER.getDefaultState();
-    public static final int SEA_LEVEL = 64;
     private final Random rand;
     private NoiseGeneratorOctaves minLimitPerlinNoise;
     private NoiseGeneratorOctaves maxLimitPerlinNoise;
@@ -37,8 +41,7 @@ public class ChunkGeneratorCandyWorld implements IChunkGenerator {
     private final double[] heightMap;
     private final float[] biomeWeights;
     private double[] depthBuffer = new double[256];
-    private MapGenBase caveGenerator = new MapGenCaves();
-    private MapGenBase ravineGenerator = new MapGenRavine();
+    private MapGenBase caveGenerator = new MapGenCustomCaves();
     private Biome[] biomesForGeneration;
     double[] mainNoiseRegion;
     double[] minLimitRegion;
@@ -78,7 +81,7 @@ public class ChunkGeneratorCandyWorld implements IChunkGenerator {
 
     public void setBlocksInChunk(int x, int z, ChunkPrimer primer) {
         this.biomesForGeneration = this.world.getBiomeProvider().getBiomesForGeneration(this.biomesForGeneration, x * 4 - 2, z * 4 - 2, 10, 10);
-        this.generateHeightmap(x * 4, 0, z * 4);
+        this.generateHeightmap(x * 4, z * 4);
 
         for (int i = 0; i < 4; ++i) {
             int j = i * 5;
@@ -91,7 +94,7 @@ public class ChunkGeneratorCandyWorld implements IChunkGenerator {
                 int l1 = (k + l + 1) * 33;
 
                 for (int i2 = 0; i2 < 32; ++i2) {
-                    double d0 = 0.125D;
+                    //double d0 = 0.125D;
                     double d1 = this.heightMap[i1 + i2];
                     double d2 = this.heightMap[j1 + i2];
                     double d3 = this.heightMap[k1 + i2];
@@ -102,21 +105,21 @@ public class ChunkGeneratorCandyWorld implements IChunkGenerator {
                     double d8 = (this.heightMap[l1 + i2 + 1] - d4) * 0.125D;
 
                     for (int j2 = 0; j2 < 8; ++j2) {
-                        double d9 = 0.25D;
+                        //double d9 = 0.25D;
                         double d10 = d1;
                         double d11 = d2;
                         double d12 = (d3 - d1) * 0.25D;
                         double d13 = (d4 - d2) * 0.25D;
 
                         for (int k2 = 0; k2 < 4; ++k2) {
-                            double d14 = 0.25D;
+                            //double d14 = 0.25D;
                             double d16 = (d11 - d10) * 0.25D;
                             double lvt_45_1_ = d10 - d16;
 
                             for (int l2 = 0; l2 < 4; ++l2) {
                                 if ((lvt_45_1_ += d16) > 0.0D) {
                                     primer.setBlockState(i * 4 + k2, i2 * 8 + j2, l * 4 + l2, ROCK);
-                                } else if (i2 * 8 + j2 < SEA_LEVEL) {
+                                } else if (i2 * 8 + j2 < world.getSeaLevel()) {
                                     primer.setBlockState(i * 4 + k2, i2 * 8 + j2, l * 4 + l2, OCEAN_BLOCK);
                                 }
                             }
@@ -137,7 +140,7 @@ public class ChunkGeneratorCandyWorld implements IChunkGenerator {
 
     public void replaceBiomeBlocks(int x, int z, ChunkPrimer primer, Biome[] biomesIn) {
         if (!net.minecraftforge.event.ForgeEventFactory.onReplaceBiomeBlocks(this, x, z, primer, this.world)) return;
-        double d0 = 0.03125D;
+        //double d0 = 0.03125D;
         this.depthBuffer = this.surfaceNoise.getRegion(this.depthBuffer, (double) (x * 16), (double) (z * 16), 16, 16, 0.0625D, 0.0625D, 1.0D);
 
         for (int i = 0; i < 16; ++i) {
@@ -161,7 +164,6 @@ public class ChunkGeneratorCandyWorld implements IChunkGenerator {
         this.replaceBiomeBlocks(x, z, chunkprimer, this.biomesForGeneration);
 
         this.caveGenerator.generate(this.world, x, z, chunkprimer);
-        this.ravineGenerator.generate(this.world, x, z, chunkprimer);
 
         Chunk chunk = new Chunk(this.world, chunkprimer, x, z);
         byte[] abyte = chunk.getBiomeArray();
@@ -174,13 +176,13 @@ public class ChunkGeneratorCandyWorld implements IChunkGenerator {
         return chunk;
     }
 
-    private void generateHeightmap(int p_185978_1_, int p_185978_2_, int p_185978_3_) {
-        this.depthRegion = this.depthNoise.generateNoiseOctaves(this.depthRegion, p_185978_1_, p_185978_3_, 5, 5, 200D, 200D, 0.5D);
+    private void generateHeightmap(int x, int z) {
+        this.depthRegion = this.depthNoise.generateNoiseOctaves(this.depthRegion, x, z, 5, 5, 200D, 200D, 0.5D);
         float f = 684.412F;
         float f1 = 684.412F;
-        this.mainNoiseRegion = this.mainPerlinNoise.generateNoiseOctaves(this.mainNoiseRegion, p_185978_1_, p_185978_2_, p_185978_3_, 5, 33, 5, f / 80D, f1 / 160D, f / 80D);
-        this.minLimitRegion = this.minLimitPerlinNoise.generateNoiseOctaves(this.minLimitRegion, p_185978_1_, p_185978_2_, p_185978_3_, 5, 33, 5, (double) f, (double) f1, (double) f);
-        this.maxLimitRegion = this.maxLimitPerlinNoise.generateNoiseOctaves(this.maxLimitRegion, p_185978_1_, p_185978_2_, p_185978_3_, 5, 33, 5, (double) f, (double) f1, (double) f);
+        this.mainNoiseRegion = this.mainPerlinNoise.generateNoiseOctaves(this.mainNoiseRegion, x, 0, z, 5, 33, 5, f / 80D, f1 / 160D, f / 80D);
+        this.minLimitRegion = this.minLimitPerlinNoise.generateNoiseOctaves(this.minLimitRegion, x, 0, z, 5, 33, 5, (double) f, (double) f1, (double) f);
+        this.maxLimitRegion = this.maxLimitPerlinNoise.generateNoiseOctaves(this.maxLimitRegion, x, 0, z, 5, 33, 5, (double) f, (double) f1, (double) f);
         int i = 0;
         int j = 0;
 
@@ -189,7 +191,7 @@ public class ChunkGeneratorCandyWorld implements IChunkGenerator {
                 float f2 = 0.0F;
                 float f3 = 0.0F;
                 float f4 = 0.0F;
-                int i1 = 2;
+                //int i1 = 2;
                 Biome biome = this.biomesForGeneration[k + 2 + (l + 2) * 10];
 
                 for (int j1 = -2; j1 <= 2; ++j1) {
@@ -285,7 +287,10 @@ public class ChunkGeneratorCandyWorld implements IChunkGenerator {
         long l = this.rand.nextLong() / 2L * 2L + 1L;
         this.rand.setSeed((long) x * k + (long) z * l ^ this.world.getSeed());
 
-        if (this.rand.nextInt(15) == 0) {
+        ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, x, z, false);
+
+        /*
+        if (this.rand.nextInt(25) == 0) {
             int i1 = this.rand.nextInt(16) + 8;
             int j1 = this.rand.nextInt(256);
             int k1 = this.rand.nextInt(16) + 8;
@@ -301,9 +306,12 @@ public class ChunkGeneratorCandyWorld implements IChunkGenerator {
                 (new WorldGenLakes(Blocks.LAVA)).generate(this.world, this.rand, blockpos.add(i2, l2, k3));
             }
         }
+        */
 
         biome.decorate(this.world, this.rand, new BlockPos(i, 0, j));
         WorldEntitySpawner.performWorldGenSpawning(this.world, biome, i + 8, j + 8, 16, 16, this.rand);
+
+        ForgeEventFactory.onChunkPopulate(false, this, this.world, this.rand, x, z, false);
 
         BlockFalling.fallInstantly = false;
     }

@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class WorldGenBiomeFoundation extends WorldGenerator {
+public class WorldGenBiomeSpikes extends WorldGenerator {
 
     public final Biome biome;
     public int maxLength;
@@ -19,7 +19,7 @@ public class WorldGenBiomeFoundation extends WorldGenerator {
     public int chance;
     public List<IBlockState> stateList;
 
-    public WorldGenBiomeFoundation(Biome biome, int minLength, int maxLength, int chance, IBlockState... states) {
+    public WorldGenBiomeSpikes(Biome biome, int minLength, int maxLength, int chance, IBlockState... states) {
         super();
         this.biome = biome;
         if (maxLength <= minLength) {

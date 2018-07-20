@@ -5,23 +5,31 @@ import com.ochotonida.candymod.enums.EnumChocolate;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 public class ItemChocolate extends ModFoodItem {
 
-    /**
-     * Initializes chocolate based food item
-     */
-    public ItemChocolate(String name, String oreName) {
-        this(name, oreName, 6, 0.6F);
+    public ItemChocolate(String name, String... oreNames) {
+        this(name, 6, 0.6F, oreNames);
     }
 
-    public ItemChocolate(String name, String oreName, int healAmount, float saturation) {
-        super(name, oreName, healAmount, saturation);
+    public ItemChocolate(String name, int healAmount, float saturation, String... oreNames) {
+        super(name, healAmount, saturation, oreNames);
         this.setHasSubtypes(true);
         this.setMaxDamage(0);
+    }
+
+    @Override
+    protected void registerOreNames() {
+        for (EnumChocolate enumChocolate : EnumChocolate.values()) {
+            ItemStack stack = new ItemStack(this, 1, enumChocolate.getMetadata());
+            for (String oreName : oreNames) {
+                OreDictionary.registerOre(oreName, stack);
+            }
+        }
     }
 
     @Nonnull
@@ -31,19 +39,19 @@ public class ItemChocolate extends ModFoodItem {
     }
 
     /**
-     * Get the unlocalized name of the item based on its metadata
+     * Return the unlocalized name of the item based on its metadata
      */
     public String getUnlocalizedName(int meta) {
         return this.getUnlocalizedName() + ":" + EnumChocolate.byMetadata(meta).getName();
     }
 
     /**
-     * Registers the item models for each chocolate type
+     * Register the item models for each chocolate type
      */
     @Override
     public void registerItemModel() {
-        for (EnumChocolate value : EnumChocolate.values()) {
-            CandyMod.proxy.registerItemRenderer(this, value.getMetadata(), "chocolate/" + this.name + "_" + value.getName());
+        for (EnumChocolate enumChocolate : EnumChocolate.values()) {
+            CandyMod.proxy.registerItemRenderer(this, enumChocolate.getMetadata(), "chocolate/" + this.name + "_" + enumChocolate.getName());
         }
     }
 
@@ -51,10 +59,9 @@ public class ItemChocolate extends ModFoodItem {
     @ParametersAreNonnullByDefault
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
         if (this.isInCreativeTab(tab)) {
-            for (EnumChocolate enumchocolate : EnumChocolate.values()) {
-                items.add(new ItemStack(this, 1, enumchocolate.getMetadata()));
+            for (EnumChocolate enumChocolate : EnumChocolate.values()) {
+                items.add(new ItemStack(this, 1, enumChocolate.getMetadata()));
             }
         }
     }
-
 }

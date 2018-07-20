@@ -5,6 +5,7 @@ import com.ochotonida.candymod.enums.EnumCandyCane;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -12,10 +13,19 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class ItemCandyCane extends ModFoodItem {
 
     public ItemCandyCane() {
-        super("candy_cane", "foodCandyCane", 5, 0.6F);
+        super("candy_cane", 5, 0.6F, "foodCandycane");
         this.setHasSubtypes(true);
         this.setMaxDamage(0);
-        this.setCreativeTab(CandyMod.TAB_ITEMS);
+    }
+
+    @Override
+    protected void registerOreNames() {
+        for (EnumCandyCane enumCandyCane : EnumCandyCane.values()) {
+            ItemStack stack = new ItemStack(this, 1, enumCandyCane.getMetadata());
+            for (String oreName : oreNames) {
+                OreDictionary.registerOre(oreName, stack);
+            }
+        }
     }
 
     @Nonnull
@@ -30,8 +40,8 @@ public class ItemCandyCane extends ModFoodItem {
 
     @Override
     public void registerItemModel() {
-        for (EnumCandyCane value : EnumCandyCane.values()) {
-            CandyMod.proxy.registerItemRenderer(this, value.getMetadata(), "candy_cane/" + "candy_cane_" + value.getName());
+        for (EnumCandyCane enumCandyCane : EnumCandyCane.values()) {
+            CandyMod.proxy.registerItemRenderer(this, enumCandyCane.getMetadata(), "candy_cane/" + "candy_cane_" + enumCandyCane.getName());
         }
     }
 
@@ -39,8 +49,8 @@ public class ItemCandyCane extends ModFoodItem {
     @ParametersAreNonnullByDefault
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
         if (this.isInCreativeTab(tab)) {
-            for (EnumCandyCane enumcandycane : EnumCandyCane.values()) {
-                items.add(new ItemStack(this, 1, enumcandycane.getMetadata()));
+            for (EnumCandyCane enumCandyCane : EnumCandyCane.values()) {
+                items.add(new ItemStack(this, 1, enumCandyCane.getMetadata()));
             }
         }
     }

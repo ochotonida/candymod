@@ -3,7 +3,9 @@ package com.ochotonida.candymod.world.biome;
 import com.ochotonida.candymod.ModBlocks;
 import com.ochotonida.candymod.block.ModBlockProperties;
 import com.ochotonida.candymod.enums.EnumChocolate;
+import com.ochotonida.candymod.world.dimension.WorldProviderCandyWorld;
 import com.ochotonida.candymod.world.worldgen.WorldGenCaveChocolate;
+import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -21,22 +23,21 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
-@SuppressWarnings("CanBeFinal")
 public class DecoratorBase extends BiomeDecorator {
 
-    public WorldGenerator soilMilkGen;
-    public WorldGenerator soilWhiteGen;
-    public WorldGenerator soilDarkGen;
-    public WorldGenerator sugarBlockGen;
-    public WorldGenerator cookieGen;
-    public WorldGenerator sugarSandGen;
-    public WorldGenerator caveChocolateGen = new WorldGenCaveChocolate();
+    protected WorldGenerator soilMilkGen;
+    protected WorldGenerator soilWhiteGen;
+    protected WorldGenerator soilDarkGen;
+    protected WorldGenerator sugarBlockGen;
+    protected WorldGenerator cookieGen;
+    protected WorldGenerator sugarSandGen;
+    protected WorldGenerator caveChocolateGen = new WorldGenCaveChocolate();
     @Nullable
-    public WorldGenerator foundationGen;
+    protected WorldGenerator spikesGen;
 
-    public int caveChocolateAmount = 5;
+    protected int caveChocolateAmount = 5;
 
-    public boolean generateCaveChocolate;
+    protected boolean generateCaveChocolate;
 
     @Override
     @ParametersAreNonnullByDefault
@@ -47,34 +48,55 @@ public class DecoratorBase extends BiomeDecorator {
             this.chunkProviderSettings = ChunkGeneratorSettings.Factory.jsonToFactory(worldIn.getWorldInfo().getGeneratorOptions()).build();
             this.chunkPos = pos;
 
-            if (biome instanceof ModBiome) {
-                this.foundationGen = ((ModBiome) biome).getFoundationWorldGen();
+            if (worldIn.provider instanceof WorldProviderCandyWorld) {
+                initDimensionWorldGens();
+
+            } else {
+                initOverworldWorldGens();
             }
-
-            this.soilMilkGen = new WorldGenMinable(ModBlocks.CANDY_SOIL.getDefaultState().withProperty(ModBlockProperties.CHOCOLATE_TYPE, EnumChocolate.MILK), 25);
-            this.soilWhiteGen = new WorldGenMinable(ModBlocks.CANDY_SOIL.getDefaultState().withProperty(ModBlockProperties.CHOCOLATE_TYPE, EnumChocolate.WHITE), 25);
-            this.soilDarkGen = new WorldGenMinable(ModBlocks.CANDY_SOIL.getDefaultState().withProperty(ModBlockProperties.CHOCOLATE_TYPE, EnumChocolate.DARK), 25);
-            this.sugarBlockGen = new WorldGenMinable(ModBlocks.SUGAR_BLOCK.getDefaultState(), 20);
-            this.cookieGen = new WorldGenMinable(ModBlocks.COOKIE_ORE.getDefaultState(), 3);
-            this.sugarSandGen = new WorldGenMinable(ModBlocks.SUGAR_SAND.getDefaultState(), 20);
-
-            this.coalGen = new WorldGenMinable(Blocks.COAL_ORE.getDefaultState(), this.chunkProviderSettings.coalSize);
-            this.ironGen = new WorldGenMinable(Blocks.IRON_ORE.getDefaultState(), this.chunkProviderSettings.ironSize);
-            this.goldGen = new WorldGenMinable(Blocks.GOLD_ORE.getDefaultState(), this.chunkProviderSettings.goldSize);
-            this.redstoneGen = new WorldGenMinable(Blocks.REDSTONE_ORE.getDefaultState(), this.chunkProviderSettings.redstoneSize);
-            this.diamondGen = new WorldGenMinable(Blocks.DIAMOND_ORE.getDefaultState(), this.chunkProviderSettings.diamondSize);
-            this.lapisGen = new WorldGenMinable(Blocks.LAPIS_ORE.getDefaultState(), this.chunkProviderSettings.lapisSize);
             this.genDecorations(biome, worldIn, random);
             this.decorating = false;
         }
+    }
+
+    protected void initDimensionWorldGens() {
+        this.soilMilkGen = new WorldGenMinable(ModBlocks.CANDY_SOIL.getDefaultState().withProperty(ModBlockProperties.CHOCOLATE_TYPE, EnumChocolate.MILK), 25, BlockMatcher.forBlock(ModBlocks.SUGAR_BLOCK));
+        this.soilWhiteGen = new WorldGenMinable(ModBlocks.CANDY_SOIL.getDefaultState().withProperty(ModBlockProperties.CHOCOLATE_TYPE, EnumChocolate.WHITE), 25, BlockMatcher.forBlock(ModBlocks.SUGAR_BLOCK));
+        this.soilDarkGen = new WorldGenMinable(ModBlocks.CANDY_SOIL.getDefaultState().withProperty(ModBlockProperties.CHOCOLATE_TYPE, EnumChocolate.DARK), 25, BlockMatcher.forBlock(ModBlocks.SUGAR_BLOCK));
+        this.sugarBlockGen = new WorldGenMinable(ModBlocks.SUGAR_BLOCK.getDefaultState(), 0);
+        this.cookieGen = new WorldGenMinable(ModBlocks.COOKIE_ORE.getDefaultState(), 3, BlockMatcher.forBlock(ModBlocks.SUGAR_BLOCK));
+        this.sugarSandGen = new WorldGenMinable(ModBlocks.SUGAR_SAND.getDefaultState(), 20, BlockMatcher.forBlock(ModBlocks.SUGAR_BLOCK));
+
+        this.coalGen = new WorldGenMinable(Blocks.COAL_ORE.getDefaultState(), 0);
+        this.ironGen = new WorldGenMinable(Blocks.IRON_ORE.getDefaultState(), 0);
+        this.goldGen = new WorldGenMinable(Blocks.GOLD_ORE.getDefaultState(), 0);
+        this.redstoneGen = new WorldGenMinable(Blocks.REDSTONE_ORE.getDefaultState(), 0);
+        this.diamondGen = new WorldGenMinable(Blocks.DIAMOND_ORE.getDefaultState(), 0);
+        this.lapisGen = new WorldGenMinable(Blocks.LAPIS_ORE.getDefaultState(), 0);
+    }
+
+    protected void initOverworldWorldGens() {
+        this.soilMilkGen = new WorldGenMinable(ModBlocks.CANDY_SOIL.getDefaultState().withProperty(ModBlockProperties.CHOCOLATE_TYPE, EnumChocolate.MILK), 25);
+        this.soilWhiteGen = new WorldGenMinable(ModBlocks.CANDY_SOIL.getDefaultState().withProperty(ModBlockProperties.CHOCOLATE_TYPE, EnumChocolate.WHITE), 25);
+        this.soilDarkGen = new WorldGenMinable(ModBlocks.CANDY_SOIL.getDefaultState().withProperty(ModBlockProperties.CHOCOLATE_TYPE, EnumChocolate.DARK), 25);
+        this.sugarBlockGen = new WorldGenMinable(ModBlocks.SUGAR_BLOCK.getDefaultState(), 20);
+        this.cookieGen = new WorldGenMinable(ModBlocks.COOKIE_ORE.getDefaultState(), 3);
+        this.sugarSandGen = new WorldGenMinable(ModBlocks.SUGAR_SAND.getDefaultState(), 20);
+
+        this.coalGen = new WorldGenMinable(Blocks.COAL_ORE.getDefaultState(), this.chunkProviderSettings.coalSize);
+        this.ironGen = new WorldGenMinable(Blocks.IRON_ORE.getDefaultState(), this.chunkProviderSettings.ironSize);
+        this.goldGen = new WorldGenMinable(Blocks.GOLD_ORE.getDefaultState(), this.chunkProviderSettings.goldSize);
+        this.redstoneGen = new WorldGenMinable(Blocks.REDSTONE_ORE.getDefaultState(), this.chunkProviderSettings.redstoneSize);
+        this.diamondGen = new WorldGenMinable(Blocks.DIAMOND_ORE.getDefaultState(), this.chunkProviderSettings.diamondSize);
+        this.lapisGen = new WorldGenMinable(Blocks.LAPIS_ORE.getDefaultState(), this.chunkProviderSettings.lapisSize);
     }
 
     @Override
     @ParametersAreNonnullByDefault
     protected void genDecorations(Biome biome, World worldIn, Random rand) {
 
-        if (foundationGen != null && TerrainGen.decorate(worldIn, rand, chunkPos, DecorateBiomeEvent.Decorate.EventType.CUSTOM)) {
-            foundationGen.generate(worldIn, rand, chunkPos);
+        if (spikesGen != null && TerrainGen.decorate(worldIn, rand, chunkPos, DecorateBiomeEvent.Decorate.EventType.CUSTOM)) {
+            spikesGen.generate(worldIn, rand, chunkPos);
         }
 
         super.genDecorations(biome, worldIn, rand);

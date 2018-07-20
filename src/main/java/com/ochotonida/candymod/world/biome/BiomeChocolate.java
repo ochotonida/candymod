@@ -4,10 +4,11 @@ import com.ochotonida.candymod.ModBlocks;
 import com.ochotonida.candymod.ModConfig;
 import com.ochotonida.candymod.entity.EntityEasterChicken;
 import com.ochotonida.candymod.enums.EnumChocolate;
-import com.ochotonida.candymod.world.worldgen.WorldGenBiomeFoundation;
+import com.ochotonida.candymod.world.worldgen.WorldGenBiomeSpikes;
 import com.ochotonida.candymod.world.worldgen.WorldGenChocolateForestGrass;
 import com.ochotonida.candymod.world.worldgen.WorldGenChocolateForestTree;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -27,10 +28,12 @@ public class BiomeChocolate extends ModBiome {
         ((DecoratorBase) this.decorator).generateCaveChocolate = true;
         this.topBlock = ModBlocks.CANDY_GRASS.getDefaultState().withProperty(CHOCOLATE_TYPE, EnumChocolate.WHITE);
         this.fillerBlock = ModBlocks.CANDY_SOIL.getDefaultState().withProperty(CHOCOLATE_TYPE, EnumChocolate.WHITE);
-        this.worldGenBiomeFoundation = new WorldGenBiomeFoundation(this, 3, 24, 16,
-                ModBlocks.CHOCOLATE_BLOCK.getDefaultState().withProperty(CHOCOLATE_TYPE, EnumChocolate.MILK),
-                ModBlocks.CHOCOLATE_BLOCK.getDefaultState().withProperty(CHOCOLATE_TYPE, EnumChocolate.WHITE),
-                ModBlocks.CHOCOLATE_BLOCK.getDefaultState().withProperty(CHOCOLATE_TYPE, EnumChocolate.DARK));
+    }
+
+    @Nonnull
+    @Override
+    public BiomeDecorator createBiomeDecorator() {
+        return new BiomeChocolate.Decorator();
     }
 
     @Override
@@ -57,5 +60,26 @@ public class BiomeChocolate extends ModBiome {
     @Override
     public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
         return new WorldGenChocolateForestTree(false);
+    }
+
+    private class Decorator extends DecoratorBase {
+
+        @Override
+        protected void initOverworldWorldGens() {
+            super.initOverworldWorldGens();
+            spikesGen = new WorldGenBiomeSpikes(BiomeChocolate.this, 3, 24, 16,
+                    ModBlocks.CHOCOLATE_BLOCK.getDefaultState().withProperty(CHOCOLATE_TYPE, EnumChocolate.MILK),
+                    ModBlocks.CHOCOLATE_BLOCK.getDefaultState().withProperty(CHOCOLATE_TYPE, EnumChocolate.WHITE),
+                    ModBlocks.CHOCOLATE_BLOCK.getDefaultState().withProperty(CHOCOLATE_TYPE, EnumChocolate.DARK));
+        }
+
+        @Override
+        protected void initDimensionWorldGens() {
+            super.initDimensionWorldGens();
+            spikesGen = new WorldGenBiomeSpikes(BiomeChocolate.this, 3, 24, 16,
+                    ModBlocks.CHOCOLATE_BLOCK.getDefaultState().withProperty(CHOCOLATE_TYPE, EnumChocolate.MILK),
+                    ModBlocks.CHOCOLATE_BLOCK.getDefaultState().withProperty(CHOCOLATE_TYPE, EnumChocolate.WHITE),
+                    ModBlocks.CHOCOLATE_BLOCK.getDefaultState().withProperty(CHOCOLATE_TYPE, EnumChocolate.DARK));
+        }
     }
 }

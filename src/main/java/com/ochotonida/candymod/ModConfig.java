@@ -15,9 +15,9 @@ public class ModConfig {
     public static final String CATEGORY_DIMENSION = "dimension";
     public static Configuration config;
     public static int dimensionId = 23;
-    public static int weightCottonCanyPlains = 4;
-    public static int weightChocolateForest = 4;
-    public static int weightGummySwamp = 4;
+    public static int weightCottonCanyPlains = 1;
+    public static int weightChocolateForest = 1;
+    public static int weightGummySwamp = 1;
     public static int weightCottonCandySheep = 14;
     public static int weightEasterChicken = 14;
     public static int weightGummyMouse = 14;

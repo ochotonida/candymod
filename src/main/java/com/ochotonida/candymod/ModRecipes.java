@@ -38,6 +38,5 @@ public class ModRecipes {
         OreDictionary.registerOre("crystalSugar", ModItems.SUGAR_ROCK);
         OreDictionary.registerOre("blockCrystalSugar", ModBlocks.SUGAR_BLOCK);
         OreDictionary.registerOre("blockSugar", ModBlocks.SUGAR_SAND);
-        OreDictionary.registerOre("stickWood", ModItems.WAFER_STICK);
     }
 }

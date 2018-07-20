@@ -4,14 +4,13 @@ import com.ochotonida.candymod.CandyMod;
 import net.minecraft.item.ItemFood;
 import net.minecraftforge.oredict.OreDictionary;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ModFoodItem extends ItemFood {
 
-    private static final List<ModFoodItem> ORE_LIST = new ArrayList<>();
-    public final String name;
-    public String oreName;
+    private static final List<ModFoodItem> FOOD_ITEMS = new ArrayList<>();
+    protected final String name;
+    protected Set<String> oreNames = new HashSet<>();
 
     /**
      * Initialize a basic food item
@@ -22,23 +21,36 @@ public class ModFoodItem extends ItemFood {
         this.setRegistryName(name);
         this.name = name;
         this.setCreativeTab(CandyMod.TAB_ITEMS);
+        FOOD_ITEMS.add(this);
     }
 
     /**
-     * Initialize a basic food item with an oreDictionary name
+     * Initialize a basic food item with oredictionary names
      */
-    public ModFoodItem(String name, String oreName, int healAmount, float saturation) {
+    public ModFoodItem(String name, int healAmount, float saturation, String... oreNames) {
         this(name, healAmount, saturation);
-        this.oreName = oreName;
-        ORE_LIST.add(this);
+        this.oreNames.addAll(Arrays.asList(oreNames));
+    }
+
+    public static ModFoodItem[] getFoodItems() {
+        return FOOD_ITEMS.toArray(new ModFoodItem[]{});
     }
 
     /**
-     * Add all instances of ModFoodItem to the oreDictionary
+     * Register the oredictionary names for this item
+     */
+    protected void registerOreNames() {
+        for (String oreName : oreNames) {
+            OreDictionary.registerOre(oreName, this);
+        }
+    }
+
+    /**
+     * Register all oredictionary names
      */
     public static void initOreDict() {
-        for (ModFoodItem item : ORE_LIST) {
-            OreDictionary.registerOre(item.oreName, item);
+        for (ModFoodItem item : FOOD_ITEMS) {
+            item.registerOreNames();
         }
     }
 
@@ -47,6 +59,15 @@ public class ModFoodItem extends ItemFood {
      */
     public void registerItemModel() {
         CandyMod.proxy.registerItemRenderer(this, 0, this.name);
+    }
+
+    /**
+     * Register all item models
+     */
+    public static void initItemModels() {
+        for (ModFoodItem item : FOOD_ITEMS) {
+            item.registerItemModel();
+        }
     }
 
 }
