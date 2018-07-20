@@ -58,7 +58,7 @@ public class EntityEasterChicken extends EntityAnimal {
     public EntityEasterChicken(World worldIn) {
         super(worldIn);
         this.setSize(0.4F, 0.7F);
-        this.timeUntilNextEgg = this.rand.nextInt(4000) + 6000;
+        this.timeUntilNextEgg = this.rand.nextInt(6000) + 10000;
         this.setPathPriority(PathNodeType.WATER, 0.0F);
         this.explodeWhenDone = false;
         this.nextEggType = -1;
@@ -235,7 +235,7 @@ public class EntityEasterChicken extends EntityAnimal {
             if (this.eggComboAmount-- > 0) {
                 this.timeUntilNextEgg = 1;
             } else {
-                this.timeUntilNextEgg = this.rand.nextInt(4000) + 6000;
+                this.timeUntilNextEgg = this.rand.nextInt(6000) + 10000;
             }
 
             // check whether the chicken should explode

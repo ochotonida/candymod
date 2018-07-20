@@ -61,7 +61,6 @@ public class BiomeGummy extends ModBiome {
     }
 
     @ParametersAreNonnullByDefault
-    @SuppressWarnings("ConstantConditions")
     public void generateCustomTerrain(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
         int seaLevel = worldIn.getSeaLevel();
         int j = -1;
@@ -81,12 +80,9 @@ public class BiomeGummy extends ModBiome {
 
                 if (iblockstate2.getMaterial() == Material.AIR) {
                     j = -1;
-                } else if (iblockstate2.getBlock() == Blocks.STONE) {
+                } else if (iblockstate2.getBlock() == Blocks.STONE || iblockstate2.getBlock() == ModBlocks.SUGAR_BLOCK) {
                     if (j == -1) {
-                        if (fillerToPlace <= 0) {
-                            topState = AIR;
-                            fillerState = STONE;
-                        } else if (currentY >= seaLevel - 4 && currentY <= seaLevel + 1) {
+                        if (currentY >= seaLevel - 4 && currentY <= seaLevel + 1) {
                             topState = this.topBlock.withProperty(ModBlockProperties.GUMMY_TYPE, gummy_color);
                             fillerState = this.fillerBlock.withProperty(ModBlockProperties.GUMMY_TYPE, gummy_color);
                         }
@@ -104,8 +100,6 @@ public class BiomeGummy extends ModBiome {
                         if (currentY >= seaLevel - 1) {
                             chunkPrimerIn.setBlockState(chunkX, currentY, chunkZ, topState);
                         } else if (currentY < seaLevel - 7 - fillerToPlace) {
-                            topState = AIR;
-                            fillerState = STONE;
                             chunkPrimerIn.setBlockState(chunkX, currentY, chunkZ, GRAVEL);
                         } else {
                             chunkPrimerIn.setBlockState(chunkX, currentY, chunkZ, fillerState);

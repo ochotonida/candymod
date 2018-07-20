@@ -29,7 +29,7 @@ public class ModRecipes {
         if (!Loader.isModLoaded("harvestcraft")) {
             GameRegistry.addShapelessRecipe(new ResourceLocation("butter"), MODRECIPES_GROUP, new ItemStack(ModItems.BUTTER, 1), Ingredient.fromItem(Items.MILK_BUCKET));
         } else {
-            CandyMod.LOGGER.info("harvestcraft detected, disabling recipe(s)");
+            CandyMod.LOGGER.info("harvestcraft detected, changing recipe(s)");
         }
     }
 
@@ -38,5 +38,6 @@ public class ModRecipes {
         OreDictionary.registerOre("crystalSugar", ModItems.SUGAR_ROCK);
         OreDictionary.registerOre("blockCrystalSugar", ModBlocks.SUGAR_BLOCK);
         OreDictionary.registerOre("blockSugar", ModBlocks.SUGAR_SAND);
+        OreDictionary.registerOre("stickWood", ModItems.WAFER_STICK);
     }
 }
