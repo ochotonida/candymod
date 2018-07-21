@@ -69,8 +69,12 @@ public class WorldGenGummyWorm extends WorldGenerator {
 
         state = state.withProperty(ModBlockProperties.AXIS, EnumAxis.fromFacingAxis(direction.getAxis()));
         for (int i = 0; i <= 2 + rand.nextInt(2); i++) {
-            pos = pos.offset(direction);
-            worldIn.setBlockState(pos, state, 2 | 16);
+            if (worldIn.isBlockLoaded(pos.offset(direction))) {
+                pos = pos.offset(direction);
+                worldIn.setBlockState(pos, state, 2 | 16);
+            } else {
+                break;
+            }
         }
 
         state = state.withProperty(ModBlockProperties.AXIS, EnumAxis.Y);
@@ -106,6 +110,11 @@ public class WorldGenGummyWorm extends WorldGenerator {
                 }
                 hasTurned = true;
             }
+
+            if (!worldIn.isBlockLoaded(pos.offset(direction))) {
+                break;
+            }
+
 
             // fall
             while (worldIn.isAirBlock(pos.down())) {
