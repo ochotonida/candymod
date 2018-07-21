@@ -15,7 +15,8 @@ import com.ochotonida.candymod.block.gummy.BlockGummy;
 import com.ochotonida.candymod.block.gummy.BlockGummySolid;
 import com.ochotonida.candymod.block.gummy.BlockGummyWorm;
 import com.ochotonida.candymod.block.gummy.ItemBlockGummy;
-import com.ochotonida.candymod.block.various.BlockCookieOre;
+import com.ochotonida.candymod.block.ore.BlockCookieOre;
+import com.ochotonida.candymod.block.ore.ItemBlockCookieOre;
 import com.ochotonida.candymod.block.various.BlockSugar;
 import com.ochotonida.candymod.block.various.BlockSugarSand;
 import com.ochotonida.candymod.block.various.BlockWaferStick;
@@ -33,7 +34,6 @@ public class ModBlocks {
 
     // Blocks
     public static final BlockChocolateSapling CHOCOLATE_SAPLING = new BlockChocolateSapling();
-    public static final BlockCookieOre COOKIE_ORE = new BlockCookieOre();
     public static final BlockCottonCandyLeaves COTTON_CANDY_LEAVES = new BlockCottonCandyLeaves();
     public static final BlockCottonCandyPlant COTTON_CANDY_PLANT = new BlockCottonCandyPlant();
     public static final BlockCottonCandySapling COTTON_CANDY_SAPLING = new BlockCottonCandySapling();
@@ -51,6 +51,7 @@ public class ModBlocks {
     public static final BlockChocolateMushroom CHOCOLATE_MUSHROOM = new BlockChocolateMushroom();
     public static final BlockChocolate CHOCOLATE_BLOCK = new BlockChocolate(Material.ROCK, "chocolate_block");
     public static final BlockChocolate CHOCOLATE_BRICK = new BlockChocolate(Material.ROCK, "chocolate_brick_block");
+    public static final BlockCookieOre COOKIE_ORE = new BlockCookieOre();
     public static final BlockGummy GUMMY_BLOCK = new BlockGummy();
     public static final BlockGummySolid HARDENED_GUMMY_BLOCK = new BlockGummySolid();
     public static final BlockGummyWorm GUMMY_WORM_BLOCK = new BlockGummyWorm();
@@ -63,6 +64,7 @@ public class ModBlocks {
     public static final ItemBlockChocolateMushroom CHOCOLATE_MUSHROOM_IB = new ItemBlockChocolateMushroom();
     public static final ItemBlockChocolate CHOCOLATE_BLOCK_IB = new ItemBlockChocolate(CHOCOLATE_BLOCK);
     public static final ItemBlockChocolate CHOCOLATE_BRICK_IB = new ItemBlockChocolate(CHOCOLATE_BRICK);
+    public static final ItemBlockCookieOre COOKIE_ORE_IB = new ItemBlockCookieOre();
     public static final ItemBlockGummy GUMMY_BLOCK_IB = new ItemBlockGummy(GUMMY_BLOCK);
     public static final ItemBlockGummy HARDENED_GUMMY_IB = new ItemBlockGummy(HARDENED_GUMMY_BLOCK);
     public static final ItemBlockGummy GUMMY_WORM_IB = new ItemBlockGummy(GUMMY_WORM_BLOCK);
@@ -100,7 +102,6 @@ public class ModBlocks {
      */
     static void registerItemBlocks(IForgeRegistry<Item> registry) {
         registry.registerAll(
-                COOKIE_ORE.createItemBlock(),
                 COTTON_CANDY_LEAVES.createItemBlock(),
                 COTTON_CANDY_PLANT.createItemBlock(),
                 COTTON_CANDY_SAPLING.createItemBlock(),
@@ -116,6 +117,7 @@ public class ModBlocks {
                 CHOCOLATE_MUSHROOM_IB,
                 CHOCOLATE_BLOCK_IB,
                 CHOCOLATE_BRICK_IB,
+                COOKIE_ORE_IB,
                 GUMMY_BLOCK_IB,
                 HARDENED_GUMMY_IB,
                 GUMMY_WORM_IB
@@ -133,7 +135,6 @@ public class ModBlocks {
      * Register all ItemBlock models
      */
     static void registerModels() {
-        registerModel(COOKIE_ORE, "block/cookie_ore_block");
         registerModel(COTTON_CANDY_PLANT, "block/sugar/cotton_candy_plant_block");
         registerModel(COTTON_CANDY_LEAVES, "block/sugar/cotton_candy_leaves_block");
         registerModel(COTTON_CANDY_SAPLING, "block/sugar/cotton_candy_sapling_block");
@@ -144,6 +145,11 @@ public class ModBlocks {
         registerModel(WAFER_STICK, "block/wafer_stick_block");
 
         ModelResourceLocation itemMRL;
+
+        itemMRL = new ModelResourceLocation("candymod:block/ore/cookie_ore_block");
+        ModelLoader.setCustomModelResourceLocation(COOKIE_ORE_IB, 0, itemMRL);
+        itemMRL = new ModelResourceLocation("candymod:block/ore/cookie_ore_block_sugar");
+        ModelLoader.setCustomModelResourceLocation(COOKIE_ORE_IB, 1, itemMRL);
 
         // Candy Cane based blocks
         for (EnumCandyCane enumcandycane : EnumCandyCane.values()) {

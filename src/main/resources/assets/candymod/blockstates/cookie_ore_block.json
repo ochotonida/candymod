@@ -1,7 +1,10 @@
 {
   "variants": {
-    "normal": {
-      "model": "candymod:cookie_ore_block"
+    "sugar_variant=false": {
+      "model": "candymod:ore/cookie_ore_block"
+    },
+    "sugar_variant=true": {
+      "model": "candymod:ore/cookie_ore_block_sugar"
     }
   }
 }
