@@ -118,6 +118,7 @@ public class BiomeGummy extends ModBiome {
         public WorldGenerator gummyWormgen = new WorldGenGummyWorm();
 
         @Override
+        @ParametersAreNonnullByDefault
         protected void genBiomeDecorations(World worldIn, Random rand) {
             for (int i = 0; i < 2; i++) {
                 int x = rand.nextInt(16) + 8;

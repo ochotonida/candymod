@@ -4,7 +4,6 @@ import com.ochotonida.candymod.ModBlocks;
 import com.ochotonida.candymod.block.ModBlockProperties;
 import com.ochotonida.candymod.enums.EnumChocolate;
 import com.ochotonida.candymod.world.dimension.WorldProviderCandyWorld;
-import com.ochotonida.candymod.world.worldgen.WorldGenCaveChocolate;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -31,13 +30,8 @@ public class DecoratorBase extends BiomeDecorator {
     protected WorldGenerator sugarBlockGen;
     protected WorldGenerator cookieGen;
     protected WorldGenerator sugarSandGen;
-    protected WorldGenerator caveChocolateGen = new WorldGenCaveChocolate();
     @Nullable
     protected WorldGenerator spikesGen;
-
-    protected int caveChocolateAmount = 5;
-
-    protected boolean generateCaveChocolate;
 
     @Override
     @ParametersAreNonnullByDefault
@@ -103,17 +97,10 @@ public class DecoratorBase extends BiomeDecorator {
 
         if (TerrainGen.decorate(worldIn, rand, chunkPos, DecorateBiomeEvent.Decorate.EventType.CUSTOM)) {
             genBiomeDecorations(worldIn, rand);
-
-            if (generateCaveChocolate) {
-                for (int i = 0; i < this.caveChocolateAmount; i++) {
-                    int j = rand.nextInt(16) + 8;
-                    int k = rand.nextInt(16) + 8;
-                    caveChocolateGen.generate(worldIn, rand, chunkPos.add(j, 0, k));
-                }
-            }
         }
     }
 
+    @ParametersAreNonnullByDefault
     protected void genBiomeDecorations(World worldIn, Random rand) {
     }
 
@@ -122,33 +109,51 @@ public class DecoratorBase extends BiomeDecorator {
     protected void generateOres(World worldIn, Random rand) {
         net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new OreGenEvent.Pre(worldIn, rand, chunkPos));
 
-        if (TerrainGen.generateOre(worldIn, rand, soilMilkGen, chunkPos, EventType.CUSTOM))
-            this.genStandardOre1(worldIn, rand, 1, soilMilkGen, 20, 40);
-        if (TerrainGen.generateOre(worldIn, rand, soilWhiteGen, chunkPos, EventType.CUSTOM))
-            this.genStandardOre1(worldIn, rand, 1, soilWhiteGen, 40, 64);
-        if (TerrainGen.generateOre(worldIn, rand, soilDarkGen, chunkPos, EventType.CUSTOM))
-            this.genStandardOre1(worldIn, rand, 1, soilDarkGen, 0, 25);
-        if (TerrainGen.generateOre(worldIn, rand, sugarBlockGen, chunkPos, EventType.CUSTOM))
-            this.genStandardOre1(worldIn, rand, 2, sugarBlockGen, 0, 30);
-        if (TerrainGen.generateOre(worldIn, rand, cookieGen, chunkPos, EventType.CUSTOM)) {
-            this.genStandardOre1(worldIn, rand, 200, cookieGen, 31, 32);
-            this.genStandardOre2(worldIn, rand, 25, cookieGen, 32, 32);
-        }
-        if (TerrainGen.generateOre(worldIn, rand, sugarSandGen, chunkPos, EventType.CUSTOM))
-            this.genStandardOre1(worldIn, rand, 5, sugarSandGen, 0, 256);
+        generateCustomOres(worldIn, rand);
 
-        if (TerrainGen.generateOre(worldIn, rand, coalGen, chunkPos, EventType.COAL))
-            this.genStandardOre1(worldIn, rand, this.chunkProviderSettings.coalCount, this.coalGen, this.chunkProviderSettings.coalMinHeight, this.chunkProviderSettings.coalMaxHeight);
-        if (TerrainGen.generateOre(worldIn, rand, ironGen, chunkPos, EventType.IRON))
-            this.genStandardOre1(worldIn, rand, this.chunkProviderSettings.ironCount, this.ironGen, this.chunkProviderSettings.ironMinHeight, this.chunkProviderSettings.ironMaxHeight);
-        if (TerrainGen.generateOre(worldIn, rand, goldGen, chunkPos, EventType.GOLD))
-            this.genStandardOre1(worldIn, rand, this.chunkProviderSettings.goldCount, this.goldGen, this.chunkProviderSettings.goldMinHeight, this.chunkProviderSettings.goldMaxHeight);
-        if (TerrainGen.generateOre(worldIn, rand, redstoneGen, chunkPos, EventType.REDSTONE))
-            this.genStandardOre1(worldIn, rand, this.chunkProviderSettings.redstoneCount, this.redstoneGen, this.chunkProviderSettings.redstoneMinHeight, this.chunkProviderSettings.redstoneMaxHeight);
-        if (TerrainGen.generateOre(worldIn, rand, diamondGen, chunkPos, EventType.DIAMOND))
-            this.genStandardOre1(worldIn, rand, this.chunkProviderSettings.diamondCount, this.diamondGen, this.chunkProviderSettings.diamondMinHeight, this.chunkProviderSettings.diamondMaxHeight);
-        if (TerrainGen.generateOre(worldIn, rand, lapisGen, chunkPos, EventType.LAPIS))
-            this.genStandardOre2(worldIn, rand, this.chunkProviderSettings.lapisCount, this.lapisGen, this.chunkProviderSettings.lapisCenterHeight, this.chunkProviderSettings.lapisSpread);
+        if (!(worldIn.provider instanceof WorldProviderCandyWorld)) {
+            if (TerrainGen.generateOre(worldIn, rand, coalGen, chunkPos, EventType.COAL)) {
+                this.genStandardOre1(worldIn, rand, this.chunkProviderSettings.coalCount, this.coalGen, this.chunkProviderSettings.coalMinHeight, this.chunkProviderSettings.coalMaxHeight);
+            }
+            if (TerrainGen.generateOre(worldIn, rand, ironGen, chunkPos, EventType.IRON)) {
+                this.genStandardOre1(worldIn, rand, this.chunkProviderSettings.ironCount, this.ironGen, this.chunkProviderSettings.ironMinHeight, this.chunkProviderSettings.ironMaxHeight);
+            }
+            if (TerrainGen.generateOre(worldIn, rand, goldGen, chunkPos, EventType.GOLD)) {
+                this.genStandardOre1(worldIn, rand, this.chunkProviderSettings.goldCount, this.goldGen, this.chunkProviderSettings.goldMinHeight, this.chunkProviderSettings.goldMaxHeight);
+            }
+            if (TerrainGen.generateOre(worldIn, rand, redstoneGen, chunkPos, EventType.REDSTONE)) {
+                this.genStandardOre1(worldIn, rand, this.chunkProviderSettings.redstoneCount, this.redstoneGen, this.chunkProviderSettings.redstoneMinHeight, this.chunkProviderSettings.redstoneMaxHeight);
+            }
+            if (TerrainGen.generateOre(worldIn, rand, diamondGen, chunkPos, EventType.DIAMOND)) {
+                this.genStandardOre1(worldIn, rand, this.chunkProviderSettings.diamondCount, this.diamondGen, this.chunkProviderSettings.diamondMinHeight, this.chunkProviderSettings.diamondMaxHeight);
+            }
+            if (TerrainGen.generateOre(worldIn, rand, lapisGen, chunkPos, EventType.LAPIS)) {
+                this.genStandardOre2(worldIn, rand, this.chunkProviderSettings.lapisCount, this.lapisGen, this.chunkProviderSettings.lapisCenterHeight, this.chunkProviderSettings.lapisSpread);
+            }
+        }
+
         net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new OreGenEvent.Post(worldIn, rand, chunkPos));
+    }
+
+    @ParametersAreNonnullByDefault
+    protected void generateCustomOres(World worldIn, Random rand) {
+        if (TerrainGen.generateOre(worldIn, rand, soilMilkGen, chunkPos, EventType.CUSTOM)) {
+            this.genStandardOre1(worldIn, rand, 1, soilMilkGen, 20, 40);
+        }
+        if (TerrainGen.generateOre(worldIn, rand, soilWhiteGen, chunkPos, EventType.CUSTOM)) {
+            this.genStandardOre1(worldIn, rand, 1, soilWhiteGen, 40, 64);
+        }
+        if (TerrainGen.generateOre(worldIn, rand, soilDarkGen, chunkPos, EventType.CUSTOM)) {
+            this.genStandardOre1(worldIn, rand, 1, soilDarkGen, 0, 25);
+        }
+        if (TerrainGen.generateOre(worldIn, rand, sugarBlockGen, chunkPos, EventType.CUSTOM)) {
+            this.genStandardOre1(worldIn, rand, 2, sugarBlockGen, 0, 30);
+        }
+        if (TerrainGen.generateOre(worldIn, rand, cookieGen, chunkPos, EventType.CUSTOM)) {
+            this.genStandardOre2(worldIn, rand, 50, cookieGen, 32, 45);
+        }
+        if (TerrainGen.generateOre(worldIn, rand, sugarSandGen, chunkPos, EventType.CUSTOM)) {
+            this.genStandardOre1(worldIn, rand, 5, sugarSandGen, 0, 256);
+        }
     }
 }

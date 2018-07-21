@@ -72,7 +72,7 @@ public class BiomeCottonCandy extends ModBiome {
         @Override
         protected void initDimensionWorldGens() {
             super.initDimensionWorldGens();
-            spikesGen = new WorldGenBiomeSpikes(BiomeCottonCandy.this, 3, 12, 12, ModBlocks.CHOCOLATE_BLOCK.getStateFromMeta(EnumChocolate.MILK.getMetadata()));
+            spikesGen = new WorldGenBiomeSpikes(BiomeCottonCandy.this, 3, 12, 30, ModBlocks.CHOCOLATE_BLOCK.getStateFromMeta(EnumChocolate.MILK.getMetadata()));
         }
     }
 }
