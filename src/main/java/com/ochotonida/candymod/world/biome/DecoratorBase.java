@@ -24,14 +24,19 @@ import java.util.Random;
 
 public class DecoratorBase extends BiomeDecorator {
 
+    @Nullable
     protected WorldGenerator soilMilkGen;
+    @Nullable
     protected WorldGenerator soilWhiteGen;
+    @Nullable
     protected WorldGenerator soilDarkGen;
+    @Nullable
+    protected WorldGenerator chocolateBlockGen;
+    @Nullable
+    protected WorldGenerator spikesGen;
     protected WorldGenerator sugarBlockGen;
     protected WorldGenerator cookieGen;
     protected WorldGenerator sugarSandGen;
-    @Nullable
-    protected WorldGenerator spikesGen;
 
     @Override
     @ParametersAreNonnullByDefault
@@ -58,7 +63,7 @@ public class DecoratorBase extends BiomeDecorator {
         this.soilWhiteGen = new WorldGenMinable(ModBlocks.CANDY_SOIL.getDefaultState().withProperty(ModBlockProperties.CHOCOLATE_TYPE, EnumChocolate.WHITE), 25, BlockMatcher.forBlock(ModBlocks.SUGAR_BLOCK));
         this.soilDarkGen = new WorldGenMinable(ModBlocks.CANDY_SOIL.getDefaultState().withProperty(ModBlockProperties.CHOCOLATE_TYPE, EnumChocolate.DARK), 25, BlockMatcher.forBlock(ModBlocks.SUGAR_BLOCK));
         this.sugarBlockGen = new WorldGenMinable(ModBlocks.SUGAR_BLOCK.getDefaultState(), 0);
-        this.cookieGen = new WorldGenMinable(ModBlocks.COOKIE_ORE.getDefaultState(), 3, BlockMatcher.forBlock(ModBlocks.SUGAR_BLOCK));
+        this.cookieGen = new WorldGenMinable(ModBlocks.COOKIE_ORE.getDefaultState().withProperty(ModBlockProperties.IS_SUGAR_VARIANT, true), 3, BlockMatcher.forBlock(ModBlocks.SUGAR_BLOCK));
         this.sugarSandGen = new WorldGenMinable(ModBlocks.SUGAR_SAND.getDefaultState(), 20, BlockMatcher.forBlock(ModBlocks.SUGAR_BLOCK));
 
         this.coalGen = new WorldGenMinable(Blocks.COAL_ORE.getDefaultState(), 0);
@@ -75,7 +80,7 @@ public class DecoratorBase extends BiomeDecorator {
         this.soilDarkGen = new WorldGenMinable(ModBlocks.CANDY_SOIL.getDefaultState().withProperty(ModBlockProperties.CHOCOLATE_TYPE, EnumChocolate.DARK), 25);
         this.sugarBlockGen = new WorldGenMinable(ModBlocks.SUGAR_BLOCK.getDefaultState(), 20);
         this.cookieGen = new WorldGenMinable(ModBlocks.COOKIE_ORE.getDefaultState(), 3);
-        this.sugarSandGen = new WorldGenMinable(ModBlocks.SUGAR_SAND.getDefaultState(), 20);
+        this.sugarSandGen = new WorldGenMinable(ModBlocks.SUGAR_SAND.getDefaultState(), 30);
 
         this.coalGen = new WorldGenMinable(Blocks.COAL_ORE.getDefaultState(), this.chunkProviderSettings.coalSize);
         this.ironGen = new WorldGenMinable(Blocks.IRON_ORE.getDefaultState(), this.chunkProviderSettings.ironSize);
@@ -137,23 +142,46 @@ public class DecoratorBase extends BiomeDecorator {
 
     @ParametersAreNonnullByDefault
     protected void generateCustomOres(World worldIn, Random rand) {
-        if (TerrainGen.generateOre(worldIn, rand, soilMilkGen, chunkPos, EventType.CUSTOM)) {
-            this.genStandardOre1(worldIn, rand, 1, soilMilkGen, 20, 40);
+
+        if (chocolateBlockGen != null && TerrainGen.generateOre(worldIn, rand, chocolateBlockGen, chunkPos, EventType.CUSTOM)) {
+            this.genStandardOre2(worldIn, rand, 4, chocolateBlockGen, 10, 30);
         }
-        if (TerrainGen.generateOre(worldIn, rand, soilWhiteGen, chunkPos, EventType.CUSTOM)) {
-            this.genStandardOre1(worldIn, rand, 1, soilWhiteGen, 40, 64);
-        }
-        if (TerrainGen.generateOre(worldIn, rand, soilDarkGen, chunkPos, EventType.CUSTOM)) {
-            this.genStandardOre1(worldIn, rand, 1, soilDarkGen, 0, 25);
-        }
-        if (TerrainGen.generateOre(worldIn, rand, sugarBlockGen, chunkPos, EventType.CUSTOM)) {
-            this.genStandardOre1(worldIn, rand, 2, sugarBlockGen, 0, 30);
-        }
-        if (TerrainGen.generateOre(worldIn, rand, cookieGen, chunkPos, EventType.CUSTOM)) {
-            this.genStandardOre2(worldIn, rand, 50, cookieGen, 32, 45);
-        }
-        if (TerrainGen.generateOre(worldIn, rand, sugarSandGen, chunkPos, EventType.CUSTOM)) {
-            this.genStandardOre1(worldIn, rand, 5, sugarSandGen, 0, 256);
+
+        if (worldIn.provider instanceof WorldProviderCandyWorld) {
+            if (TerrainGen.generateOre(worldIn, rand, sugarSandGen, chunkPos, EventType.CUSTOM)) {
+                this.genStandardOre1(worldIn, rand, 20, sugarSandGen, 0, 256);
+            }
+            if (soilMilkGen != null && TerrainGen.generateOre(worldIn, rand, soilMilkGen, chunkPos, EventType.CUSTOM)) {
+                this.genStandardOre1(worldIn, rand, 16, soilMilkGen, 0, 256);
+            }
+            if (soilWhiteGen != null && TerrainGen.generateOre(worldIn, rand, soilWhiteGen, chunkPos, EventType.CUSTOM)) {
+                this.genStandardOre1(worldIn, rand, 16, soilWhiteGen, 0, 256);
+            }
+            if (soilDarkGen != null && TerrainGen.generateOre(worldIn, rand, soilDarkGen, chunkPos, EventType.CUSTOM)) {
+                this.genStandardOre1(worldIn, rand, 16, soilDarkGen, 0, 256);
+            }
+            if (TerrainGen.generateOre(worldIn, rand, cookieGen, chunkPos, EventType.CUSTOM)) {
+                this.genStandardOre2(worldIn, rand, 80, cookieGen, 32, 45);
+            }
+        } else {
+            if (TerrainGen.generateOre(worldIn, rand, cookieGen, chunkPos, EventType.CUSTOM)) {
+                this.genStandardOre2(worldIn, rand, 50, cookieGen, 32, 45);
+            }
+            if (TerrainGen.generateOre(worldIn, rand, sugarSandGen, chunkPos, EventType.CUSTOM)) {
+                this.genStandardOre1(worldIn, rand, 5, sugarSandGen, 0, 256);
+            }
+            if (TerrainGen.generateOre(worldIn, rand, sugarBlockGen, chunkPos, EventType.CUSTOM)) {
+                this.genStandardOre1(worldIn, rand, 2, sugarBlockGen, 0, 30);
+            }
+            if (soilMilkGen != null && TerrainGen.generateOre(worldIn, rand, soilMilkGen, chunkPos, EventType.CUSTOM)) {
+                this.genStandardOre1(worldIn, rand, 1, soilMilkGen, 20, 40);
+            }
+            if (soilWhiteGen != null && TerrainGen.generateOre(worldIn, rand, soilWhiteGen, chunkPos, EventType.CUSTOM)) {
+                this.genStandardOre1(worldIn, rand, 1, soilWhiteGen, 40, 64);
+            }
+            if (soilDarkGen != null && TerrainGen.generateOre(worldIn, rand, soilDarkGen, chunkPos, EventType.CUSTOM)) {
+                this.genStandardOre1(worldIn, rand, 1, soilDarkGen, 0, 25);
+            }
         }
     }
 }

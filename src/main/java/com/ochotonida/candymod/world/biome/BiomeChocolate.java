@@ -12,6 +12,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
@@ -89,6 +90,7 @@ public class BiomeChocolate extends ModBiome {
                     ModBlocks.CHOCOLATE_BLOCK.getDefaultState().withProperty(CHOCOLATE_TYPE, EnumChocolate.WHITE),
                     ModBlocks.CHOCOLATE_BLOCK.getDefaultState().withProperty(CHOCOLATE_TYPE, EnumChocolate.DARK));
             caveChocolateGen = new WorldGenCaveChocolate();
+            chocolateBlockGen = new WorldGenMinable(ModBlocks.CHOCOLATE_BLOCK.getStateFromMeta(EnumChocolate.MILK.getMetadata()), 20);
         }
 
         @Override

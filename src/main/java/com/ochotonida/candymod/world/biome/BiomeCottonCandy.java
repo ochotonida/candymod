@@ -12,6 +12,7 @@ import com.ochotonida.candymod.world.worldgen.WorldGenCottonCandyTree;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 import javax.annotation.Nonnull;
@@ -67,12 +68,14 @@ public class BiomeCottonCandy extends ModBiome {
         protected void initOverworldWorldGens() {
             super.initOverworldWorldGens();
             spikesGen = new WorldGenBiomeSpikes(BiomeCottonCandy.this, 3, 8, 8, ModBlocks.SUGAR_BLOCK.getDefaultState());
+            chocolateBlockGen = new WorldGenMinable(ModBlocks.CHOCOLATE_BLOCK.getStateFromMeta(EnumChocolate.MILK.getMetadata()), 20);
         }
 
         @Override
         protected void initDimensionWorldGens() {
             super.initDimensionWorldGens();
-            spikesGen = new WorldGenBiomeSpikes(BiomeCottonCandy.this, 3, 12, 30, ModBlocks.CHOCOLATE_BLOCK.getStateFromMeta(EnumChocolate.MILK.getMetadata()));
+            spikesGen = new WorldGenBiomeSpikes(BiomeCottonCandy.this, 5, 12, 24, ModBlocks.CHOCOLATE_BLOCK.getStateFromMeta(EnumChocolate.MILK.getMetadata()));
+            chocolateBlockGen = new WorldGenMinable(ModBlocks.CHOCOLATE_BLOCK.getStateFromMeta(EnumChocolate.MILK.getMetadata()), 20);
         }
     }
 }
