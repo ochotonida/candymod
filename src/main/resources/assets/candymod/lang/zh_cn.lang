@@ -1,4 +1,3 @@
-tile.candy_grass_block.name=Covered Brownie
 tile.candy_grass_block:milk.name=棉花糖草方块
 tile.candy_grass_block:white.name=覆盖巧克力的'白巧克力松饼'
 tile.cotton_candy_plant_block.name=棉花糖植株
@@ -16,10 +15,6 @@ tile.candy_soil_block.name=巧克力松饼块
 tile.candy_soil_block:milk.name=牛奶巧克力松饼块
 tile.candy_soil_block:white.name='白巧克力松饼' 块
 tile.candy_soil_block:dark.name=黑巧克力松饼块
-tile.chocolate_bar_block.name=Chocolate Bar
-tile.chocolate_bar_block:milk.name=Milk Chocolate Bar
-tile.chocolate_bar_block.white.name=White Chocolate Bar
-tile.chocolate_bar_block.dark=Dark Chocolate Bar
 tile.chocolate_leaves_block:milk.name=牛奶巧克力树叶
 tile.chocolate_leaves_block:white.name=白巧克力树叶
 tile.chocolate_leaves_block:dark.name=黒巧克力树叶
