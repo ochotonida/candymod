@@ -67,7 +67,7 @@ public abstract class ModBiome extends Biome {
                         }
 
                         if (j1 < i && (iblockstate == null || iblockstate.getMaterial() == Material.AIR)) {
-                            iblockstate = WATER;
+                            iblockstate = worldIn.provider instanceof WorldProviderCandyWorld ? ModBlocks.LIQUID_CHOCOLATE_BLOCK.getDefaultState() : WATER;
                         }
 
                         j = k;

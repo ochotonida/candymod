@@ -6,6 +6,7 @@ import com.ochotonida.candymod.block.ModBlockProperties;
 import com.ochotonida.candymod.entity.EntityGummyBear;
 import com.ochotonida.candymod.entity.EntityGummyMouse;
 import com.ochotonida.candymod.enums.EnumGummy;
+import com.ochotonida.candymod.world.dimension.WorldProviderCandyWorld;
 import com.ochotonida.candymod.world.worldgen.WorldGenGummyWorm;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -91,7 +92,7 @@ public class BiomeGummy extends ModBiome {
                             if (this.getTemperature(blockpos$mutableblockpos.setPos(x, currentY, z)) < 0.15F) {
                                 topState = ICE;
                             } else {
-                                topState = WATER;
+                                topState = worldIn.provider instanceof WorldProviderCandyWorld ? ModBlocks.LIQUID_CHOCOLATE_BLOCK.getDefaultState() : WATER;
                             }
                         }
 

@@ -5,7 +5,6 @@ import com.ochotonida.candymod.world.worldgen.MapGenCustomCaves;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -17,7 +16,9 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
+import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -28,7 +29,7 @@ import java.util.Random;
 public class ChunkGeneratorCandyWorld implements IChunkGenerator {
 
     public static final IBlockState ROCK = ModBlocks.SUGAR_BLOCK.getDefaultState();
-    public static final IBlockState OCEAN_BLOCK = Blocks.WATER.getDefaultState();
+    public static final IBlockState OCEAN_BLOCK = ModBlocks.LIQUID_CHOCOLATE_BLOCK.getDefaultState();
     private final Random rand;
     private NoiseGeneratorOctaves minLimitPerlinNoise;
     private NoiseGeneratorOctaves maxLimitPerlinNoise;
@@ -289,24 +290,24 @@ public class ChunkGeneratorCandyWorld implements IChunkGenerator {
 
         ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, x, z, false);
 
-        /*
+        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, false, PopulateChunkEvent.Populate.EventType.CUSTOM))
         if (this.rand.nextInt(25) == 0) {
-            int i1 = this.rand.nextInt(16) + 8;
-            int j1 = this.rand.nextInt(256);
-            int k1 = this.rand.nextInt(16) + 8;
-            (new WorldGenLakes(OCEAN_BLOCK.getBlock())).generate(this.world, this.rand, blockpos.add(i1, j1, k1));
+            int x0 = this.rand.nextInt(16) + 8;
+            int y0 = this.rand.nextInt(256);
+            int z0 = this.rand.nextInt(16) + 8;
+            (new WorldGenLakes(OCEAN_BLOCK.getBlock())).generate(this.world, this.rand, blockpos.add(x0, y0, z0));
         }
 
-        if (this.rand.nextInt(8) == 0) {
-            int i2 = this.rand.nextInt(16) + 8;
-            int l2 = this.rand.nextInt(this.rand.nextInt(248) + 8);
-            int k3 = this.rand.nextInt(16) + 8;
+        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, false, PopulateChunkEvent.Populate.EventType.CUSTOM))
+            if (this.rand.nextInt(8) == 0) {
+                int x0 = this.rand.nextInt(16) + 8;
+                int y0 = this.rand.nextInt(this.rand.nextInt(248) + 8);
+                int z0 = this.rand.nextInt(16) + 8;
 
-            if (l2 < this.world.getSeaLevel() || this.rand.nextInt(10) == 0) {
-                (new WorldGenLakes(Blocks.LAVA)).generate(this.world, this.rand, blockpos.add(i2, l2, k3));
+                if (y0 < this.world.getSeaLevel()) {
+                    (new WorldGenLakes(OCEAN_BLOCK.getBlock())).generate(this.world, this.rand, blockpos.add(x0, y0, z0));
+                }
             }
-        }
-        */
 
         biome.decorate(this.world, this.rand, new BlockPos(i, 0, j));
         WorldEntitySpawner.performWorldGenSpawning(this.world, biome, i + 8, j + 8, 16, 16, this.rand);

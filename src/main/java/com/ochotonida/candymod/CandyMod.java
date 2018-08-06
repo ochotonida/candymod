@@ -1,5 +1,6 @@
 package com.ochotonida.candymod;
 
+import com.ochotonida.candymod.command.TeleportCommand;
 import com.ochotonida.candymod.proxy.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
@@ -9,6 +10,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -37,6 +39,10 @@ public class CandyMod {
     @SidedProxy(clientSide = "com.ochotonida.candymod.proxy.ClientProxy", serverSide = "com.ochotonida.candymod.proxy.CommonProxy")
     public static CommonProxy proxy;
 
+    static {
+        FluidRegistry.enableUniversalBucket();
+    }
+
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         LOGGER = event.getModLog();
@@ -63,7 +69,7 @@ public class CandyMod {
 
     @Mod.EventHandler
     public static void serverStarting(FMLServerStartingEvent event) {
-        //event.registerServerCommand(new TeleportCommand());
+        event.registerServerCommand(new TeleportCommand());
         if (ModConfig.preventModdedMobspawnNuclear) {
             for (ModBiomes.ModBiomeEntry biomeEntry : ModBiomes.biomeEntryList) {
                 biomeEntry.getBiome().initSpawnList();

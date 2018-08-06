@@ -1,5 +1,8 @@
 package com.ochotonida.candymod;
 
+import com.ochotonida.candymod.block.BlockSugar;
+import com.ochotonida.candymod.block.BlockSugarSand;
+import com.ochotonida.candymod.block.BlockWaferStick;
 import com.ochotonida.candymod.block.candycane.BlockCandyCane;
 import com.ochotonida.candymod.block.candycane.ItemBlockCandyCane;
 import com.ochotonida.candymod.block.candysoil.BlockCandyGrass;
@@ -17,9 +20,6 @@ import com.ochotonida.candymod.block.gummy.BlockGummyWorm;
 import com.ochotonida.candymod.block.gummy.ItemBlockGummy;
 import com.ochotonida.candymod.block.ore.BlockCookieOre;
 import com.ochotonida.candymod.block.ore.ItemBlockCookieOre;
-import com.ochotonida.candymod.block.various.BlockSugar;
-import com.ochotonida.candymod.block.various.BlockSugarSand;
-import com.ochotonida.candymod.block.various.BlockWaferStick;
 import com.ochotonida.candymod.enums.EnumCandyCane;
 import com.ochotonida.candymod.enums.EnumChocolate;
 import com.ochotonida.candymod.enums.EnumGummy;
@@ -28,11 +28,14 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.registries.IForgeRegistry;
+
+import static com.ochotonida.candymod.block.fluid.ModFluids.LIQUID_CHOCOLATE;
 
 public class ModBlocks {
 
-    // Blocks
+    // Regular blocks
     public static final BlockChocolateSapling CHOCOLATE_SAPLING = new BlockChocolateSapling();
     public static final BlockCottonCandyLeaves COTTON_CANDY_LEAVES = new BlockCottonCandyLeaves();
     public static final BlockCottonCandyPlant COTTON_CANDY_PLANT = new BlockCottonCandyPlant();
@@ -69,6 +72,10 @@ public class ModBlocks {
     public static final ItemBlockGummy HARDENED_GUMMY_IB = new ItemBlockGummy(HARDENED_GUMMY_BLOCK);
     public static final ItemBlockGummy GUMMY_WORM_IB = new ItemBlockGummy(GUMMY_WORM_BLOCK);
 
+    // fluids
+    // using Material.WATER has some shitty side effects, but its the best I can do right now
+    public static final BlockFluidClassic LIQUID_CHOCOLATE_BLOCK = (BlockFluidClassic) new BlockFluidClassic(LIQUID_CHOCOLATE, Material.WATER).setRegistryName("liquid_chocolate_block").setUnlocalizedName("liquid_chocolate_block");
+
     /**
      * Register all blocks
      */
@@ -93,7 +100,8 @@ public class ModBlocks {
                 WAFER_STICK,
                 GUMMY_BLOCK,
                 HARDENED_GUMMY_BLOCK,
-                GUMMY_WORM_BLOCK
+                GUMMY_WORM_BLOCK,
+                LIQUID_CHOCOLATE_BLOCK
         );
     }
 

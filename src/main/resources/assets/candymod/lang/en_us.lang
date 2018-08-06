@@ -70,6 +70,8 @@ item.sugar_rock.name=Sugar Crystal
 item.gummy.name=Lump of Gummy
 item.gummy_worm.name=Gummy Worm
 
+fluid.liquid_chocolate=Liquid Chocolate
+
 entity.cotton_candy_sheep.name=Cotton Candy Sheep
 entity.easter_chicken.name=Easter Chicken
 entity.gummy_mouse.name=Gummy Mouse
