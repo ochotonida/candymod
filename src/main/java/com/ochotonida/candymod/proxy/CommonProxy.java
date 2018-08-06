@@ -1,8 +1,10 @@
 package com.ochotonida.candymod.proxy;
 
+import com.ochotonida.candymod.EventHandler;
 import com.ochotonida.candymod.ModEntities;
+import com.ochotonida.candymod.block.fluid.ModFluids;
 import com.ochotonida.candymod.entity.LootTables;
-import com.ochotonida.candymod.world.TerrainEventHandlers;
+import com.ochotonida.candymod.world.dimension.Dimension;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -12,13 +14,14 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent event) {
-        //Dimension.init();
+        ModFluids.init();
         ModEntities.init();
         LootTables.init();
+        Dimension.init();
     }
 
     public void init(FMLInitializationEvent event) {
-        MinecraftForge.TERRAIN_GEN_BUS.register(new TerrainEventHandlers());
+        MinecraftForge.TERRAIN_GEN_BUS.register(new EventHandler());
     }
 
     public void postInit(FMLPostInitializationEvent event) {

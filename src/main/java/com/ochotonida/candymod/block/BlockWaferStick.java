@@ -1,7 +1,6 @@
-package com.ochotonida.candymod.block.various;
+package com.ochotonida.candymod.block;
 
 import com.ochotonida.candymod.CandyMod;
-import com.ochotonida.candymod.block.BlockStackable;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;

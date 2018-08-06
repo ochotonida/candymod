@@ -1,4 +1,4 @@
-package com.ochotonida.candymod.block.various;
+package com.ochotonida.candymod.block;
 
 import com.ochotonida.candymod.CandyMod;
 import com.ochotonida.candymod.ModItems;
