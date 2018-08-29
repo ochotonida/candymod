@@ -1,0 +1,24 @@
+{
+  "homepage": "https://minecraft.curseforge.com/projects/candy-world",
+  "1.12.2": {
+    "0.1.1": "first release",
+    "0.1.2": "added ore dictionary entries for food,\nadded butter & butter churn,\nadded recipes for crafting candy cane blocks back to candy canes,\nfixed red/green candy cane block recipe",
+    "0.2.0": "added chocolate forest biome,\nadded easter chickens,\nadded chocolate,\nadded easter eggs,\nchanged some textures,\nadded a bunch of other food and blocks,\nfixed a bug that made cotton candy saplings break when updated while planted on a brownie block,\nsome other stuff",
+    "0.2.1": "fixed a glitch that caused white and dark chocolate bar blocks to spawn as milk chocolate bar blocks,\nremoved debug features that slipped through the cracks,\nfixed in-game mod version being incorrect",
+    "0.2.2": "fixed missing texture on cotton candy leaves, plant and sapling item,\nadded cotton candy plant to creative tab,\ndid some stuff internally,\nsome other things",
+    "0.3.0": "changed ore generation under custom biomes,\nadded cookie ore,\nadded sugar block and crystallized sugar block,\nadded cotton candy bushes,\nadded gummy mice,\nchanged grass generation in cotton candy plains,\nchanged easter chicken textures,\nchanged cotton candy sapling texture,\nfixed a bug that may have broken some stuff on servers,\nfixed vanilla map colors for a couple of blocks,\nsome other things",
+    "0.3.1": "fixed a glitch that caused compatibility issues with certain mods,\nfixed a glitch that caused cookie ore to crash the game when mined with a pickaxe without fortune,\nslightly decreased the chance of biomes spawning,\nadded chocolate bar generation to caves under the chocolate forest,\nadded chocolate blocks & bricks",
+    "0.3.2": "added config with options for biome weight,\nadded crafting recipes for chocolate block/bricks,\ndecreased amount of cookies dropped from cookie ore,\nfixed cotton candy and chocolate tree leaves not decaying after destroying their trunk",
+    "0.3.3": "changed how sugar crystal blocks generate under the surface of the cotton candy plains, possibly making worldgen faster,\nre-added caves to the cotton candy plains surface,\nchocolate blocks will now generate under the surface of the chocolate forest,\nsome minor fixes,\nsome other stuff",
+    "0.4.0": "added gummy biome,\nadded various gummy blocks,\nadded various gummy items (can currently only be aqcuired through world generation),\ngummy mice will now spawn in the gummy biome,\nadded config option for disabling gummy transluscency",
+    "0.4.1": "added a config file that actually works,\nadded config options to configure mob spawning",
+    "0.4.2": "servers no longer crash instantly",
+    "0.4.3": "added gummy bears,\ngummy mice will now drop gummy of their type,\ngummy mice will now have the same color as the block they spawn on,\nmassively increased height variation for chocolate forest,\ngummy blocks will now also render in the solid layer when the graphics level is set to fast,\nchanged spawn weights for mobs back to normal values,\nadded a slightly less nuclear option for preventing other mods from spawning mobs in the new biomes,\nsome other fixes",
+    "0.4.4": "fixed a crash with primitive mobs,\nfixed gummy items having gray particles when eaten,\nremoved butter churn,\nbutter is now crafted with a bucket of milk, when pams harvestcraft is installed this recipe is disabled,\nsome other stuff",
+    "0.4.5": "fixed a crash"
+  },
+  "promos": {
+    "1.12-latest": "0.4.5",
+    "1.12-recommended": "0.4.5"
+  }
+}
