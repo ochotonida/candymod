@@ -21,7 +21,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.apache.logging.log4j.Logger;
 
 @SuppressWarnings("unused")
-@Mod(modid = CandyMod.MODID, name = CandyMod.MODNAME, version = CandyMod.MODVERSION)
+@Mod(modid = CandyMod.MODID, name = CandyMod.MODNAME, version = CandyMod.MODVERSION, updateJSON = "https://github.com/ochotonida/candymod/blob/master/src/main/resources/updateJSON.json")
 public class CandyMod {
 
     public static final String MODID = "candymod";
