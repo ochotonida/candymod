@@ -20,6 +20,15 @@ compileJava {
     sourceCompatibility = targetCompatibility = '1.8'
 }
 
+jar {
+    manifest {
+        attributes([
+                'Maven-Artifact': "${project.group}:${archivesBaseName}:${project.version}",
+                'Timestamp'     : System.currentTimeMillis()
+        ])
+    }
+}
+
 minecraft {
     version = "1.12.2-14.23.2.2654"
     runDir = "run"
