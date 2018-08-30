@@ -2,6 +2,7 @@ package com.ochotonida.candymod.world.dimension;
 
 import com.ochotonida.candymod.ModBlocks;
 import com.ochotonida.candymod.world.worldgen.MapGenCustomCaves;
+import com.ochotonida.candymod.world.worldgen.MapGenCustomRavine;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
@@ -43,6 +44,7 @@ public class ChunkGeneratorCandyWorld implements IChunkGenerator {
     private final float[] biomeWeights;
     private double[] depthBuffer = new double[256];
     private MapGenBase caveGenerator = new MapGenCustomCaves();
+    private MapGenBase ravineGenerator = new MapGenCustomRavine();
     private Biome[] biomesForGeneration;
     double[] mainNoiseRegion;
     double[] minLimitRegion;
@@ -163,8 +165,9 @@ public class ChunkGeneratorCandyWorld implements IChunkGenerator {
         this.setBlocksInChunk(x, z, chunkprimer);
         this.biomesForGeneration = this.world.getBiomeProvider().getBiomes(this.biomesForGeneration, x * 16, z * 16, 16, 16);
         this.replaceBiomeBlocks(x, z, chunkprimer, this.biomesForGeneration);
-
+        
         this.caveGenerator.generate(this.world, x, z, chunkprimer);
+        this.ravineGenerator.generate(this.world, x, z, chunkprimer);
 
         Chunk chunk = new Chunk(this.world, chunkprimer, x, z);
         byte[] abyte = chunk.getBiomeArray();
