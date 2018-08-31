@@ -21,41 +21,41 @@ public class WorldGenGummyWorm extends WorldGenerator {
 
     @Override
     @ParametersAreNonnullByDefault
-    public boolean generate(World worldIn, Random rand, BlockPos position) {
-        BlockPos surfacePos = findSurfaceBlock(worldIn, position);
+    public boolean generate(World world, Random rand, BlockPos position) {
+        BlockPos surfacePos = findSurfaceBlock(world, position);
 
-        if (worldIn.getBlockState(surfacePos).getBlock() == ModBlocks.GUMMY_WORM_BLOCK)
+        if (world.getBlockState(surfacePos).getBlock() == ModBlocks.GUMMY_WORM_BLOCK)
             return false;
 
         IBlockState state = ModBlocks.GUMMY_WORM_BLOCK.getDefaultState().withProperty(ModBlockProperties.GUMMY_TYPE, EnumGummy.random(rand));
         int r = rand.nextInt(3);
         switch (r) {
             case 0:
-                return generateWormFlat(worldIn, surfacePos, rand.nextInt(10) + 7, state, rand);
+                return generateWormFlat(world, surfacePos, rand.nextInt(10) + 7, state, rand);
             case 1:
-                return generateWormStraight(worldIn, surfacePos, rand.nextInt(12) + 6, rand.nextInt(4) + 3, state);
+                return generateWormStraight(world, surfacePos, rand.nextInt(12) + 6, rand.nextInt(4) + 3, state);
             case 2:
-                return generateWormArc(worldIn, surfacePos, state, rand);
+                return generateWormArc(world, surfacePos, state, rand);
         }
         return false;
     }
 
-    private BlockPos findSurfaceBlock(World worldIn, BlockPos position) {
+    private BlockPos findSurfaceBlock(World world, BlockPos position) {
         BlockPos pos = new BlockPos(position.getX(), 255, position.getZ());
-        while (worldIn.isAirBlock(pos)) {
+        while (isAirOrLiquid(world, pos)) {
             pos = pos.down();
         }
         return pos;
     }
 
-    private boolean generateWormStraight(World worldIn, BlockPos position, int down, int up, IBlockState state) {
+    private boolean generateWormStraight(World world, BlockPos position, int down, int up, IBlockState state) {
         for (int i = -down; i < up; i++) {
-            worldIn.setBlockState(position.up(i), state.withProperty(ModBlockProperties.AXIS, EnumAxis.Y), 2 | 16);
+            world.setBlockState(position.up(i), state.withProperty(ModBlockProperties.AXIS, EnumAxis.Y), 2 | 16);
         }
         return true;
     }
 
-    private boolean generateWormArc(World worldIn, BlockPos position, IBlockState state, Random rand) {
+    private boolean generateWormArc(World world, BlockPos position, IBlockState state, Random rand) {
         int height = rand.nextInt(2) + 2;
         int startDepth = rand.nextInt(4) + 4;
         EnumFacing direction = EnumFacing.Plane.HORIZONTAL.random(rand);
@@ -64,38 +64,38 @@ public class WorldGenGummyWorm extends WorldGenerator {
         BlockPos pos = position.down(startDepth);
         for (int i = 0; i <= height + startDepth; i++) {
             pos = pos.up();
-            worldIn.setBlockState(pos, state, 2 | 16);
+            world.setBlockState(pos, state, 2 | 16);
         }
 
         state = state.withProperty(ModBlockProperties.AXIS, EnumAxis.fromFacingAxis(direction.getAxis()));
         for (int i = 0; i <= 2 + rand.nextInt(2); i++) {
-            if (worldIn.isBlockLoaded(pos.offset(direction))) {
+            if (world.isBlockLoaded(pos.offset(direction))) {
                 pos = pos.offset(direction);
-                worldIn.setBlockState(pos, state, 2 | 16);
+                world.setBlockState(pos, state, 2 | 16);
             } else {
                 break;
             }
         }
 
         state = state.withProperty(ModBlockProperties.AXIS, EnumAxis.Y);
-        while (worldIn.isAirBlock(pos.down())) {
+        while (isAirOrLiquid(world, pos.down())) {
             pos = pos.down();
-            worldIn.setBlockState(pos, state, 2 | 16);
+            world.setBlockState(pos, state, 2 | 16);
         }
         for (int i = 0; i <= 4 + rand.nextInt(4); i++) {
             pos = pos.down();
-            worldIn.setBlockState(pos, state, 2 | 16);
+            world.setBlockState(pos, state, 2 | 16);
         }
         return true;
     }
 
-    private boolean generateWormFlat(World worldIn, BlockPos position, int length, IBlockState state, Random rand) {
+    private boolean generateWormFlat(World world, BlockPos position, int length, IBlockState state, Random rand) {
         BlockPos pos = position.up();
         EnumFacing direction = EnumFacing.Plane.HORIZONTAL.random(rand);
         int lastTurnDir = 0;
         boolean hasTurned = false;
         for (int i = 0; i <= length; i++) {
-            worldIn.setBlockState(pos, state.withProperty(ModBlockProperties.AXIS, EnumAxis.fromFacingAxis(direction.getAxis())), 2 | 16);
+            world.setBlockState(pos, state.withProperty(ModBlockProperties.AXIS, EnumAxis.fromFacingAxis(direction.getAxis())), 2 | 16);
 
             // randomly change direction
             if (hasTurned) {
@@ -111,30 +111,34 @@ public class WorldGenGummyWorm extends WorldGenerator {
                 hasTurned = true;
             }
 
-            if (!worldIn.isBlockLoaded(pos.offset(direction))) {
+            if (!world.isBlockLoaded(pos.offset(direction))) {
                 break;
             }
 
 
             // fall
-            while (worldIn.isAirBlock(pos.down())) {
+            while (isAirOrLiquid(world, pos.down())) {
                 pos = pos.down();
-                worldIn.setBlockState(pos, state.withProperty(ModBlockProperties.AXIS, EnumAxis.Y), 2 | 16);
+                world.setBlockState(pos, state.withProperty(ModBlockProperties.AXIS, EnumAxis.Y), 2 | 16);
                 i++;
             }
 
             // climb
-            while (!worldIn.isAirBlock(pos.offset(direction))) {
+            while (!isAirOrLiquid(world, pos.offset(direction))) {
                 pos = pos.up();
-                if (!worldIn.isAirBlock(pos)) {
+                if (!isAirOrLiquid(world, pos)) {
                     return true;
                 }
-                worldIn.setBlockState(pos, state.withProperty(ModBlockProperties.AXIS, EnumAxis.Y), 2 | 16);
+                world.setBlockState(pos, state.withProperty(ModBlockProperties.AXIS, EnumAxis.Y), 2 | 16);
                 i++;
             }
 
             pos = pos.offset(direction);
         }
         return true;
+    }
+
+    private boolean isAirOrLiquid(World world, BlockPos pos) {
+        return world.isAirBlock(pos) || world.getBlockState(pos).getMaterial().isLiquid();
     }
 }
