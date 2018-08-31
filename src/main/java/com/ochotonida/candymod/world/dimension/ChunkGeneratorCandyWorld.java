@@ -308,7 +308,7 @@ public class ChunkGeneratorCandyWorld implements IChunkGenerator {
                 int z0 = this.rand.nextInt(16) + 8;
 
                 if (y0 < this.world.getSeaLevel()) {
-                    (new WorldGenLakes(OCEAN_BLOCK.getBlock())).generate(this.world, this.rand, blockpos.add(x0, y0, z0));
+                    (new WorldGenLakes(ModBlocks.LIQUID_CANDY_BLOCK)).generate(this.world, this.rand, blockpos.add(x0, y0, z0));
                 }
             }
 

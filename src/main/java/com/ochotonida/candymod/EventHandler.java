@@ -42,7 +42,7 @@ public class EventHandler {
                             int z = event.getRand().nextInt(16) + 8;
 
                             if (y < event.getWorld().getSeaLevel()) {
-                                (new WorldGenLakes(ModBlocks.LIQUID_CHOCOLATE_BLOCK)).generate(event.getWorld(), event.getRand(), blockpos.add(x, y, z));
+                                (new WorldGenLakes(ModBlocks.LIQUID_CANDY_BLOCK)).generate(event.getWorld(), event.getRand(), blockpos.add(x, y, z));
                             }
                         }
                         break;

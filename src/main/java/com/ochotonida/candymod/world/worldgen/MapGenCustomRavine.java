@@ -17,8 +17,7 @@ public class MapGenCustomRavine extends MapGenRavine {
     @ParametersAreNonnullByDefault
     protected boolean isOceanBlock(ChunkPrimer data, int x, int y, int z, int chunkX, int chunkZ) {
         net.minecraft.block.Block block = data.getBlockState(x, y, z).getBlock();
-        //return block == ModBlocks.LIQUID_CHOCOLATE_BLOCK; todo
-        return false;
+        return block == ModBlocks.LIQUID_CHOCOLATE_BLOCK;
     }
 
     @Override
@@ -31,7 +30,7 @@ public class MapGenCustomRavine extends MapGenRavine {
 
         if (state.getBlock() == ModBlocks.SUGAR_BLOCK || state.getBlock() == top.getBlock() || state.getBlock() == filler.getBlock()) {
             if (y - 1 < 10) {
-                data.setBlockState(x, y, z, ModBlocks.LIQUID_CHOCOLATE_BLOCK.getDefaultState()); // TODO lava replacement
+                data.setBlockState(x, y, z, ModBlocks.LIQUID_CANDY_BLOCK.getDefaultState());
             } else {
                 data.setBlockState(x, y, z, AIR);
 

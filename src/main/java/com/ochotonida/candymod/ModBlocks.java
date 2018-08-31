@@ -31,6 +31,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.registries.IForgeRegistry;
 
+import static com.ochotonida.candymod.block.fluid.ModFluids.LIQUID_CANDY;
 import static com.ochotonida.candymod.block.fluid.ModFluids.LIQUID_CHOCOLATE;
 
 public class ModBlocks {
@@ -73,8 +74,9 @@ public class ModBlocks {
     public static final ItemBlockGummy GUMMY_WORM_IB = new ItemBlockGummy(GUMMY_WORM_BLOCK);
 
     // fluids
-    // using Material.WATER has some shitty side effects, but its the best I can do right now
+    // using Material.WATER for liquid chocolate has some shitty side effects, but its the best I can do right now
     public static final BlockFluidClassic LIQUID_CHOCOLATE_BLOCK = (BlockFluidClassic) new BlockFluidClassic(LIQUID_CHOCOLATE, Material.WATER).setRegistryName("liquid_chocolate_block").setUnlocalizedName("liquid_chocolate_block");
+    public static final BlockFluidClassic LIQUID_CANDY_BLOCK = (BlockFluidClassic) new BlockFluidClassic(LIQUID_CANDY, Material.LAVA).setQuantaPerBlock(5).setRegistryName("liquid_candy_block").setUnlocalizedName("liquid_candy_block");
 
     /**
      * Register all blocks
@@ -101,7 +103,8 @@ public class ModBlocks {
                 GUMMY_BLOCK,
                 HARDENED_GUMMY_BLOCK,
                 GUMMY_WORM_BLOCK,
-                LIQUID_CHOCOLATE_BLOCK
+                LIQUID_CHOCOLATE_BLOCK,
+                LIQUID_CANDY_BLOCK
         );
     }
 
@@ -182,7 +185,6 @@ public class ModBlocks {
             itemMRL = new ModelResourceLocation("candymod:block/chocolate/chocolate_brick_block_" + enumchocolate.getName(), "inventory");
             ModelLoader.setCustomModelResourceLocation(CHOCOLATE_BRICK_IB, enumchocolate.getMetadata(), itemMRL);
 
-            // TODO implement dark candy grass
             if (enumchocolate != EnumChocolate.DARK) {
                 itemMRL = new ModelResourceLocation("candymod:block/chocolate/candy_grass_block_" + enumchocolate.getName(), "inventory");
                 ModelLoader.setCustomModelResourceLocation(CANDY_GRASS_IB, enumchocolate.getMetadata(), itemMRL);
