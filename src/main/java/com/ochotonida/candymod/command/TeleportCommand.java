@@ -56,7 +56,7 @@ public class TeleportCommand extends CommandBase {
         }
 
         if (sender instanceof EntityPlayer) {
-            CustomTeleporter.teleportToDimension((EntityPlayer) sender, dim, 0, 100, 0);
+            //CustomTeleporter.teleport((EntityPlayer) sender, dim, 0, 100, 0);
         }
     }
 

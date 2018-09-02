@@ -1,9 +1,6 @@
 package com.ochotonida.candymod;
 
-import com.ochotonida.candymod.item.ItemCandyCane;
-import com.ochotonida.candymod.item.ItemChocolate;
-import com.ochotonida.candymod.item.ItemGummy;
-import com.ochotonida.candymod.item.ModFoodItem;
+import com.ochotonida.candymod.item.*;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -21,6 +18,7 @@ public final class ModItems {
     public static final ItemChocolate CHOCOLATE_EGG = new ItemChocolate("chocolate_egg", 7, 0.8F, "foodChocolateegg");
     public static final ItemGummy GUMMY = new ItemGummy("gummy", 5, 0.5F, "foodGummy");
     public static final ItemGummy GUMMY_WORM = new ItemGummy("gummy_worm", 5, 1F, "foodGummyworm");
+    public static final ItemTeleporter TELEPORTER = new ItemTeleporter();
 
     /**
      * register items
