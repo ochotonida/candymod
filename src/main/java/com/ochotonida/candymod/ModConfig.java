@@ -37,7 +37,7 @@ public class ModConfig {
         String comment;
 
         comment = "Dimension id to use for the candy world dimension";
-        //dimensionId = loadInt(CATEGORY_DIMENSION, "candymod.dimensionId", comment, dimensionId);
+        dimensionId = loadInt(CATEGORY_DIMENSION, "candymod.dimensionId", comment, dimensionId);
 
         comment = "Cotton candy plains biome weight. 0 to prevent generation in overworld";
         weightCottonCanyPlains = loadInt(CATEGORY_BIOMES, "candymod.weightCandyCottonPlains", comment, weightCottonCanyPlains);

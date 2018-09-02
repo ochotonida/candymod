@@ -74,7 +74,7 @@ public class ModBlocks {
     public static final ItemBlockGummy GUMMY_WORM_IB = new ItemBlockGummy(GUMMY_WORM_BLOCK);
 
     // fluids
-    // using Material.WATER for liquid chocolate has some shitty side effects, but its the best I can do right now
+    // using Material.WATER for liquid chocolate has some annoying side effects, but its the best I can do without breaking the game at the moment
     public static final BlockFluidClassic LIQUID_CHOCOLATE_BLOCK = (BlockFluidClassic) new BlockFluidClassic(LIQUID_CHOCOLATE, Material.WATER).setRegistryName("liquid_chocolate_block").setUnlocalizedName("liquid_chocolate_block");
     public static final BlockFluidClassic LIQUID_CANDY_BLOCK = (BlockFluidClassic) new BlockFluidClassic(LIQUID_CANDY, Material.LAVA).setQuantaPerBlock(5).setRegistryName("liquid_candy_block").setUnlocalizedName("liquid_candy_block");
 

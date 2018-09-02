@@ -24,9 +24,9 @@ public class ModBiomes {
     public static final BiomeGummy BIOME_GUMMY = new BiomeGummy();
 
     static void registerBiomes(RegistryEvent.Register<Biome> event) {
-        registerBiome(event, BIOME_COTTON_CANDY, BiomeType.COOL, ModConfig.weightCottonCanyPlains, PLAINS, DRY, SPARSE);
-        registerBiome(event, BIOME_CHOCOLATE, BiomeType.WARM, ModConfig.weightChocolateForest, FOREST, DENSE);
-        registerBiome(event, BIOME_GUMMY, BiomeType.WARM, ModConfig.weightGummySwamp, SWAMP, WET, HILLS);
+        registerBiome(event, BIOME_COTTON_CANDY, BiomeType.COOL, ModConfig.weightCottonCanyPlains, DRY, SPARSE, RARE);
+        registerBiome(event, BIOME_CHOCOLATE, BiomeType.WARM, ModConfig.weightChocolateForest, FOREST, DENSE, HILLS, RARE);
+        registerBiome(event, BIOME_GUMMY, BiomeType.WARM, ModConfig.weightGummySwamp, SWAMP, WET, RARE);
     }
 
     private static void registerBiome(RegistryEvent.Register<Biome> event, ModBiome biome, BiomeType type, int weight, BiomeDictionary.Type... biomeDictTypes) {
