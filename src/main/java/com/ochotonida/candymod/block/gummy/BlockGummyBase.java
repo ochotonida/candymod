@@ -21,6 +21,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nonnull;
 
@@ -42,6 +43,13 @@ public class BlockGummyBase extends Block implements IBlockColored {
         this.setCreativeTab(CandyMod.TAB_BLOCKS);
         this.setDefaultState(this.blockState.getBaseState().withProperty(GUMMY_TYPE, EnumGummy.RED));
         ClientProxy.addColoredBlock(this);
+    }
+
+    public void registerOreNames() {
+        for (EnumGummy enumGummy : EnumGummy.values()) {
+            ItemStack stack = new ItemStack(this, 1, enumGummy.getMetadata());
+            OreDictionary.registerOre("blockGummy", stack);
+        }
     }
 
     public String getName() {

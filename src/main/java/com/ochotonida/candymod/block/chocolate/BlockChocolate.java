@@ -16,20 +16,24 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import static com.ochotonida.candymod.block.ModBlockProperties.CHOCOLATE_TYPE;
 
 public class BlockChocolate extends Block {
 
     private final String name;
+    private final String oreName;
 
-    public BlockChocolate(Material material, String name) {
+    public BlockChocolate(Material material, String name, @Nullable String oreName) {
         super(material);
         this.setUnlocalizedName(name);
         this.setRegistryName(name);
         this.name = name;
+        this.oreName = oreName;
         this.setHardness(0.7F);
         this.setHarvestLevel("pickaxe", 0);
         this.setSoundType(SoundType.STONE);
@@ -39,6 +43,16 @@ public class BlockChocolate extends Block {
 
     public String getName() {
         return name;
+    }
+
+    public void registerOreNames() {
+        if (oreName == null) {
+            return;
+        }
+        for (EnumChocolate enumChocolate : EnumChocolate.values()) {
+            ItemStack stack = new ItemStack(this, 1, enumChocolate.getMetadata());
+            OreDictionary.registerOre(oreName, stack);
+        }
     }
 
     @Override

@@ -28,7 +28,7 @@ public class BlockChocolateBar extends BlockChocolate {
     private static final AxisAlignedBB AABB_EW = new AxisAlignedBB((5.5 / 16), (0.0 / 16), (2.5 / 16), (10.5 / 16), (14.5 / 16), (13.5 / 16));
 
     public BlockChocolateBar() {
-        super(Material.CAKE, "chocolate_bar_block");
+        super(Material.CAKE, "chocolate_bar_block", null);
         this.setDefaultState(this.getDefaultState().withProperty(FACING, EnumFacing.NORTH));
     }
 

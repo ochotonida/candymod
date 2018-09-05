@@ -53,8 +53,8 @@ public class ModBlocks {
     public static final BlockChocolateBar CHOCOLATE_BAR = new BlockChocolateBar();
     public static final BlockChocolateLeaves CHOCOLATE_LEAVES = new BlockChocolateLeaves();
     public static final BlockChocolateMushroom CHOCOLATE_MUSHROOM = new BlockChocolateMushroom();
-    public static final BlockChocolate CHOCOLATE_BLOCK = new BlockChocolate(Material.ROCK, "chocolate_block");
-    public static final BlockChocolate CHOCOLATE_BRICK = new BlockChocolate(Material.ROCK, "chocolate_brick_block");
+    public static final BlockChocolate CHOCOLATE_BLOCK = new BlockChocolate(Material.ROCK, "chocolate_block", "blockChocolate");
+    public static final BlockChocolate CHOCOLATE_BRICK = new BlockChocolate(Material.ROCK, "chocolate_brick_block", "blockChocolatebrick");
     public static final BlockCookieOre COOKIE_ORE = new BlockCookieOre();
     public static final BlockGummy GUMMY_BLOCK = new BlockGummy();
     public static final BlockGummySolid HARDENED_GUMMY_BLOCK = new BlockGummySolid();

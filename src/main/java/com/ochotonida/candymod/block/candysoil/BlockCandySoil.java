@@ -17,6 +17,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -37,6 +38,13 @@ public class BlockCandySoil extends Block {
         this.setHarvestLevel("shovel", 0);
 
         this.setDefaultState(this.blockState.getBaseState().withProperty(CHOCOLATE_TYPE, EnumChocolate.MILK));
+    }
+
+    public void registerOreNames() {
+        for (EnumChocolate enumChocolate : EnumChocolate.values()) {
+            ItemStack stack = new ItemStack(this, 1, enumChocolate.getMetadata());
+            OreDictionary.registerOre("blockBrownie", stack);
+        }
     }
 
     @Override

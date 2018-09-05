@@ -17,6 +17,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nonnull;
 
@@ -31,6 +32,13 @@ public class BlockCandyCane extends BlockStackable {
         this.setHarvestLevel("pickaxe", 0);
         this.setSoundType(SoundType.STONE);
         this.setDefaultState(this.blockState.getBaseState().withProperty(CANDY_CANE_TYPE, EnumCandyCane.WHITE));
+    }
+
+    public void registerOreNames() {
+        for (EnumCandyCane enumCandyCane : EnumCandyCane.values()) {
+            ItemStack stack = new ItemStack(this, 1, enumCandyCane.getMetadata());
+            OreDictionary.registerOre("blockCandycane", stack);
+        }
     }
 
     @Override

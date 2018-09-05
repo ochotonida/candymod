@@ -34,9 +34,18 @@ public class ModRecipes {
     }
 
     private static void initOreDict() {
+        // items
         ModFoodItem.initOreDict();
         OreDictionary.registerOre("crystalSugar", ModItems.SUGAR_ROCK);
-        OreDictionary.registerOre("blockCrystalSugar", ModBlocks.SUGAR_BLOCK);
+
+        // blocks
+        ModBlocks.CHOCOLATE_BLOCK.registerOreNames();
+        ModBlocks.CHOCOLATE_BRICK.registerOreNames();
+        ModBlocks.CANDY_SOIL.registerOreNames();
+        ModBlocks.GUMMY_BLOCK.registerOreNames();
+        ModBlocks.HARDENED_GUMMY_BLOCK.registerOreNames();
+        ModBlocks.GUMMY_WORM_BLOCK.registerOreNames();
+        ModBlocks.CANDY_CANE.registerOreNames();
         OreDictionary.registerOre("blockSugar", ModBlocks.SUGAR_SAND);
     }
 }
