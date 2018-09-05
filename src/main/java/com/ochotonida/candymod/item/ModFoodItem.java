@@ -69,5 +69,4 @@ public class ModFoodItem extends ItemFood {
             item.registerItemModel();
         }
     }
-
 }
