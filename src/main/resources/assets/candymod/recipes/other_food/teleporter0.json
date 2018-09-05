@@ -1,0 +1,41 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:golden_carrot"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "blockBrownie"
+    },
+    {
+      "item": "minecraft:ender_pearl"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "blockCandycane"
+    },
+    {
+      "item": "candymod:wafer_stick_block"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "blockGummy"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "foodCottoncandy"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "blockChocolate"
+    },
+    {
+      "item": "minecraft:golden_apple",
+      "data": 0
+    }
+  ],
+  "result": {
+    "item": "candymod:teleporter"
+  }
+}
