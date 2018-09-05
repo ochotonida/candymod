@@ -24,34 +24,32 @@ public class ModBiomes {
     public static final BiomeGummy BIOME_GUMMY = new BiomeGummy();
 
     static void registerBiomes(RegistryEvent.Register<Biome> event) {
-        registerBiome(event, BIOME_COTTON_CANDY, BiomeType.COOL, ModConfig.weightCottonCanyPlains, DRY, SPARSE, RARE);
-        registerBiome(event, BIOME_CHOCOLATE, BiomeType.WARM, ModConfig.weightChocolateForest, FOREST, DENSE, HILLS, RARE);
-        registerBiome(event, BIOME_GUMMY, BiomeType.WARM, ModConfig.weightGummySwamp, SWAMP, WET, RARE);
+        registerBiome(event, BIOME_COTTON_CANDY, BiomeType.COOL, ModConfig.weightCottonCandyPlains, ModConfig.weightCottonCandyPlainsDim, DRY, SPARSE, RARE);
+        registerBiome(event, BIOME_CHOCOLATE, BiomeType.WARM, ModConfig.weightChocolateForest, ModConfig.weightChocolateForestDim, FOREST, DENSE, HILLS, RARE);
+        registerBiome(event, BIOME_GUMMY, BiomeType.WARM, ModConfig.weightGummySwamp, ModConfig.weightGummySwampDim, SWAMP, WET, RARE);
     }
 
-    private static void registerBiome(RegistryEvent.Register<Biome> event, ModBiome biome, BiomeType type, int weight, BiomeDictionary.Type... biomeDictTypes) {
+    private static void registerBiome(RegistryEvent.Register<Biome> event, ModBiome biome, BiomeType type, int weight, int weightDimension, BiomeDictionary.Type... biomeDictTypes) {
         event.getRegistry().register(biome);
-
-        // add all biomeDictTypes for said biome
         for (BiomeDictionary.Type biomeDictType : biomeDictTypes) {
             BiomeDictionary.addTypes(biome, biomeDictType);
         }
-
-        // add biome to the biomeEntry list if weight is not 0
-        biomeEntryList.add(new ModBiomeEntry(biome, type, weight));
+        biomeEntryList.add(new ModBiomeEntry(biome, type, weight, weightDimension));
     }
 
     public static class ModBiomeEntry {
 
         private final int weight;
+        private final int weightDimension;
         private final Biome biome;
         private final BiomeType type;
         private final BiomeManager.BiomeEntry entry;
 
-        private ModBiomeEntry(ModBiome biome, BiomeType type, int weight) {
+        private ModBiomeEntry(ModBiome biome, BiomeType type, int weight, int weightDimension) {
             this.type = type;
             this.biome = biome;
             this.weight = weight;
+            this.weightDimension = weightDimension;
             this.entry = new BiomeManager.BiomeEntry(biome, weight);
         }
 
@@ -72,7 +70,7 @@ public class ModBiomes {
         }
 
         public int getDimensionWeight() {
-            return this.weight;  //todo
+            return this.weightDimension;
         }
     }
 }

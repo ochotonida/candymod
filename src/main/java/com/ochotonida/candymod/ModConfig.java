@@ -15,9 +15,12 @@ public class ModConfig {
     public static final String CATEGORY_DIMENSION = "dimension";
     public static Configuration config;
     public static int dimensionId = 23;
-    public static int weightCottonCanyPlains = 1;
+    public static int weightCottonCandyPlains = 1;
+    public static int weightCottonCandyPlainsDim = 15;
     public static int weightChocolateForest = 1;
+    public static int weightChocolateForestDim = 18;
     public static int weightGummySwamp = 1;
+    public static int weightGummySwampDim = 11;
     public static int weightCottonCandySheep = 14;
     public static int weightEasterChicken = 14;
     public static int weightGummyMouse = 14;
@@ -39,12 +42,19 @@ public class ModConfig {
         comment = "Dimension id to use for the candy world dimension";
         dimensionId = loadInt(CATEGORY_DIMENSION, "candymod.dimensionId", comment, dimensionId);
 
-        comment = "Cotton candy plains biome weight. 0 to prevent generation in overworld";
-        weightCottonCanyPlains = loadInt(CATEGORY_BIOMES, "candymod.weightCandyCottonPlains", comment, weightCottonCanyPlains);
-        comment = "Chocolate forest biome weight. 0 to prevent generation in overworld";
+        comment = "Overworld cotton candy plains biome weight. 0 to prevent generation in overworld";
+        weightCottonCandyPlains = loadInt(CATEGORY_BIOMES, "candymod.weightCottonCandyPlains", comment, weightCottonCandyPlains);
+        comment = "Overworld chocolate forest biome weight. 0 to prevent generation in overworld";
         weightChocolateForest = loadInt(CATEGORY_BIOMES, "candymod.weightChocolateForest", comment, weightChocolateForest);
-        comment = "Gummy swamp biome weight. 0 to prevent generation in overworld";
+        comment = "Overworld gummy swamp biome weight. 0 to prevent generation in overworld";
         weightGummySwamp = loadInt(CATEGORY_BIOMES, "candymod.weightGummySwamp", comment, weightGummySwamp);
+
+        comment = "Dimension cotton candy plains biome weight";
+        weightCottonCandyPlainsDim = loadInt(CATEGORY_BIOMES, "candymod.weightCottonCandyPlainsDim", comment, weightCottonCandyPlainsDim);
+        comment = "Dimension chocolate forest biome weight";
+        weightChocolateForestDim = loadInt(CATEGORY_BIOMES, "candymod.weightChocolateForestDim", comment, weightChocolateForestDim);
+        comment = "Dimension gummy swamp biome weight";
+        weightGummySwampDim = loadInt(CATEGORY_BIOMES, "candymod.weightGummySwampDim", comment, weightGummySwampDim);
 
         comment = "Cotton candy sheep weight. 0 to prevent spawning";
         weightCottonCandySheep = loadInt(CATEGORY_MOBS, "candymod.weightCottonCandySheep", comment, weightCottonCandySheep);
