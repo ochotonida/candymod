@@ -15,10 +15,11 @@
     "0.4.2": "servers no longer crash instantly",
     "0.4.3": "added gummy bears,\ngummy mice will now drop gummy of their type,\ngummy mice will now have the same color as the block they spawn on,\nmassively increased height variation for chocolate forest,\ngummy blocks will now also render in the solid layer when the graphics level is set to fast,\nchanged spawn weights for mobs back to normal values,\nadded a slightly less nuclear option for preventing other mods from spawning mobs in the new biomes,\nsome other fixes",
     "0.4.4": "fixed a crash with primitive mobs,\nfixed gummy items having gray particles when eaten,\nremoved butter churn,\nbutter is now crafted with a bucket of milk, when pams harvestcraft is installed this recipe is disabled,\nsome other stuff",
-    "0.4.5": "fixed a crash"
+    "0.4.5": "fixed a crash",
+    "1.0.0": "added a new dimension, liquids, and various other things"
   },
   "promos": {
-    "1.12-latest": "0.4.5",
+    "1.12-latest": "1.0.0",
     "1.12-recommended": "0.4.5"
   }
 }
