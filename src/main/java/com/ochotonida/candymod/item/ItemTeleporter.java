@@ -1,10 +1,15 @@
 package com.ochotonida.candymod.item;
 
 import com.ochotonida.candymod.ModConfig;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.stats.StatList;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
@@ -17,12 +22,28 @@ public class ItemTeleporter extends ModFoodItem {
 
     public ItemTeleporter() {
         super("teleporter", 1, 1.0F);
+        setAlwaysEdible();
     }
 
     @Nonnull
     @Override
     @ParametersAreNonnullByDefault
     public ItemStack onItemUseFinish(ItemStack stack, World world, EntityLivingBase entity) {
+        if (entity instanceof EntityPlayer) {
+            EntityPlayer entityplayer = (EntityPlayer) entity;
+            entityplayer.getFoodStats().addStats(this, stack);
+            world.playSound(null, entityplayer.posX, entityplayer.posY, entityplayer.posZ, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
+            this.onFoodEaten(stack, world, entityplayer);
+            // noinspection ConstantConditions
+            entityplayer.addStat(StatList.getObjectUseStats(this));
+
+            if (entityplayer instanceof EntityPlayerMP && (ModConfig.disableTeleporter || world.provider.getDimension() == ModConfig.dimensionId)) {
+                CriteriaTriggers.CONSUME_ITEM.trigger((EntityPlayerMP) entityplayer, stack);
+            }
+        }
+        if (!(entity instanceof EntityPlayer) || world.provider.getDimension() == ModConfig.dimensionId || ModConfig.disableTeleporter) {
+            stack.shrink(1); // prevent players from getting stuck in dimension, todo remove
+        }
         if (!world.isRemote && entity instanceof EntityPlayer && !ModConfig.disableTeleporter) {
             if (world.provider.getDimension() == ModConfig.dimensionId) {
                 entity.changeDimension(0, new CustomTeleporter());
@@ -30,7 +51,7 @@ public class ItemTeleporter extends ModFoodItem {
                 entity.changeDimension(ModConfig.dimensionId, new CustomTeleporter());
             }
         }
-        return super.onItemUseFinish(stack, world, entity);
+        return stack;
     }
 
     private static BlockPos findTargetPos(EntityPlayer player, int targetWorldId) {
