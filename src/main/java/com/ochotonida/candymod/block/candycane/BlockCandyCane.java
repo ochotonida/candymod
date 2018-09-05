@@ -1,6 +1,7 @@
 package com.ochotonida.candymod.block.candycane;
 
 
+import com.ochotonida.candymod.ModConfig;
 import com.ochotonida.candymod.block.BlockStackable;
 import com.ochotonida.candymod.enums.EnumCandyCane;
 import net.minecraft.block.SoundType;
@@ -24,7 +25,7 @@ import static com.ochotonida.candymod.block.ModBlockProperties.CANDY_CANE_TYPE;
 public class BlockCandyCane extends BlockStackable {
 
     public BlockCandyCane() {
-        super(Material.ROCK, MapColor.WHITE_STAINED_HARDENED_CLAY);
+        super(Material.ROCK, MapColor.WHITE_STAINED_HARDENED_CLAY, ModConfig.stackableTreeTrunks, ModConfig.recursiveTreeTrunks, true);
         this.setName("candy_cane_block");
         this.setHardness(0.7F);
         this.setHarvestLevel("pickaxe", 0);

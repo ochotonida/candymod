@@ -1,6 +1,7 @@
 package com.ochotonida.candymod.block;
 
 import com.ochotonida.candymod.CandyMod;
+import com.ochotonida.candymod.ModConfig;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -18,7 +19,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class BlockWaferStick extends BlockStackable {
 
     public BlockWaferStick() {
-        super(Material.GROUND, MapColor.ORANGE_STAINED_HARDENED_CLAY);
+        super(Material.GROUND, MapColor.ORANGE_STAINED_HARDENED_CLAY, ModConfig.stackableTreeTrunks, ModConfig.recursiveTreeTrunks, true);
         this.setRegistryName("wafer_stick_block");
         this.setUnlocalizedName("wafer_stick_block");
         this.setHardness(0.6F);

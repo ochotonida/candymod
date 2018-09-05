@@ -13,9 +13,16 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public abstract class BlockStackable extends Block {
 
-    protected BlockStackable(Material material, MapColor mapcolor) {
+    private final boolean isStackable;
+    private final boolean recursiveMiningSpeed;
+    private final boolean isTrunkBlock;
+
+    protected BlockStackable(Material material, MapColor mapcolor, boolean isStackable, boolean recursiveMiningSpeed, boolean isTrunkBlock) {
         super(material, mapcolor);
         this.setCreativeTab(CandyMod.TAB_BLOCKS);
+        this.isStackable = isStackable;
+        this.recursiveMiningSpeed = recursiveMiningSpeed;
+        this.isTrunkBlock = isTrunkBlock;
     }
 
     public void setName(String name) {
@@ -33,8 +40,10 @@ public abstract class BlockStackable extends Block {
     }
 
     private boolean canBlockStay(World worldIn, BlockPos pos) {
-        boolean topSolid = worldIn.getBlockState(pos.down()).isSideSolid(worldIn, pos.down(), EnumFacing.UP);
-        return topSolid || worldIn.getBlockState(pos.down()).getBlock() instanceof BlockStackable;
+        if (!isStackable) {
+            return true;
+        }
+        return worldIn.getBlockState(pos.down()).isSideSolid(worldIn, pos.down(), EnumFacing.UP) || worldIn.getBlockState(pos.down()).getBlock() instanceof BlockStackable;
     }
 
     @Override
@@ -46,6 +55,9 @@ public abstract class BlockStackable extends Block {
     @Override // recursive block mining speed
     @SuppressWarnings("deprecation")
     public float getBlockHardness(IBlockState blockState, World worldIn, BlockPos pos) {
+        if (!recursiveMiningSpeed) {
+            return super.getBlockHardness(blockState, worldIn, pos);
+        }
         if (worldIn.getBlockState(pos.up()).getBlock().getClass().isInstance(this)) {
             return this.getBlockHardness(worldIn.getBlockState(pos.up()), worldIn, pos.up()) + this.blockHardness;
         }
@@ -55,12 +67,15 @@ public abstract class BlockStackable extends Block {
     @Override
     @ParametersAreNonnullByDefault
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-        if (worldIn.isAreaLoaded(pos.add(-5, -5, -5), pos.add(5, 5, 5))) {
-            for (BlockPos blockpos : BlockPos.getAllInBox(pos.add(-4, -4, -4), pos.add(4, 4, 4))) {
-                IBlockState iblockstate = worldIn.getBlockState(blockpos);
+        super.breakBlock(worldIn, pos, state);
+        if (isTrunkBlock) {
+            if (worldIn.isAreaLoaded(pos.add(-5, -5, -5), pos.add(5, 5, 5))) {
+                for (BlockPos blockpos : BlockPos.getAllInBox(pos.add(-4, -4, -4), pos.add(4, 4, 4))) {
+                    IBlockState iblockstate = worldIn.getBlockState(blockpos);
 
-                if (iblockstate.getBlock().isLeaves(iblockstate, worldIn, blockpos)) {
-                    iblockstate.getBlock().beginLeavesDecay(iblockstate, worldIn, blockpos);
+                    if (iblockstate.getBlock().isLeaves(iblockstate, worldIn, blockpos)) {
+                        iblockstate.getBlock().beginLeavesDecay(iblockstate, worldIn, blockpos);
+                    }
                 }
             }
         }

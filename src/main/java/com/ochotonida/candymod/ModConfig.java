@@ -25,9 +25,11 @@ public class ModConfig {
     public static int weightEasterChicken = 14;
     public static int weightGummyMouse = 14;
     public static int weightGummyBear = 11;
+    public static boolean disableTeleporter = false;
     public static boolean isGummyTransluscent = true;
     public static boolean preventModdedMobSpawn = false;
-    public static boolean preventModdedMobspawnNuclear = false;
+    public static boolean recursiveTreeTrunks = false;
+    public static boolean stackableTreeTrunks = true;
 
     public static void loadConfig(File configFile) {
         config = new Configuration(configFile);
@@ -41,6 +43,8 @@ public class ModConfig {
 
         comment = "Dimension id to use for the candy world dimension";
         dimensionId = loadInt(CATEGORY_DIMENSION, "candymod.dimensionId", comment, dimensionId);
+        comment = "Setting this to true will prevent players from teleporting to the dimension";
+        disableTeleporter = loadBool(CATEGORY_DIMENSION, "candymod.disableTeleporter", comment, disableTeleporter);
 
         comment = "Overworld cotton candy plains biome weight. 0 to prevent generation in overworld";
         weightCottonCandyPlains = loadInt(CATEGORY_BIOMES, "candymod.weightCottonCandyPlains", comment, weightCottonCandyPlains);
@@ -67,12 +71,15 @@ public class ModConfig {
 
         comment = "setting this to true should prevent any non-Candy World mobs from spawning in candy world biomes";
         preventModdedMobSpawn = loadBool(CATEGORY_MOBS, "candymod.preventModdedMobspawn", comment, preventModdedMobSpawn);
-        comment += " (last-resort nuclear option, try other solutions first) \n" +
-                "This will clear the spawn of the biomes list right before the server starts, if that doesn't work, I don't know what else will";
-        preventModdedMobspawnNuclear = loadBool(CATEGORY_MOBS, "candymod.preventModdedMobspawnNuclear", comment, preventModdedMobspawnNuclear);
 
         comment = "Setting this to false will make the game render gummy blocks solid, improving performance";
         isGummyTransluscent = loadBool(Configuration.CATEGORY_CLIENT, "candymod.isGummyTransluscent", comment, isGummyTransluscent);
+
+        comment = "Setting this to true will make tree trunks take longer to mine the higher they are";
+        recursiveTreeTrunks = loadBool(Configuration.CATEGORY_GENERAL, "candymod.recursiveTreeTrunks", comment, recursiveTreeTrunks);
+        comment = "Setting this to false will make tree trunk blocks behave like normal blocks";
+        stackableTreeTrunks = loadBool(Configuration.CATEGORY_GENERAL, "candymod.stackableTreeTrunks", comment, stackableTreeTrunks);
+
 
         if (config.hasChanged()) {
             config.save();
