@@ -64,6 +64,10 @@ item.wafer_stick.name=威化棒
 item.sugar_rock.name=冰糖
 item.gummy.name=软糖
 item.gummy_worm.name=蠕虫软糖
+item.teleporter.name=???
+
+fluid.liquid_chocolate=???
+fluid.liquid_candy=???
 
 entity.cotton_candy_sheep.name=棉花糖羊
 entity.easter_chicken.name=复活节鸡

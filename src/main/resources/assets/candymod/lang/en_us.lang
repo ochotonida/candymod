@@ -65,8 +65,10 @@ item.wafer_stick.name=Wafer Stick
 item.sugar_rock.name=Sugar Crystal
 item.gummy.name=Lump of Gummy
 item.gummy_worm.name=Gummy Worm
+item.teleporter.name=Magic Piece of Candy
 
 fluid.liquid_chocolate=Liquid Chocolate
+fluid.liquid_candy=Liquid Candy
 
 entity.cotton_candy_sheep.name=Cotton Candy Sheep
 entity.easter_chicken.name=Easter Chicken
