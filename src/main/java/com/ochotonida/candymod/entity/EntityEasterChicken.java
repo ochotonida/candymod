@@ -42,17 +42,11 @@ public class EntityEasterChicken extends EntityAnimal {
      */
     public boolean explodeWhenDone;
     private float wingRotDelta = 1.0F;
-    /**
-     * The time until the next egg is spawned
-     */
+    /** The time until the next egg is spawned */
     private int timeUntilNextEgg;
-    /**
-     * Type for the next egg
-     */
+    /** Type for the next egg */
     private int nextEggType;
-    /**
-     * Amount of eggs still to be laid in quick succession
-     */
+    /** Amount of eggs still to be laid in quick succession */
     private int eggComboAmount;
 
     public EntityEasterChicken(World worldIn) {
@@ -107,10 +101,10 @@ public class EntityEasterChicken extends EntityAnimal {
         ItemStack itemStack = player.getHeldItem(hand);
 
         if (!this.isChild() && this.nextEggType == -1 && !this.explodeWhenDone) {
-            if (itemStack.getItem() == Items.FLINT_AND_STEEL) {
+            if (itemStack.getItem() == Items.FIRE_CHARGE) {
                 firePanic();
                 player.swingArm(hand);
-                itemStack.damageItem(1, player);
+                itemStack.shrink(1);
                 return true;
             }
 
@@ -120,6 +114,7 @@ public class EntityEasterChicken extends EntityAnimal {
                     itemStack.shrink(1);
                     this.nextEggType = itemStack.getMetadata();
                 }
+                this.world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, this.posX + (double) (this.rand.nextFloat() * this.width * 2.0F) - (double) this.width, this.posY + 0.5D + (double) (this.rand.nextFloat() * this.height), this.posZ + (double) (this.rand.nextFloat() * this.width * 2.0F) - (double) this.width, 0.0D, 0.0D, 0.0D);
                 return true;
             }
         }
@@ -202,11 +197,6 @@ public class EntityEasterChicken extends EntityAnimal {
         }
 
         this.wingRotation += this.wingRotDelta * 2.0F;
-
-        if (this.isBurning() && !this.explodeWhenDone && !this.isChild() && !this.isInLava()) {
-            this.extinguish();
-            firePanic();
-        }
 
         // drop an egg
         if (!this.world.isRemote && !this.isChild() && --this.timeUntilNextEgg <= 0) {
