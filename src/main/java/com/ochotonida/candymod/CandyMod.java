@@ -1,6 +1,5 @@
 package com.ochotonida.candymod;
 
-import com.ochotonida.candymod.command.TeleportCommand;
 import com.ochotonida.candymod.proxy.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
@@ -69,12 +68,6 @@ public class CandyMod {
 
     @Mod.EventHandler
     public static void serverStarting(FMLServerStartingEvent event) {
-        event.registerServerCommand(new TeleportCommand());
-        if (ModConfig.preventModdedMobspawnNuclear) {
-            for (ModBiomes.ModBiomeEntry biomeEntry : ModBiomes.biomeEntryList) {
-                biomeEntry.getBiome().initSpawnList();
-            }
-        }
     }
 
     @Mod.EventBusSubscriber
