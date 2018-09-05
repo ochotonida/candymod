@@ -34,16 +34,15 @@ public class GenLayerCandyWorldBiome extends GenLayer {
                 int rand = this.nextInt(totalWeight);
                 Biome biome = ModBiomes.biomeEntryList.get(0).getBiome();
                 for (ModBiomes.ModBiomeEntry entry : ModBiomes.biomeEntryList) {
-                    if (rand < entry.getWeight()) {
+                    if (rand < entry.getDimensionWeight()) {
                         biome = entry.getBiome();
                         break;
                     }
-                    rand -= entry.getWeight();
+                    rand -= entry.getDimensionWeight();
                 }
                 ints[xx + zz * areaWidth] = Biome.getIdForBiome(biome);
             }
         }
-
         return ints;
     }
 }
