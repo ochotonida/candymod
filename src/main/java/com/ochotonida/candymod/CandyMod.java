@@ -25,7 +25,7 @@ public class CandyMod {
 
     public static final String MODID = "candymod";
     public static final String MODNAME = "Candy World";
-    public static final String MODVERSION = "1.0.0";
+    public static final String MODVERSION = "1.0.1";
 
     public static final ItemTab TAB_ITEMS = new ItemTab();
     public static final BlockTab TAB_BLOCKS = new BlockTab();
@@ -64,10 +64,6 @@ public class CandyMod {
     @Mod.EventHandler
     public static void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
-    }
-
-    @Mod.EventHandler
-    public static void serverStarting(FMLServerStartingEvent event) {
     }
 
     @Mod.EventBusSubscriber

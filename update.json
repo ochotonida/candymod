@@ -16,10 +16,11 @@
     "0.4.3": "added gummy bears,\ngummy mice will now drop gummy of their type,\ngummy mice will now have the same color as the block they spawn on,\nmassively increased height variation for chocolate forest,\ngummy blocks will now also render in the solid layer when the graphics level is set to fast,\nchanged spawn weights for mobs back to normal values,\nadded a slightly less nuclear option for preventing other mods from spawning mobs in the new biomes,\nsome other fixes",
     "0.4.4": "fixed a crash with primitive mobs,\nfixed gummy items having gray particles when eaten,\nremoved butter churn,\nbutter is now crafted with a bucket of milk, when pams harvestcraft is installed this recipe is disabled,\nsome other stuff",
     "0.4.5": "fixed a crash",
-    "1.0.0": "added a new dimension, liquids, and various other things"
+    "1.0.0": "added a new dimension, liquids, and various other things",
+    "1.0.1": "added 'Magic Candy Ore',\nadded support for Materials and Automatic Resource Generation,\ntweaked mining speed for log blocks,\nfixed players respawning in the dimension instead of the overworld,\nfixed candy cane blocks requiring a pickaxe to mine,\nfixed pick block not properly working on cookie ore,\nfixed teleporter being impossible to use in creative mode"
   },
   "promos": {
-    "1.12-latest": "1.0.0",
-    "1.12-recommended": "0.4.5"
+    "1.12-latest": "1.0.1",
+    "1.12-recommended": "1.0.1"
   }
 }

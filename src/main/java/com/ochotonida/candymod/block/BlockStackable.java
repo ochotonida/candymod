@@ -11,6 +11,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@SuppressWarnings("SameParameterValue")
 public abstract class BlockStackable extends Block {
 
     private final boolean isStackable;
