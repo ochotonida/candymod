@@ -19,10 +19,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class BlockWaferStick extends BlockStackable {
 
     public BlockWaferStick() {
-        super(Material.GROUND, MapColor.ORANGE_STAINED_HARDENED_CLAY, ModConfig.stackableTreeTrunks, ModConfig.recursiveTreeTrunks, true);
+        super(Material.WOOD, MapColor.ORANGE_STAINED_HARDENED_CLAY, ModConfig.stackableTreeTrunks, ModConfig.recursiveTreeTrunks, true);
         this.setRegistryName("wafer_stick_block");
         this.setUnlocalizedName("wafer_stick_block");
-        this.setHardness(0.6F);
+        this.setHardness(0.9F);
         this.setHarvestLevel("axe", 0);
         this.setSoundType(SoundType.WOOD);
         this.setCreativeTab(CandyMod.TAB_BLOCKS);
