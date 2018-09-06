@@ -9,6 +9,9 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
@@ -41,8 +44,8 @@ public class ItemTeleporter extends ModFoodItem {
                 CriteriaTriggers.CONSUME_ITEM.trigger((EntityPlayerMP) entityplayer, stack);
             }
         }
-        if (!(entity instanceof EntityPlayer) || world.provider.getDimension() == ModConfig.dimensionId || ModConfig.disableTeleporter) {
-            stack.shrink(1); // prevent players from getting stuck in dimension, todo remove
+        if (!(entity instanceof EntityPlayer) || (world.provider.getDimension() == ModConfig.dimensionId && !((EntityPlayer) entity).capabilities.isCreativeMode) || ModConfig.disableTeleporter) {
+            stack.shrink(1);
         }
         if (!world.isRemote && entity instanceof EntityPlayer && !ModConfig.disableTeleporter) {
             if (world.provider.getDimension() == ModConfig.dimensionId) {
@@ -52,6 +55,15 @@ public class ItemTeleporter extends ModFoodItem {
             }
         }
         return stack;
+    }
+
+    @Nonnull
+    @Override
+    @ParametersAreNonnullByDefault
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+        ItemStack itemstack = player.getHeldItem(hand);
+        player.setActiveHand(hand);
+        return new ActionResult<>(EnumActionResult.SUCCESS, itemstack);
     }
 
     private static BlockPos findTargetPos(EntityPlayer player, int targetWorldId) {
