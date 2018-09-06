@@ -19,6 +19,7 @@ import com.ochotonida.candymod.block.gummy.BlockGummySolid;
 import com.ochotonida.candymod.block.gummy.BlockGummyWorm;
 import com.ochotonida.candymod.block.gummy.ItemBlockGummy;
 import com.ochotonida.candymod.block.ore.BlockCookieOre;
+import com.ochotonida.candymod.block.ore.BlockTeleporterOre;
 import com.ochotonida.candymod.block.ore.ItemBlockCookieOre;
 import com.ochotonida.candymod.enums.EnumCandyCane;
 import com.ochotonida.candymod.enums.EnumChocolate;
@@ -45,6 +46,7 @@ public class ModBlocks {
     public static final BlockSugar SUGAR_BLOCK = new BlockSugar();
     public static final BlockSugarSand SUGAR_SAND = new BlockSugarSand();
     public static final BlockWaferStick WAFER_STICK = new BlockWaferStick();
+    public static final BlockTeleporterOre TELEPORTER_ORE = new BlockTeleporterOre();
 
     // Blocks with subtypes
     public static final BlockCandyCane CANDY_CANE = new BlockCandyCane();
@@ -104,7 +106,8 @@ public class ModBlocks {
                 HARDENED_GUMMY_BLOCK,
                 GUMMY_WORM_BLOCK,
                 LIQUID_CHOCOLATE_BLOCK,
-                LIQUID_CANDY_BLOCK
+                LIQUID_CANDY_BLOCK,
+                TELEPORTER_ORE
         );
     }
 
@@ -121,6 +124,7 @@ public class ModBlocks {
                 SUGAR_BLOCK.createItemBlock(),
                 WAFER_STICK.createItemBlock(),
                 SUGAR_SAND.createItemBlock(),
+                TELEPORTER_ORE.createItemBlock(),
                 CANDY_GRASS_IB,
                 CANDY_CANE_IB,
                 CANDY_SOIL_IB,
@@ -154,6 +158,7 @@ public class ModBlocks {
         registerModel(SUGAR_BLOCK, "block/sugar/sugar_block");
         registerModel(SUGAR_SAND, "block/sugar/sugar_sand_block");
         registerModel(WAFER_STICK, "block/wafer_stick_block");
+        registerModel(TELEPORTER_ORE, "block/ore/teleporter_ore_block");
 
         ModelResourceLocation itemMRL;
 

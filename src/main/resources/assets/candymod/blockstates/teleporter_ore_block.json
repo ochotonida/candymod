@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "normal": {
+      "model": "candymod:ore/teleporter_ore_block"
+    }
+  }
+}

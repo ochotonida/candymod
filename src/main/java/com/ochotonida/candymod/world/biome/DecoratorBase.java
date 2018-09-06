@@ -1,6 +1,7 @@
 package com.ochotonida.candymod.world.biome;
 
 import com.ochotonida.candymod.ModBlocks;
+import com.ochotonida.candymod.ModConfig;
 import com.ochotonida.candymod.block.ModBlockProperties;
 import com.ochotonida.candymod.enums.EnumChocolate;
 import com.ochotonida.candymod.world.dimension.WorldProviderCandyWorld;
@@ -36,6 +37,7 @@ public class DecoratorBase extends BiomeDecorator {
     protected WorldGenerator spikesGen;
     protected WorldGenerator sugarBlockGen;
     protected WorldGenerator cookieGen;
+    protected WorldGenerator teleporterGen;
     protected WorldGenerator sugarSandGen;
 
     @Override
@@ -64,6 +66,7 @@ public class DecoratorBase extends BiomeDecorator {
         this.soilDarkGen = new WorldGenMinable(ModBlocks.CANDY_SOIL.getDefaultState().withProperty(ModBlockProperties.CHOCOLATE_TYPE, EnumChocolate.DARK), 25, BlockMatcher.forBlock(ModBlocks.SUGAR_BLOCK));
         this.sugarBlockGen = new WorldGenMinable(ModBlocks.SUGAR_BLOCK.getDefaultState(), 0);
         this.cookieGen = new WorldGenMinable(ModBlocks.COOKIE_ORE.getDefaultState().withProperty(ModBlockProperties.IS_SUGAR_VARIANT, true), 3, BlockMatcher.forBlock(ModBlocks.SUGAR_BLOCK));
+        this.teleporterGen = new TeleporterOreGenerator();
         this.sugarSandGen = new WorldGenMinable(ModBlocks.SUGAR_SAND.getDefaultState(), 20, BlockMatcher.forBlock(ModBlocks.SUGAR_BLOCK));
 
         this.coalGen = new WorldGenMinable(Blocks.COAL_ORE.getDefaultState(), 0);
@@ -163,6 +166,10 @@ public class DecoratorBase extends BiomeDecorator {
             if (TerrainGen.generateOre(worldIn, rand, cookieGen, chunkPos, EventType.CUSTOM)) {
                 this.genStandardOre2(worldIn, rand, 80, cookieGen, 32, 45);
             }
+            if (TerrainGen.generateOre(worldIn, rand, teleporterGen, chunkPos, EventType.CUSTOM)) {
+                this.teleporterGen.generate(worldIn, rand, chunkPos);
+            }
+
         } else {
             if (TerrainGen.generateOre(worldIn, rand, cookieGen, chunkPos, EventType.CUSTOM)) {
                 this.genStandardOre2(worldIn, rand, 50, cookieGen, 32, 45);
@@ -182,6 +189,23 @@ public class DecoratorBase extends BiomeDecorator {
             if (soilDarkGen != null && TerrainGen.generateOre(worldIn, rand, soilDarkGen, chunkPos, EventType.CUSTOM)) {
                 this.genStandardOre1(worldIn, rand, 1, soilDarkGen, 0, 25);
             }
+        }
+    }
+
+    private static class TeleporterOreGenerator extends WorldGenerator {
+        @Override
+        @ParametersAreNonnullByDefault
+        public boolean generate(World worldIn, Random rand, BlockPos pos) {
+            int count = 6 + rand.nextInt(10);
+            for (int i = 0; i < count; i++) {
+                BlockPos blockpos = pos.add(rand.nextInt(16) + 8, rand.nextInt(38) + 4, rand.nextInt(16) + 8);
+
+                net.minecraft.block.state.IBlockState state = worldIn.getBlockState(blockpos);
+                if (state.getBlock().isReplaceableOreGen(state, worldIn, blockpos, net.minecraft.block.state.pattern.BlockMatcher.forBlock(ModBlocks.SUGAR_BLOCK))) {
+                    worldIn.setBlockState(blockpos, ModBlocks.TELEPORTER_ORE.getDefaultState(), 16 | 2);
+                }
+            }
+            return true;
         }
     }
 }

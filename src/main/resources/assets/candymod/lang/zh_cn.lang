@@ -38,6 +38,7 @@ tile.gummy_block.name=软糖块
 tile.hardened_gummy_block.name=凝固软糖块
 tile.gummy_worm_block.name=蠕虫软糖块
 tile.cola_gummy_block.name=可乐软糖块
+tile.teleporter_ore_block.name=???
 
 item.cotton_candy.name=棉花糖
 item.butter_churn.name=奶油搅拌机

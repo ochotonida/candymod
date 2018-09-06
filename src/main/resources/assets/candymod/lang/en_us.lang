@@ -39,6 +39,7 @@ tile.gummy_block.name=Gummy Block
 tile.hardened_gummy_block.name=Solid Gummy Block
 tile.gummy_worm_block.name=Gummy Worm
 tile.cola_gummy_block.name=Gummy Block
+tile.teleporter_ore_block.name=Magic Candy Ore
 
 item.cotton_candy.name=Cotton Candy
 item.butter_churn.name=Butter Churn
