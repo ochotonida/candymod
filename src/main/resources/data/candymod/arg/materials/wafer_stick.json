@@ -1,0 +1,14 @@
+{
+  "type":"wood",
+  "name":"wafer_stick",
+
+  "log_side": "candymod:textures/blocks/wafer_stick_side.png",
+  "log_top": "candymod:textures/blocks/wafer_stick_top.png",
+
+  "items":{
+    "log": "candymod:wafer_stick_block"
+  },
+  "languages": {
+    "en_us": "Wafer Stick"
+  }
+}

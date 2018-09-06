@@ -1,0 +1,14 @@
+{
+  "type":"wood",
+  "name":"candy_cane_red",
+
+  "log_side": "candymod:textures/blocks/caneblock_red.png",
+  "log_top": "candymod:textures/blocks/caneblock_red_top.png",
+
+  "items":{
+    "log": "candymod:candy_cane_block:1"
+  },
+  "languages": {
+    "en_us": "Candy Cane"
+  }
+}
