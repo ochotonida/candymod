@@ -89,4 +89,12 @@ public class BlockCookieOre extends Block {
         Random rand = world instanceof World ? ((World) world).rand : new Random();
         return MathHelper.getInt(rand, 0, 3);
     }
+
+    @Nonnull
+    @Override
+    @ParametersAreNonnullByDefault
+    @SuppressWarnings("deprecation")
+    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
+        return new ItemStack(Item.getItemFromBlock(this), 1, getMetaFromState(state));
+    }
 }
