@@ -14,6 +14,11 @@ public class WorldProviderCandyWorld extends WorldProvider {
         this.biomeProvider = new BiomeProviderCandyWorld(world.getWorldInfo());
     }
 
+    @Override
+    public boolean canRespawnHere() {
+        return false;
+    }
+
     @Nonnull
     @Override
     public DimensionType getDimensionType() {
