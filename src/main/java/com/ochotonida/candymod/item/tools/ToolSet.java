@@ -18,11 +18,18 @@ public abstract class ToolSet {
         axes = new ItemAxeEdible[variants];
         shovels = new ItemShovelEdible[variants];
         swords = new ItemSwordEdible[variants];
-        for (int i = 0; i < variants; i++) {
-            pickaxes[i] = new ItemPickaxeEdible(name + "_pickaxe_" + getVariantSuffix(i), name, toolMaterial, healAmount, saturationModifier);
-            axes[i] = new ItemAxeEdible(name + "_axe_" + getVariantSuffix(i), name, toolMaterial, healAmount, saturationModifier);
-            shovels[i] = new ItemShovelEdible(name + "_shovel_" + getVariantSuffix(i), name, toolMaterial, healAmount, saturationModifier);
-            swords[i] = new ItemSwordEdible(name + "_sword_" + getVariantSuffix(i), name, toolMaterial, healAmount, saturationModifier);
+        if (variants == 1) {
+            pickaxes[0] = new ItemPickaxeEdible(name + "_pickaxe", name, toolMaterial, healAmount, saturationModifier);
+            axes[0] = new ItemAxeEdible(name + "_axe", name, toolMaterial, healAmount, saturationModifier);
+            shovels[0] = new ItemShovelEdible(name + "_shovel", name, toolMaterial, healAmount, saturationModifier);
+            swords[0] = new ItemSwordEdible(name + "_sword", name, toolMaterial, healAmount, saturationModifier);
+        } else {
+            for (int i = 0; i < variants; i++) {
+                pickaxes[i] = new ItemPickaxeEdible(name + "_pickaxe_" + getVariantSuffix(i), name, toolMaterial, healAmount, saturationModifier);
+                axes[i] = new ItemAxeEdible(name + "_axe_" + getVariantSuffix(i), name, toolMaterial, healAmount, saturationModifier);
+                shovels[i] = new ItemShovelEdible(name + "_shovel_" + getVariantSuffix(i), name, toolMaterial, healAmount, saturationModifier);
+                swords[i] = new ItemSwordEdible(name + "_sword_" + getVariantSuffix(i), name, toolMaterial, healAmount, saturationModifier);
+            }
         }
     }
     

@@ -25,6 +25,7 @@ public final class ModItems {
 
     // tool
     public static final ToolSet TOOLSET_CHOCOLATE = new ToolSetChocolate();
+    public static final ToolSet TOOLSET_COTTON_CANDY = new ToolSetCottonCandy();
 
     /**
      * register items
@@ -32,6 +33,7 @@ public final class ModItems {
     static void register(IForgeRegistry<Item> registry) {
         registry.registerAll(ModFoodItem.getFoodItems());
         TOOLSET_CHOCOLATE.registerItems(registry);
+        TOOLSET_COTTON_CANDY.registerItems(registry);
     }
 
     /**
@@ -40,5 +42,6 @@ public final class ModItems {
     static void registerModels() {
         ModFoodItem.initItemModels();
         TOOLSET_CHOCOLATE.registerItemModels();
+        TOOLSET_COTTON_CANDY.registerItemModels();
     }
 }

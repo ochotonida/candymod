@@ -79,6 +79,10 @@ item.chocolate_shovel_white.name=Chocolate Shovel
 item.chocolate_sword_milk.name=Chocolate Sword
 item.chocolate_sword_dark.name=Chocolate Sword
 item.chocolate_sword_white.name=Chocolate Sword
+item.cotton_candy_pickaxe.name=Cotton Candy Pickaxe
+item.cotton_candy_axe.name=Cotton Candy Axe
+item.cotton_candy_shovel.name=Cotton Candy Shovel
+item.cotton_candy_sword.name=Cotton Candy Sword
 
 fluid.liquid_chocolate=Liquid Chocolate
 fluid.liquid_candy=Liquid Candy
