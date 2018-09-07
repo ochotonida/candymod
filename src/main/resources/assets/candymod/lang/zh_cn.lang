@@ -38,7 +38,7 @@ tile.gummy_block.name=软糖块
 tile.hardened_gummy_block.name=凝固软糖块
 tile.gummy_worm_block.name=蠕虫软糖块
 tile.cola_gummy_block.name=可乐软糖块
-tile.teleporter_ore_block.name=???
+tile.teleporter_ore_block.name=Magic Candy Ore
 
 item.cotton_candy.name=棉花糖
 item.butter_churn.name=奶油搅拌机
@@ -65,10 +65,13 @@ item.wafer_stick.name=威化棒
 item.sugar_rock.name=冰糖
 item.gummy.name=软糖
 item.gummy_worm.name=蠕虫软糖
-item.teleporter.name=???
+item.teleporter.name=Magic Piece of Candy
+item.chocolate_pickaxe_milk.name=Chocolate Pickaxe
+item.chocolate_pickaxe_dark.name=Chocolate Pickaxe
+item.chocolate_pickaxe_white.name=Chocolate Pickaxe
 
-fluid.liquid_chocolate=???
-fluid.liquid_candy=???
+fluid.liquid_chocolate=Liquid Chocolate
+fluid.liquid_candy=Liquid Candy
 
 entity.cotton_candy_sheep.name=棉花糖羊
 entity.easter_chicken.name=复活节鸡

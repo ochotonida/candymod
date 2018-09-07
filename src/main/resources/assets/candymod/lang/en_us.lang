@@ -67,6 +67,9 @@ item.sugar_rock.name=Sugar Crystal
 item.gummy.name=Lump of Gummy
 item.gummy_worm.name=Gummy Worm
 item.teleporter.name=Magic Piece of Candy
+item.chocolate_pickaxe_milk.name=Chocolate Pickaxe
+item.chocolate_pickaxe_dark.name=Chocolate Pickaxe
+item.chocolate_pickaxe_white.name=Chocolate Pickaxe
 
 fluid.liquid_chocolate=Liquid Chocolate
 fluid.liquid_candy=Liquid Candy
