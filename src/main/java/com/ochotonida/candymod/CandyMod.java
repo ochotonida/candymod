@@ -1,5 +1,6 @@
 package com.ochotonida.candymod;
 
+import com.ochotonida.candymod.enums.EnumChocolate;
 import com.ochotonida.candymod.proxy.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
@@ -29,6 +30,7 @@ public class CandyMod {
 
     public static final ItemTab TAB_ITEMS = new ItemTab();
     public static final BlockTab TAB_BLOCKS = new BlockTab();
+    public static final ToolTab TAB_TOOLS = new ToolTab();
 
     public static Logger LOGGER;
 
@@ -95,7 +97,7 @@ public class CandyMod {
 
     private static final class BlockTab extends CreativeTabs {
 
-        public BlockTab() {
+        private BlockTab() {
             super(CandyMod.MODID + ".blocks");
         }
 
@@ -107,7 +109,7 @@ public class CandyMod {
 
     private static final class ItemTab extends CreativeTabs {
 
-        public ItemTab() {
+        private ItemTab() {
             super(CandyMod.MODID + ".items");
         }
 
@@ -116,5 +118,17 @@ public class CandyMod {
             return new ItemStack(ModItems.WAFER_STICK);
         }
 
+    }
+
+    private static final class ToolTab extends CreativeTabs {
+
+        private ToolTab() {
+            super(CandyMod.MODID + ".tools");
+        }
+
+        @Override
+        public ItemStack getTabIconItem() {
+            return new ItemStack(ModItems.TOOLSET_CHOCOLATE.getPickaxe(EnumChocolate.MILK.getMetadata()));
+        }
     }
 }

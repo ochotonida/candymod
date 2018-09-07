@@ -5,8 +5,8 @@ import com.ochotonida.candymod.interfaces.IItemToolEdible;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
-import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
@@ -14,12 +14,12 @@ import net.minecraft.world.World;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public class ItemPickaxeEdible extends ItemPickaxe implements IItemToolEdible {
+public class ItemSwordEdible extends ItemSword implements IItemToolEdible {
 
     protected final String name;
     protected final String materialName;
 
-    public ItemPickaxeEdible(String name, String materialName, ToolMaterial material, int healAmount, float saturation) {
+    public ItemSwordEdible(String name, String materialName, ToolMaterial material, int healAmount, float saturation) {
         super(material);
         this.setRegistryName(name);
         this.setUnlocalizedName(name);

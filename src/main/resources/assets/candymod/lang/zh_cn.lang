@@ -69,6 +69,15 @@ item.teleporter.name=Magic Piece of Candy
 item.chocolate_pickaxe_milk.name=Chocolate Pickaxe
 item.chocolate_pickaxe_dark.name=Chocolate Pickaxe
 item.chocolate_pickaxe_white.name=Chocolate Pickaxe
+item.chocolate_axe_milk.name=Chocolate Axe
+item.chocolate_axe_dark.name=Chocolate Axe
+item.chocolate_axe_white.name=Chocolate Axe
+item.chocolate_shovel_milk.name=Chocolate Shovel
+item.chocolate_shovel_dark.name=Chocolate Shovel
+item.chocolate_shovel_white.name=Chocolate Shovel
+item.chocolate_sword_milk.name=Chocolate Sword
+item.chocolate_sword_dark.name=Chocolate Sword
+item.chocolate_sword_white.name=Chocolate Sword
 
 fluid.liquid_chocolate=Liquid Chocolate
 fluid.liquid_candy=Liquid Candy
@@ -80,3 +89,4 @@ entity.gummy_bear.name=软糖熊
 
 itemGroup.candymod.items=糖果世界|物品
 itemGroup.candymod.blocks=糖果世界|方块
+itemGroup.candymod.tools=Candy World | Tools

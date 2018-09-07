@@ -70,6 +70,15 @@ item.teleporter.name=Magic Piece of Candy
 item.chocolate_pickaxe_milk.name=Chocolate Pickaxe
 item.chocolate_pickaxe_dark.name=Chocolate Pickaxe
 item.chocolate_pickaxe_white.name=Chocolate Pickaxe
+item.chocolate_axe_milk.name=Chocolate Axe
+item.chocolate_axe_dark.name=Chocolate Axe
+item.chocolate_axe_white.name=Chocolate Axe
+item.chocolate_shovel_milk.name=Chocolate Shovel
+item.chocolate_shovel_dark.name=Chocolate Shovel
+item.chocolate_shovel_white.name=Chocolate Shovel
+item.chocolate_sword_milk.name=Chocolate Sword
+item.chocolate_sword_dark.name=Chocolate Sword
+item.chocolate_sword_white.name=Chocolate Sword
 
 fluid.liquid_chocolate=Liquid Chocolate
 fluid.liquid_candy=Liquid Candy
@@ -79,5 +88,6 @@ entity.easter_chicken.name=Easter Chicken
 entity.gummy_mouse.name=Gummy Mouse
 entity.gummy_bear.name=Gummy Bear
 
-itemGroup.candymod.items=Candy World Items
-itemGroup.candymod.blocks=Candy World Blocks
+itemGroup.candymod.items=Candy World - Items
+itemGroup.candymod.blocks=Candy World - Blocks
+itemGroup.candymod.tools=Candy World - Tools
