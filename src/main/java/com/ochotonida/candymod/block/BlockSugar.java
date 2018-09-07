@@ -38,6 +38,6 @@ public class BlockSugar extends Block {
 
     @Override
     public int quantityDropped(Random rand) {
-        return 4;
+        return 1;
     }
 }
