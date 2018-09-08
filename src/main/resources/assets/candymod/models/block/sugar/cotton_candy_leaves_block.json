@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "candymod:blocks/candy_grass_milk_top"
+    "all": "candymod:blocks/cotton_candy_leaves"
   }
 }
