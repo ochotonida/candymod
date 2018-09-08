@@ -8,7 +8,7 @@ import net.minecraftforge.common.util.EnumHelper;
 
 public class ToolSetChocolate extends ToolSet {
 
-    public static final Item.ToolMaterial CHOCOLATE_TOOL_MATERIAL = EnumHelper.addToolMaterial("chocolate", 2, 180, 5.0F, 4.0F, 25);
+    public static final Item.ToolMaterial CHOCOLATE_TOOL_MATERIAL = EnumHelper.addToolMaterial("chocolate", 2, 750, 7.0F, 2.5F, 25);
 
     static {
         assert CHOCOLATE_TOOL_MATERIAL != null;
@@ -16,7 +16,7 @@ public class ToolSetChocolate extends ToolSet {
     }
 
     public ToolSetChocolate() {
-        super("chocolate", CHOCOLATE_TOOL_MATERIAL, EnumChocolate.values().length, 16, 0.6F);
+        super("chocolate", CHOCOLATE_TOOL_MATERIAL, EnumChocolate.values().length, 20, 0.6F);
     }
 
     @Override
