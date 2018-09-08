@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["AAA"," B "," B "],
+  "key": {
+    "A": {
+      "item": "candymod:chocolate_bar",
+      "data": 2
+    },
+    "B": {
+      "item": "candymod:wafer_stick"
+    }
+  },
+  "result": {
+    "item": "candymod:chocolate_pickaxe_dark",
+    "data": 0
+  }
+}

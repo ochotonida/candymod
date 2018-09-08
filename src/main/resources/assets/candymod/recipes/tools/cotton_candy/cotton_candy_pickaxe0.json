@@ -1,0 +1,16 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": ["AAA"," B "," B "],
+  "key": {
+    "A": {
+      "item": "candymod:cotton_candy"
+    },
+    "B": {
+      "type": "forge:ore_dict",
+      "ore": "stickWood"
+    }
+  },
+  "result": {
+    "item": "candymod:cotton_candy_pickaxe"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["A","B","B"],
+  "key": {
+    "A": {
+      "item": "candymod:chocolate_bar",
+      "data": 0
+    },
+    "B": {
+      "item": "candymod:wafer_stick"
+    }
+  },
+  "result": {
+    "item": "candymod:chocolate_shovel_milk",
+    "data": 0
+  }
+}
