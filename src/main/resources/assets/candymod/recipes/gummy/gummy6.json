@@ -15,6 +15,10 @@
       "data": 15
     },
     {
+      "item": "minecraft:dye",
+      "data": 15
+    },
+    {
       "type": "forge:ore_dict",
       "ore": "dyeOrange"
     }
