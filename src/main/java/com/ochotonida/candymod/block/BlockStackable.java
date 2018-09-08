@@ -14,15 +14,15 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @SuppressWarnings("SameParameterValue")
 public abstract class BlockStackable extends Block {
 
-    private final boolean isStackable;
-    private final boolean recursiveMiningSpeed;
-    private final boolean isTrunkBlock;
+    private boolean isStackable;
+    private boolean hasRecursiveMiningSpeed;
+    private boolean isTrunkBlock;
 
-    protected BlockStackable(Material material, MapColor mapcolor, boolean isStackable, boolean recursiveMiningSpeed, boolean isTrunkBlock) {
+    protected BlockStackable(Material material, MapColor mapcolor, boolean isStackable, boolean hasRecursiveMiningSpeed, boolean isTrunkBlock) {
         super(material, mapcolor);
         this.setCreativeTab(CandyMod.TAB_BLOCKS);
         this.isStackable = isStackable;
-        this.recursiveMiningSpeed = recursiveMiningSpeed;
+        this.hasRecursiveMiningSpeed = hasRecursiveMiningSpeed;
         this.isTrunkBlock = isTrunkBlock;
     }
 
@@ -31,6 +31,17 @@ public abstract class BlockStackable extends Block {
         this.setRegistryName(name);
     }
 
+    protected void setRecursiveMiningSpeed(boolean hasRecursiveMiningSpeed) {
+        this.hasRecursiveMiningSpeed = hasRecursiveMiningSpeed;
+    }
+
+    protected void setStackable(boolean isStackable) {
+        this.isStackable = isStackable;
+    }
+
+    protected void setTrunkBlock(boolean isTrunkBlock) {
+        this.isTrunkBlock = isTrunkBlock;
+    }
 
     @Override
     @SuppressWarnings("deprecation")
@@ -56,7 +67,7 @@ public abstract class BlockStackable extends Block {
     @Override // recursive block mining speed
     @SuppressWarnings("deprecation")
     public float getBlockHardness(IBlockState blockState, World worldIn, BlockPos pos) {
-        if (!recursiveMiningSpeed) {
+        if (!hasRecursiveMiningSpeed) {
             return super.getBlockHardness(blockState, worldIn, pos);
         }
         if (worldIn.getBlockState(pos.up()).getBlock().getClass().isInstance(this)) {

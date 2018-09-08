@@ -14,6 +14,7 @@ import com.ochotonida.candymod.block.cottoncandy.BlockCottonCandyGrass;
 import com.ochotonida.candymod.block.cottoncandy.BlockCottonCandyLeaves;
 import com.ochotonida.candymod.block.cottoncandy.BlockCottonCandyPlant;
 import com.ochotonida.candymod.block.cottoncandy.BlockCottonCandySapling;
+import com.ochotonida.candymod.block.fluid.BlockLiquidChocolate;
 import com.ochotonida.candymod.block.gummy.BlockGummy;
 import com.ochotonida.candymod.block.gummy.BlockGummySolid;
 import com.ochotonida.candymod.block.gummy.BlockGummyWorm;
@@ -21,6 +22,9 @@ import com.ochotonida.candymod.block.gummy.ItemBlockGummy;
 import com.ochotonida.candymod.block.ore.BlockCookieOre;
 import com.ochotonida.candymod.block.ore.BlockTeleporterOre;
 import com.ochotonida.candymod.block.ore.ItemBlockCookieOre;
+import com.ochotonida.candymod.block.workbench.BlockWorkbenchCandyCane;
+import com.ochotonida.candymod.block.workbench.BlockWorkbenchChocolate;
+import com.ochotonida.candymod.block.workbench.BlockWorkbenchGummy;
 import com.ochotonida.candymod.enums.EnumCandyCane;
 import com.ochotonida.candymod.enums.EnumChocolate;
 import com.ochotonida.candymod.enums.EnumGummy;
@@ -49,7 +53,7 @@ public class ModBlocks {
     public static final BlockTeleporterOre TELEPORTER_ORE = new BlockTeleporterOre();
 
     // Blocks with subtypes
-    public static final BlockCandyCane CANDY_CANE = new BlockCandyCane();
+    public static final BlockCandyCane CANDY_CANE = new BlockCandyCane("candy_cane_block");
     public static final BlockCandyGrass CANDY_GRASS = new BlockCandyGrass();
     public static final BlockCandySoil CANDY_SOIL = new BlockCandySoil();
     public static final BlockChocolateBar CHOCOLATE_BAR = new BlockChocolateBar();
@@ -61,9 +65,12 @@ public class ModBlocks {
     public static final BlockGummy GUMMY_BLOCK = new BlockGummy();
     public static final BlockGummySolid HARDENED_GUMMY_BLOCK = new BlockGummySolid();
     public static final BlockGummyWorm GUMMY_WORM_BLOCK = new BlockGummyWorm();
+    public static final BlockWorkbenchChocolate CHOCOLATE_WORKBENCH = new BlockWorkbenchChocolate();
+    public static final BlockWorkbenchCandyCane CANDY_CANE_WORKBENCH = new BlockWorkbenchCandyCane();
+    public static final BlockWorkbenchGummy GUMMY_WORKBENCH = new BlockWorkbenchGummy();
 
     // ItemBlocks (for blocks with subtypes)
-    public static final ItemBlockCandyCane CANDY_CANE_IB = new ItemBlockCandyCane();
+    public static final ItemBlockCandyCane CANDY_CANE_IB = new ItemBlockCandyCane(CANDY_CANE);
     public static final ItemBlockCandyGrass CANDY_GRASS_IB = new ItemBlockCandyGrass();
     public static final ItemBlockCandySoil CANDY_SOIL_IB = new ItemBlockCandySoil();
     public static final ItemBlockChocolateLeaves CHOCOLATE_LEAVES_IB = new ItemBlockChocolateLeaves();
@@ -74,10 +81,13 @@ public class ModBlocks {
     public static final ItemBlockGummy GUMMY_BLOCK_IB = new ItemBlockGummy(GUMMY_BLOCK);
     public static final ItemBlockGummy HARDENED_GUMMY_IB = new ItemBlockGummy(HARDENED_GUMMY_BLOCK);
     public static final ItemBlockGummy GUMMY_WORM_IB = new ItemBlockGummy(GUMMY_WORM_BLOCK);
+    public static final ItemBlockChocolate CHOCOLATE_WORKBENCH_IB = new ItemBlockChocolate(CHOCOLATE_WORKBENCH);
+    public static final ItemBlockCandyCane CANDY_CANE_WORKBENCH_IB = new ItemBlockCandyCane(CANDY_CANE_WORKBENCH);
+    public static final ItemBlockGummy GUMMY_WORKBENCH_IB = new ItemBlockGummy(GUMMY_WORKBENCH);
 
     // fluids
     // using Material.WATER for liquid chocolate has some annoying side effects, but its the best I can do without breaking the game at the moment
-    public static final BlockFluidClassic LIQUID_CHOCOLATE_BLOCK = (BlockFluidClassic) new BlockFluidClassic(LIQUID_CHOCOLATE, Material.WATER).setRegistryName("liquid_chocolate_block").setUnlocalizedName("liquid_chocolate_block");
+    public static final BlockFluidClassic LIQUID_CHOCOLATE_BLOCK = new BlockLiquidChocolate();
     public static final BlockFluidClassic LIQUID_CANDY_BLOCK = (BlockFluidClassic) new BlockFluidClassic(LIQUID_CANDY, Material.LAVA).setQuantaPerBlock(5).setRegistryName("liquid_candy_block").setUnlocalizedName("liquid_candy_block");
 
     /**
@@ -107,7 +117,10 @@ public class ModBlocks {
                 GUMMY_WORM_BLOCK,
                 LIQUID_CHOCOLATE_BLOCK,
                 LIQUID_CANDY_BLOCK,
-                TELEPORTER_ORE
+                TELEPORTER_ORE,
+                CHOCOLATE_WORKBENCH,
+                CANDY_CANE_WORKBENCH,
+                GUMMY_WORKBENCH
         );
     }
 
@@ -135,7 +148,10 @@ public class ModBlocks {
                 COOKIE_ORE_IB,
                 GUMMY_BLOCK_IB,
                 HARDENED_GUMMY_IB,
-                GUMMY_WORM_IB
+                GUMMY_WORM_IB,
+                CHOCOLATE_WORKBENCH_IB,
+                CANDY_CANE_WORKBENCH_IB,
+                GUMMY_WORKBENCH_IB
         );
     }
 
@@ -171,6 +187,9 @@ public class ModBlocks {
         for (EnumCandyCane enumcandycane : EnumCandyCane.values()) {
             itemMRL = new ModelResourceLocation("candymod:block/candy_cane/candy_cane_block_" + enumcandycane.getName(), "inventory");
             ModelLoader.setCustomModelResourceLocation(CANDY_CANE_IB, enumcandycane.getMetadata(), itemMRL);
+
+            itemMRL = new ModelResourceLocation("candymod:block/candy_cane/candy_cane_workbench_" + enumcandycane.getName(), "inventory");
+            ModelLoader.setCustomModelResourceLocation(CANDY_CANE_WORKBENCH_IB, enumcandycane.getMetadata(), itemMRL);
         }
 
         // Chocolate based blocks
@@ -190,6 +209,9 @@ public class ModBlocks {
             itemMRL = new ModelResourceLocation("candymod:block/chocolate/chocolate_brick_block_" + enumchocolate.getName(), "inventory");
             ModelLoader.setCustomModelResourceLocation(CHOCOLATE_BRICK_IB, enumchocolate.getMetadata(), itemMRL);
 
+            itemMRL = new ModelResourceLocation("candymod:block/chocolate/chocolate_workbench_" + enumchocolate.getName(), "inventory");
+            ModelLoader.setCustomModelResourceLocation(CHOCOLATE_WORKBENCH_IB, enumchocolate.getMetadata(), itemMRL);
+
             if (enumchocolate != EnumChocolate.DARK) {
                 itemMRL = new ModelResourceLocation("candymod:block/chocolate/candy_grass_block_" + enumchocolate.getName(), "inventory");
                 ModelLoader.setCustomModelResourceLocation(CANDY_GRASS_IB, enumchocolate.getMetadata(), itemMRL);
@@ -206,6 +228,9 @@ public class ModBlocks {
 
             itemMRL = new ModelResourceLocation("candymod:block/gummy/gummy_worm_block", "inventory");
             ModelLoader.setCustomModelResourceLocation(GUMMY_WORM_IB, enumgummy.getMetadata(), itemMRL);
+
+            itemMRL = new ModelResourceLocation("candymod:block/gummy/gummy_workbench", "inventory");
+            ModelLoader.setCustomModelResourceLocation(GUMMY_WORKBENCH_IB, enumgummy.getMetadata(), itemMRL);
         }
     }
 }

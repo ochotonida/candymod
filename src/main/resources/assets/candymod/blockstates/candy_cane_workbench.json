@@ -1,0 +1,25 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "type": {
+      "white": {
+        "model": "candymod:candy_cane/candy_cane_workbench_white"
+      },
+      "red": {
+        "model": "candymod:candy_cane/candy_cane_workbench_red"
+      },
+      "green": {
+        "model": "candymod:candy_cane/candy_cane_workbench_green"
+      },
+      "white_red": {
+        "model": "candymod:candy_cane/candy_cane_workbench_white_red"
+      },
+      "white_green": {
+        "model": "candymod:candy_cane/candy_cane_workbench_white_green"
+      },
+      "red_green": {
+        "model": "candymod:candy_cane/candy_cane_workbench_red_green"
+      }
+    }
+  }
+}

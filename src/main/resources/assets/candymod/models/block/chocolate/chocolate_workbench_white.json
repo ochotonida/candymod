@@ -1,0 +1,9 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "top": "candymod:blocks/chocolate_workbench_white_top",
+    "side": "candymod:blocks/chocolate_workbench_white_side",
+    "bottom": "candymod:blocks/wafer_stick_top",
+    "particle": "candymod:blocks/chocolate_workbench_white_side"
+  }
+}

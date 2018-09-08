@@ -25,9 +25,9 @@ import static com.ochotonida.candymod.block.ModBlockProperties.CANDY_CANE_TYPE;
 
 public class BlockCandyCane extends BlockStackable {
 
-    public BlockCandyCane() {
+    public BlockCandyCane(String name) {
         super(Material.WOOD, MapColor.WHITE_STAINED_HARDENED_CLAY, ModConfig.stackableTreeTrunks, ModConfig.recursiveTreeTrunks, true);
-        this.setName("candy_cane_block");
+        this.setName(name);
         this.setHardness(1.2F);
         this.setHarvestLevel("pickaxe", 0);
         this.setSoundType(SoundType.STONE);

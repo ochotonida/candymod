@@ -1,0 +1,15 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "candymod:gummy/gummy_workbench"
+  },
+  "variants": {
+    "type": {
+      "red": {},
+      "orange": {},
+      "yellow": {},
+      "green": {},
+      "white": {}
+    }
+  }
+}

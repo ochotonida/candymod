@@ -1,0 +1,16 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "type": {
+      "milk": {
+        "model": "candymod:chocolate/chocolate_workbench_milk"
+      },
+      "white": {
+        "model": "candymod:chocolate/chocolate_workbench_white"
+      },
+      "dark": {
+        "model": "candymod:chocolate/chocolate_workbench_dark"
+      }
+    }
+  }
+}
