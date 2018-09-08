@@ -2,7 +2,7 @@ package com.ochotonida.candymod.block.workbench;
 
 import com.ochotonida.candymod.ModBlocks;
 import com.ochotonida.candymod.block.gummy.BlockGummyBase;
-import net.minecraft.block.BlockWorkbench;
+import com.ochotonida.candymod.interfaces.IWorkbenchBlock;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -18,9 +18,9 @@ import java.util.Random;
 
 import static com.ochotonida.candymod.block.ModBlockProperties.GUMMY_TYPE;
 
-public class BlockWorkbenchGummy extends BlockGummyBase {
+public class BlockWorkbenchBlockGummy extends BlockGummyBase implements IWorkbenchBlock {
 
-    public BlockWorkbenchGummy() {
+    public BlockWorkbenchBlockGummy() {
         super("gummy_workbench");
     }
 
@@ -34,7 +34,7 @@ public class BlockWorkbenchGummy extends BlockGummyBase {
         if (worldIn.isRemote) {
             return true;
         } else {
-            playerIn.displayGui(new BlockWorkbench.InterfaceCraftingTable(worldIn, pos));
+            playerIn.displayGui(new InterfaceCustomCraftingTable(worldIn, pos));
             playerIn.addStat(StatList.CRAFTING_TABLE_INTERACTION);
             return true;
         }

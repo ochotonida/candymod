@@ -22,9 +22,9 @@ import com.ochotonida.candymod.block.gummy.ItemBlockGummy;
 import com.ochotonida.candymod.block.ore.BlockCookieOre;
 import com.ochotonida.candymod.block.ore.BlockTeleporterOre;
 import com.ochotonida.candymod.block.ore.ItemBlockCookieOre;
-import com.ochotonida.candymod.block.workbench.BlockWorkbenchCandyCane;
-import com.ochotonida.candymod.block.workbench.BlockWorkbenchChocolate;
-import com.ochotonida.candymod.block.workbench.BlockWorkbenchGummy;
+import com.ochotonida.candymod.block.workbench.BlockWorkbenchBlockCandyCane;
+import com.ochotonida.candymod.block.workbench.BlockWorkbenchBlockChocolate;
+import com.ochotonida.candymod.block.workbench.BlockWorkbenchBlockGummy;
 import com.ochotonida.candymod.enums.EnumCandyCane;
 import com.ochotonida.candymod.enums.EnumChocolate;
 import com.ochotonida.candymod.enums.EnumGummy;
@@ -37,7 +37,6 @@ import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import static com.ochotonida.candymod.block.fluid.ModFluids.LIQUID_CANDY;
-import static com.ochotonida.candymod.block.fluid.ModFluids.LIQUID_CHOCOLATE;
 
 public class ModBlocks {
 
@@ -65,9 +64,9 @@ public class ModBlocks {
     public static final BlockGummy GUMMY_BLOCK = new BlockGummy();
     public static final BlockGummySolid HARDENED_GUMMY_BLOCK = new BlockGummySolid();
     public static final BlockGummyWorm GUMMY_WORM_BLOCK = new BlockGummyWorm();
-    public static final BlockWorkbenchChocolate CHOCOLATE_WORKBENCH = new BlockWorkbenchChocolate();
-    public static final BlockWorkbenchCandyCane CANDY_CANE_WORKBENCH = new BlockWorkbenchCandyCane();
-    public static final BlockWorkbenchGummy GUMMY_WORKBENCH = new BlockWorkbenchGummy();
+    public static final BlockWorkbenchBlockChocolate CHOCOLATE_WORKBENCH = new BlockWorkbenchBlockChocolate();
+    public static final BlockWorkbenchBlockCandyCane CANDY_CANE_WORKBENCH = new BlockWorkbenchBlockCandyCane();
+    public static final BlockWorkbenchBlockGummy GUMMY_WORKBENCH = new BlockWorkbenchBlockGummy();
 
     // ItemBlocks (for blocks with subtypes)
     public static final ItemBlockCandyCane CANDY_CANE_IB = new ItemBlockCandyCane(CANDY_CANE);
