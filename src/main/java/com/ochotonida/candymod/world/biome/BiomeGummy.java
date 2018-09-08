@@ -29,7 +29,7 @@ public class BiomeGummy extends ModBiome {
         this.setRegistryName("biome_gummy_swamp");
         this.decorator.grassPerChunk = -999;
         this.decorator.treesPerChunk = -999;
-        this.decorator.generateFalls = false;
+        this.decorator.generateFalls = true;
         this.topBlock = ModBlocks.GUMMY_BLOCK.getDefaultState();
         this.fillerBlock = ModBlocks.HARDENED_GUMMY_BLOCK.getDefaultState();
     }

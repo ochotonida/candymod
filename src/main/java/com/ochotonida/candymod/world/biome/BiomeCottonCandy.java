@@ -25,7 +25,7 @@ public class BiomeCottonCandy extends ModBiome {
         this.setRegistryName("biome_cotton_candy");
         this.decorator.grassPerChunk = 20;
         this.decorator.treesPerChunk = 1;
-        this.decorator.generateFalls = false;
+        this.decorator.generateFalls = true;
         this.topBlock = ModBlocks.CANDY_GRASS.getDefaultState().withProperty(ModBlockProperties.CHOCOLATE_TYPE, EnumChocolate.MILK);
         this.fillerBlock = ModBlocks.CANDY_SOIL.getDefaultState().withProperty(ModBlockProperties.CHOCOLATE_TYPE, EnumChocolate.MILK);
     }
