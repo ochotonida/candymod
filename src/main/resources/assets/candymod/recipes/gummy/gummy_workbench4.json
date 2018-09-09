@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AA",
+    "BB"
+  ],
+  "key": {
+    "A": {
+      "item": "candymod:gummy",
+      "data": 4
+    },
+    "B": {
+      "item": "candymod:gummy_worm_block",
+      "data": 4
+    }
+  },
+  "result": {
+    "item": "candymod:gummy_workbench",
+    "data": 4
+  }
+}

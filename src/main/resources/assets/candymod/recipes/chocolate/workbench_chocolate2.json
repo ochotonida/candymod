@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AA",
+    "BB"
+  ],
+  "key": {
+    "A": {
+      "item": "candymod:chocolate_bar",
+      "data": 2
+    },
+    "B": {
+      "item": "candymod:wafer_stick_block"
+    }
+  },
+  "result": {
+    "item": "candymod:chocolate_workbench",
+    "data": 2
+  }
+}
