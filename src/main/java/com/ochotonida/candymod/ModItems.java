@@ -19,8 +19,8 @@ public final class ModItems {
     public static final ItemChocolate BROWNIE = new ItemChocolate("brownie", 4, 0.5F, "foodBrownie");
     public static final ItemChocolate CHOCOLATE_BAR = new ItemChocolate("chocolate_bar", "foodChocolatebar", "foodChocolate");
     public static final ItemChocolate CHOCOLATE_EGG = new ItemChocolate("chocolate_egg", 7, 0.8F, "foodChocolateegg");
-    public static final ItemGummy GUMMY = new ItemGummy("gummy", 5, 0.5F, "foodGummy");
-    public static final ItemGummy GUMMY_WORM = new ItemGummy("gummy_worm", 5, 1F, "foodGummyworm");
+    public static final ItemGummy GUMMY = new ItemGummy("gummy", 4, 0.6F, "foodGummy");
+    public static final ItemGummy GUMMY_WORM = new ItemGummy("gummy_worm", 6, 1F, "foodGummyworm");
     public static final ItemTeleporter TELEPORTER = new ItemTeleporter();
 
     // tool
