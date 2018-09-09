@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "candymod:gummy_worm",
+      "data": 1
+    }
+  ],
+  "result": {
+    "item": "candymod:gummy",
+    "data": 1,
+    "count": 3
+  }
+}
