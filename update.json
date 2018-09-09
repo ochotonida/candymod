@@ -17,10 +17,11 @@
     "0.4.4": "fixed a crash with primitive mobs,\nfixed gummy items having gray particles when eaten,\nremoved butter churn,\nbutter is now crafted with a bucket of milk, when pams harvestcraft is installed this recipe is disabled,\nsome other stuff",
     "0.4.5": "fixed a crash",
     "1.0.0": "added a new dimension, liquids, and various other things",
-    "1.0.1": "added 'Magic Candy Ore',\nadded support for Materials and Automatic Resource Generation,\ntweaked mining speed for log blocks,\nfixed players respawning in the dimension instead of the overworld,\nfixed candy cane blocks requiring a pickaxe to mine,\nfixed pick block not properly working on cookie ore,\nfixed teleporter being impossible to use in creative mode"
+    "1.0.1": "added 'Magic Candy Ore',\nadded support for Materials and Automatic Resource Generation,\ntweaked mining speed for log blocks,\nfixed players respawning in the dimension instead of the overworld,\nfixed candy cane blocks requiring a pickaxe to mine,\nfixed pick block not properly working on cookie ore,\nfixed teleporter being impossible to use in creative mode",
+    "1.1.0": "added chocolate & cotton candy tools,\nadded various crafting tables,\nadded Italian translation,\nadded more recipes for gummy worms,\nfixed certain gummy recipes conflicting with candy cane recipes,\nadded flowing liquid generation,\nreduced sugar crystal drops from 4 to 1 to reduce inventory clutter"
   },
   "promos": {
-    "1.12-latest": "1.0.1",
-    "1.12-recommended": "1.0.1"
+    "1.12-latest": "1.1.0",
+    "1.12-recommended": "1.1.0"
   }
 }
