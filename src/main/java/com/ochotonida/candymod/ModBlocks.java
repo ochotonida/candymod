@@ -52,7 +52,7 @@ public class ModBlocks {
     public static final BlockTeleporterOre TELEPORTER_ORE = new BlockTeleporterOre();
 
     // Blocks with subtypes
-    public static final BlockCandyCane CANDY_CANE = new BlockCandyCane("candy_cane_block");
+    public static final BlockCandyCane CANDY_CANE = new BlockCandyCane("candy_cane_block", "blockCandycane");
     public static final BlockCandyGrass CANDY_GRASS = new BlockCandyGrass();
     public static final BlockCandySoil CANDY_SOIL = new BlockCandySoil();
     public static final BlockChocolateBar CHOCOLATE_BAR = new BlockChocolateBar();

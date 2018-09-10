@@ -25,16 +25,26 @@ import static com.ochotonida.candymod.block.ModBlockProperties.CANDY_CANE_TYPE;
 
 public class BlockCandyCane extends BlockStackable {
 
-    public BlockCandyCane(String name) {
+    private final String oreName;
+
+    public BlockCandyCane(String name, String oreName) {
         super(Material.WOOD, MapColor.WHITE_STAINED_HARDENED_CLAY, ModConfig.stackableTreeTrunks, ModConfig.recursiveTreeTrunks, true);
         this.setName(name);
         this.setHardness(1.2F);
         this.setHarvestLevel("pickaxe", 0);
         this.setSoundType(SoundType.STONE);
         this.setDefaultState(this.blockState.getBaseState().withProperty(CANDY_CANE_TYPE, EnumCandyCane.WHITE));
+        this.oreName = oreName;
+    }
+
+    public BlockCandyCane(String name) {
+        this(name, null);
     }
 
     public void registerOreNames() {
+        if (oreName == null) {
+            return;
+        }
         for (EnumCandyCane enumCandyCane : EnumCandyCane.values()) {
             ItemStack stack = new ItemStack(this, 1, enumCandyCane.getMetadata());
             OreDictionary.registerOre("blockCandycane", stack);

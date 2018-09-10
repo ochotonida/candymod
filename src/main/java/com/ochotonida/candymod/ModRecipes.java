@@ -41,6 +41,7 @@ public class ModRecipes {
         // blocks
         ModBlocks.CHOCOLATE_BLOCK.registerOreNames();
         ModBlocks.CHOCOLATE_BRICK.registerOreNames();
+        ModBlocks.CANDY_CANE.registerOreNames();
         ModBlocks.CANDY_SOIL.registerOreNames();
         ModBlocks.GUMMY_BLOCK.registerOreNames();
         ModBlocks.HARDENED_GUMMY_BLOCK.registerOreNames();
