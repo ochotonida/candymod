@@ -23,6 +23,7 @@ tile.chocolate_block.name=Chocolate Block
 tile.chocolate_block:milk.name=Milk Chocolate Block
 tile.chocolate_block:white.name=White Chocolate Block
 tile.chocolate_block:dark.name=Dark Chocolate Block
+tile.chocolate_bar_block.name=Chocolate Bar
 tile.chocolate_brick_block.name=Chocolate Bricks
 tile.chocolate_brick_block:milk.name=Milk Chocolate Bricks
 tile.chocolate_brick_block:white.name=White Chocolate Bricks
