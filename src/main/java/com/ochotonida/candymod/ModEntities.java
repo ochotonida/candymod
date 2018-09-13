@@ -26,7 +26,7 @@ public class ModEntities {
         registerEntity("cotton_candy_sheep", EntityCandySheep.class, 0xff33ff, 0xffccff);
         registerEntity("easter_chicken", EntityEasterChicken.class, 0x996611, 0x774411);
         registerEntity("gummy_mouse", EntityGummyMouse.class, 0x00ff00, 0x33bb33);
-        registerEntity("gummy_bear", EntityGummyBear.class, 0x000000, 0xffffff);
+        registerEntity("gummy_bear", EntityGummyBear.class, 0x00ff00, 0x33bb33);
     }
 
     /**
