@@ -9,11 +9,11 @@ import javax.annotation.Nonnull;
 
 public class ItemBlockChocolate extends ItemBlock {
 
-    public ItemBlockChocolate(Block block) {
+    public ItemBlockChocolate(BlockChocolate block) {
         super(block);
         this.setMaxDamage(0);
         this.setHasSubtypes(true);
-        this.setRegistryName(((BlockChocolate) block).getName());
+        this.setRegistryName(block.getName());
     }
 
     @Override
