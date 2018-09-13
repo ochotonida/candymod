@@ -38,7 +38,6 @@ tile.sugar_sand_block.name=Zucchero
 tile.gummy_block.name=Blocco Gommoso
 tile.hardened_gummy_block.name=Blocco Gommoso Solidificato
 tile.gummy_worm_block.name=Verme Gommoso
-tile.cola_gummy_block.name=Blocco Gommoso
 tile.teleporter_ore_block.name=Caramella Magica Grezza
 tile.candy_cane_workbench.name=Banco da Lavoro
 tile.candy_cane_workbench:white.name=Banco da Lavoro

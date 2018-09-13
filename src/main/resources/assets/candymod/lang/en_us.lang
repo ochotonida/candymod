@@ -38,7 +38,6 @@ tile.sugar_sand_block.name=Sugar
 tile.gummy_block.name=Gummy Block
 tile.hardened_gummy_block.name=Solid Gummy Block
 tile.gummy_worm_block.name=Gummy Worm Block
-tile.cola_gummy_block.name=Cola Gummy Block
 tile.teleporter_ore_block.name=Magic Candy Ore
 tile.candy_cane_workbench.name=Candy Cane Workbench
 tile.candy_cane_workbench:white.name=White Candy Cane Workbench
