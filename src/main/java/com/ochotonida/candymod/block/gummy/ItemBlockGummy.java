@@ -1,5 +1,6 @@
 package com.ochotonida.candymod.block.gummy;
 
+import com.ochotonida.candymod.enums.EnumGummy;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
@@ -22,6 +23,7 @@ public class ItemBlockGummy extends ItemBlock {
     @Nonnull
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        return this.getUnlocalizedName();
+        EnumGummy type = EnumGummy.byMetadata(stack.getMetadata());
+        return this.getUnlocalizedName() + ":" + type.getName();
     }
 }

@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.oredict.OreDictionary;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 public class ItemGummy extends ModFoodItem {
@@ -35,6 +36,12 @@ public class ItemGummy extends ModFoodItem {
                 items.add(new ItemStack(this, 1, enumGummy.getMetadata()));
             }
         }
+    }
+
+    @Nonnull
+    @Override
+    public String getUnlocalizedName(ItemStack stack) {
+        return this.getUnlocalizedName() + ":" + EnumGummy.byMetadata(stack.getMetadata()).getName();
     }
 
     @Override
