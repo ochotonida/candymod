@@ -39,7 +39,6 @@ tile.sugar_sand_block.name=砂糖
 tile.gummy_block.name=軟糖塊
 tile.hardened_gummy_block.name=凝固軟糖塊
 tile.gummy_worm_block.name=蠕蟲軟糖塊
-tile.cola_gummy_block.name=可樂軟糖塊
 tile.teleporter_ore_block.name=魔法糖果礦
 tile.candy_cane_workbench.name=拐杖糖工作檯
 tile.candy_cane_workbench:white.name=白色拐杖糖工作檯
