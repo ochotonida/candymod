@@ -7,8 +7,10 @@ import com.ochotonida.candymod.block.ModBlockProperties;
 import com.ochotonida.candymod.entity.EntityCandySheep;
 import com.ochotonida.candymod.enums.EnumChocolate;
 import com.ochotonida.candymod.world.worldgen.WorldGenBiomeSpikes;
+import com.ochotonida.candymod.world.worldgen.WorldGenCaveCandyCane;
 import com.ochotonida.candymod.world.worldgen.WorldGenCottonCandyGrass;
 import com.ochotonida.candymod.world.worldgen.WorldGenCottonCandyTree;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
@@ -16,6 +18,7 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
 public class BiomeCottonCandy extends ModBiome {
@@ -64,11 +67,16 @@ public class BiomeCottonCandy extends ModBiome {
 
     private class Decorator extends DecoratorBase {
 
+        protected int caveCandyCaneAmount = 3;
+
+        protected WorldGenerator candyCaneGen;
+
         @Override
         protected void initOverworldWorldGens() {
             super.initOverworldWorldGens();
             spikesGen = new WorldGenBiomeSpikes(BiomeCottonCandy.this, 3, 8, 8, ModBlocks.SUGAR_BLOCK.getDefaultState());
             chocolateBlockGen = new WorldGenMinable(ModBlocks.CHOCOLATE_BLOCK.getStateFromMeta(EnumChocolate.MILK.getMetadata()), 20);
+            candyCaneGen = new WorldGenCaveCandyCane();
         }
 
         @Override
@@ -76,6 +84,18 @@ public class BiomeCottonCandy extends ModBiome {
             super.initDimensionWorldGens();
             spikesGen = new WorldGenBiomeSpikes(BiomeCottonCandy.this, 5, 12, 24, ModBlocks.CHOCOLATE_BLOCK.getStateFromMeta(EnumChocolate.MILK.getMetadata()));
             chocolateBlockGen = new WorldGenMinable(ModBlocks.CHOCOLATE_BLOCK.getStateFromMeta(EnumChocolate.MILK.getMetadata()), 20);
+            candyCaneGen = new WorldGenCaveCandyCane();
+        }
+
+        @Override
+        @ParametersAreNonnullByDefault
+        protected void genBiomeDecorations(World worldIn, Random rand) {
+            super.genBiomeDecorations(worldIn, rand);
+            for (int i = 0; i < this.caveCandyCaneAmount; i++) {
+                int j = rand.nextInt(16) + 8;
+                int k = rand.nextInt(16) + 8;
+                candyCaneGen.generate(worldIn, rand, chunkPos.add(j, 0, k));
+            }
         }
     }
 }
