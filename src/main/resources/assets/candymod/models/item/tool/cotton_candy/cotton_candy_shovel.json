@@ -1,5 +1,5 @@
 {
-  "parent": "item/generated",
+  "parent": "item/handheld",
   "textures": {
     "layer0": "candymod:items/tool/cotton_candy/cotton_candy_shovel"
   }
