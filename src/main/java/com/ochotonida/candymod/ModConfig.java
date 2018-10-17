@@ -30,6 +30,7 @@ public class ModConfig {
     public static boolean preventModdedMobSpawn = false;
     public static boolean recursiveTreeTrunks = false;
     public static boolean stackableTreeTrunks = true;
+    public static boolean useHarvestcraftRecipes = true;
 
     public static void loadConfig(File configFile) {
         config = new Configuration(configFile);
@@ -75,6 +76,8 @@ public class ModConfig {
         comment = "Setting this to false will make the game render gummy blocks solid, improving performance";
         isGummyTransluscent = loadBool(Configuration.CATEGORY_CLIENT, "candymod.isGummyTransluscent", comment, isGummyTransluscent);
 
+        comment = "With this option enabled, certain recipes will change when harvestcraft is also loaded";
+        useHarvestcraftRecipes = loadBool(Configuration.CATEGORY_GENERAL, "candymod.useHarvestcraftRecipes", comment, useHarvestcraftRecipes);
         comment = "Setting this to true will make tree trunks take longer to mine the higher they are";
         recursiveTreeTrunks = loadBool(Configuration.CATEGORY_GENERAL, "candymod.recursiveTreeTrunks", comment, recursiveTreeTrunks);
         comment = "Setting this to false will make tree trunk blocks behave like normal blocks";

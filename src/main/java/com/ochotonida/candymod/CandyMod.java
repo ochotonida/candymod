@@ -86,7 +86,6 @@ public class CandyMod {
             ModBiomes.registerBiomes(event);
         }
 
-
         @SubscribeEvent
         public static void registerModels(ModelRegistryEvent event) {
             ModItems.registerModels();

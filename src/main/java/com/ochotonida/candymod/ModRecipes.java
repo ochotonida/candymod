@@ -26,10 +26,14 @@ public class ModRecipes {
             GameRegistry.addSmelting(new ItemStack(ModBlocks.CHOCOLATE_BRICK_IB, 1, value.getMetadata()), itemStack, 0.2F);
         }
 
-        if (!Loader.isModLoaded("harvestcraft")) {
-            GameRegistry.addShapelessRecipe(new ResourceLocation(CandyMod.MODID, "butter"), MODRECIPES_GROUP, new ItemStack(ModItems.BUTTER, 1), Ingredient.fromItem(Items.MILK_BUCKET));
-        } else {
+        //initHarvestcraftRecipes();
+    }
+
+    private static void initHarvestcraftRecipes() {
+        if (Loader.isModLoaded("harvestcraft") && ModConfig.useHarvestcraftRecipes) {
             CandyMod.LOGGER.info("harvestcraft detected, changing recipe(s)");
+        } else {
+            GameRegistry.addShapedRecipe(new ResourceLocation(CandyMod.MODID, "butter"), MODRECIPES_GROUP, new ItemStack(ModItems.BUTTER, 1), Ingredient.fromItem(Items.MILK_BUCKET));
         }
     }
 
@@ -46,7 +50,6 @@ public class ModRecipes {
         ModBlocks.GUMMY_BLOCK.registerOreNames();
         ModBlocks.HARDENED_GUMMY_BLOCK.registerOreNames();
         ModBlocks.GUMMY_WORM_BLOCK.registerOreNames();
-        //ModBlocks.CANDY_CANE.registerOreNames();
         OreDictionary.registerOre("blockSugar", ModBlocks.SUGAR_SAND);
     }
 }
