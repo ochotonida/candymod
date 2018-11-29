@@ -1,14 +1,18 @@
 {
-  "type":"wood",
-  "name":"candy_cane_white_green",
-
-  "log_side": "candymod:textures/blocks/caneblock_white_green.png",
-  "log_top": "candymod:textures/blocks/caneblock_white_green_top.png",
-
-  "items":{
-    "log": "candymod:candy_cane_block:4"
-  },
-  "languages": {
-    "en_us": "Candy Cane"
-  }
+	"version" : 1,
+	"type":"wood",
+	"name":"candy_cane_white_green",
+	"textures" : {
+		"log_side": "candymod:textures/blocks/caneblock_white_green.png",
+		"log_top": "candymod:textures/blocks/caneblock_white_green_top.png",
+	},
+	"items" : {
+		"log" : {
+			"item" : "candymod:candy_cane_block",
+			"meta" : 4
+		}
+	},
+	"languages": {
+		"en_us": "Candy Cane"
+	}
 }
