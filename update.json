@@ -21,11 +21,12 @@
     "1.1.0": "added chocolate & cotton candy tools,\nadded various crafting tables,\nadded Italian translation,\nadded more recipes for gummy worms,\nfixed certain gummy recipes conflicting with candy cane recipes,\nadded flowing liquid generation,\nreduced sugar crystal drops from 4 to 1 to reduce inventory clutter",
     "1.1.1": "fixed Magic Piece of Candy being uncraftable,\nChanged Magic piece of Candy recipe,\nfixed localization mistakes,\nfixed candy cane block ore dict entries,\nfixed wafer stick recipe being shapeless",
     "1.1.2": "changed butter recipe to something less likely to conflict with other mods,\nfixed beds exploding when using them in dimension,\nchanged tool models to handheld",
-    "1.1.3": "updated support for materials and automatic resource generation"
-
+    "1.1.3": "updated support for materials and automatic resource generation",
+    "1.1.4": "removed support for maarg",
+    "1.1.5": "fixed a possible server thread lock"
   },
   "promos": {
-    "1.12-latest": "1.1.2",
-    "1.12-recommended": "1.1.2"
+    "1.12-latest": "1.1.5",
+    "1.12-recommended": "1.1.5"
   }
 }
