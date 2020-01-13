@@ -139,6 +139,6 @@ public class WorldGenGummyWorm extends WorldGenerator {
     }
 
     private boolean isAirOrLiquid(World world, BlockPos pos) {
-        return world.isAirBlock(pos) || world.getBlockState(pos).getMaterial().isLiquid();
+        return world.isAirBlock(pos) && pos.getY() >= 0 || world.getBlockState(pos).getMaterial().isLiquid();
     }
 }
